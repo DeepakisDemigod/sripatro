@@ -12,8 +12,10 @@ const Footer = () => {
           <a className="underline" href="https://github.com/DeepakisDemigod">
             @deepakisdemigod
           </a>{" "}
+          
         </span>
       </p>
+      <span>© 2025 SriPatro</span>
     </div>
   );
 };
