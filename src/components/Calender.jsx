@@ -45,7 +45,7 @@ const Calendar = () => {
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
             <div
               key={day}
-              className='uppercase text-sm'
+              className='text-sm'
             >
               {day}
             </div>
