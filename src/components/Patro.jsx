@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { MhahPanchang } from 'mhah-panchang';
+import { Calendar, Alarm } from 'phosphor-react';
 
 const Patro = () => {
   const [mhahObj, setMhahObj] = useState(null);
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  const [currentTime, setCurrentTime] = useState('');
 
   // Fetch Panchang details once
   useEffect(() => {
@@ -19,27 +20,40 @@ const Patro = () => {
   // Update the clock every second
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date().toLocaleString());
+      const originalDate = new Date();
+      const datePart = originalDate.toLocaleDateString(); // Get the date
+      const timePart = originalDate.toLocaleTimeString(); // Get the time
+
+      // Combine date and time with the Alarm icon
+      const formattedString = (
+        <>
+          {datePart} <Alarm size={18} /> {timePart}
+        </>
+      );
+
+      setCurrentTime(formattedString);
     }, 1000);
 
     return () => clearInterval(timer); // Cleanup on component unmount
   }, []);
 
   return mhahObj ? (
-    <div className=" flex items-center justify-center bg-gray-50">
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
-        <h3 className="text-2xl font-semibold text-gray-800 text-center mb-4">
+    <div className='flex items-center justify-center bg-gray-50 '>
+      <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl'>
+        <h3 className='text-2xl font-semibold text-gray-800 text-center mb-4'>
           Panchang Today
         </h3>
-        <div className="text-center text-gray-600 mb-6">
-          <h2 className="text-xl">
+        <div className='text-center text-gray-600 mb-6'>
+          <h2 className='text-lg flex items-center justify-center gap-2'>
+            <Calendar size={18} />
             {mhahObj?.Day?.name_en_UK || 'Day not available'}, {currentTime}
           </h2>
         </div>
 
-        <div className="space-y-4 text-gray-700">
+        <div className='space-y-4 text-gray-700'>
           <p>
-            <strong>Tithi:</strong> {mhahObj?.Tithi?.name_en_IN || 'Not available'} (
+            <strong>Tithi:</strong>{' '}
+            {mhahObj?.Tithi?.name_en_IN || 'Not available'} (
             {(mhahObj?.Tithi?.start &&
               new Date(mhahObj?.Tithi?.start).toLocaleString()) ||
               'Unknown'}{' '}
@@ -51,7 +65,8 @@ const Patro = () => {
           </p>
 
           <p>
-            <strong>Nakshatra:</strong> {mhahObj?.Nakshatra?.name_en_IN || 'Not available'} (
+            <strong>Nakshatra:</strong>{' '}
+            {mhahObj?.Nakshatra?.name_en_IN || 'Not available'} (
             {(mhahObj?.Nakshatra?.start &&
               new Date(mhahObj?.Nakshatra?.start).toLocaleString()) ||
               'Unknown'}{' '}
@@ -63,7 +78,8 @@ const Patro = () => {
           </p>
 
           <p>
-            <strong>Karna:</strong> {mhahObj?.Karna?.name_en_IN || 'Not available'} (
+            <strong>Karna:</strong>{' '}
+            {mhahObj?.Karna?.name_en_IN || 'Not available'} (
             {(mhahObj?.Karna?.start &&
               new Date(mhahObj?.Karna?.start).toLocaleString()) ||
               'Unknown'}{' '}
@@ -75,7 +91,8 @@ const Patro = () => {
           </p>
 
           <p>
-            <strong>Yoga:</strong> {mhahObj?.Yoga?.name_en_IN || 'Not available'} (
+            <strong>Yoga:</strong>{' '}
+            {mhahObj?.Yoga?.name_en_IN || 'Not available'} (
             {(mhahObj?.Yoga?.start &&
               new Date(mhahObj?.Yoga?.start).toLocaleString()) ||
               'Unknown'}{' '}
@@ -87,14 +104,15 @@ const Patro = () => {
           </p>
 
           <p>
-            <strong>Raasi:</strong> {mhahObj?.Raasi?.name_en_UK || 'Not available'} Zodiac
+            <strong>Raasi:</strong>{' '}
+            {mhahObj?.Raasi?.name_en_UK || 'Not available'} Zodiac
           </p>
         </div>
       </div>
     </div>
   ) : (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <p className="text-lg text-gray-700">Loading...</p>
+    <div className='min-h-screen flex items-center justify-center bg-gray-50'>
+      <p className='text-lg text-gray-700'>Loading...</p>
     </div>
   );
 };

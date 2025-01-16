@@ -4,34 +4,56 @@ import NepaliDate from 'nepali-date-converter';
 import { Alarm, Calendar } from 'phosphor-react';
 
 const BS_MONTHS = [
-  'Baisakh', 'Jestha', 'Ashadh', 'Shrawan', 'Bhadra', 'Ashwin', 
-  'Kartik', 'Mangsir', 'Paush', 'Magh', 'Falgun', 'Chaitra'
+  'Baisakh',
+  'Jestha',
+  'Ashadh',
+  'Shrawan',
+  'Bhadra',
+  'Ashwin',
+  'Kartik',
+  'Mangsir',
+  'Paush',
+  'Magh',
+  'Falgun',
+  'Chaitra'
 ];
 
-const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const DAYS = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
 
 const BirthPanchangBS = () => {
   useEffect(() => {
     document.title = 'Birth Panchang for BS Date | Sri Patro';
   }, []);
 
-  const [nepaliDate, setNepaliDate] = useState({ year: 2081, month: 1, day: 1 });
+  const [nepaliDate, setNepaliDate] = useState({
+    year: 2081,
+    month: 1,
+    day: 1
+  });
   const [timeOfBirth, setTimeOfBirth] = useState('09:00');
   const [englishDate, setEnglishDate] = useState('');
   const [dayOfWeek, setDayOfWeek] = useState('');
   const [panchang, setPanchang] = useState(null);
   const [error, setError] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
-    setNepaliDate((prev) => ({ ...prev, [name]: parseInt(value, 10) || '' }));
+    setNepaliDate(prev => ({ ...prev, [name]: parseInt(value, 10) || '' }));
     setError('');
     setEnglishDate('');
     setDayOfWeek('');
     setPanchang(null);
   };
 
-  const handleTimeChange = (e) => {
+  const handleTimeChange = e => {
     setTimeOfBirth(e.target.value);
   };
 
@@ -51,7 +73,13 @@ const BirthPanchangBS = () => {
       adDate.setHours(hours, minutes);
 
       // Format AD Date and Panchang
-      setEnglishDate(adDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+      setEnglishDate(
+        adDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+      );
       setDayOfWeek(DAYS[adDate.getDay()]);
 
       const panchangObj = new MhahPanchang();
@@ -66,7 +94,11 @@ const BirthPanchangBS = () => {
 
   const getMaxDays = () => {
     try {
-      return new NepaliDate(nepaliDate.year, nepaliDate.month - 1, 1).getLastDateOfMonth();
+      return new NepaliDate(
+        nepaliDate.year,
+        nepaliDate.month - 1,
+        1
+      ).getLastDateOfMonth();
     } catch {
       return 32; // Fallback max days
     }
@@ -75,13 +107,15 @@ const BirthPanchangBS = () => {
   return (
     <div className='bg-gray-50 flex items-center justify-center p-6'>
       <div className='bg-white shadow-lg rounded-lg p-8 max-w-lg w-full'>
-        <h1 className='text-2xl font-bold text-gray-800 mb-6'>Birth Panchang for BS Date</h1>
+        <h1 className='text-2xl font-bold text-gray-800 mb-6'>
+          Bikram Sambat to Panchang
+        </h1>
 
         <div className='space-y-6'>
           <div>
             <label className='block text-gray-600 font-medium mb-1 flex items-center gap-2'>
               <Calendar size={18} />
-              <span>Date of Birth (BS)</span>
+              <span>Date of Birth</span>
             </label>
             <div className='grid grid-cols-3 gap-3'>
               <input
@@ -101,7 +135,10 @@ const BirthPanchangBS = () => {
                 className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
               >
                 {BS_MONTHS.map((month, index) => (
-                  <option key={index} value={index + 1}>
+                  <option
+                    key={index}
+                    value={index + 1}
+                  >
                     {month}
                   </option>
                 ))}
@@ -142,26 +179,57 @@ const BirthPanchangBS = () => {
 
         {error && <div className='mt-4 text-red-600 font-medium'>{error}</div>}
 
-        {englishDate && (
-          <div className='mt-6 bg-gray-100 p-4 rounded-lg'>
-            <h2 className='text-xl font-bold text-gray-800'>
-              {nepaliDate.year} {BS_MONTHS[nepaliDate.month - 1]} {nepaliDate.day}
-            </h2>
-            <p className='text-gray-600'>{dayOfWeek}</p>
-            <p className='text-gray-800 text-lg'>{englishDate}</p>
-            {panchang && (
-              <div className='mt-4'>
-                <h3 className='text-lg font-semibold'>Panchang Details</h3>
-                <p><strong>Day:</strong> {panchang?.Day?.name_en_UK || 'N/A'}</p>
-                <p><strong>Tithi:</strong> {panchang?.Tithi?.name_en_IN || 'N/A'}</p>
-                <p><strong>Nakshatra:</strong> {panchang?.Nakshatra?.name_en_IN || 'N/A'}</p>
-                <p><strong>Yoga:</strong> {panchang?.Yoga?.name_en_IN || 'N/A'}</p>
-                <p><strong>Karna:</strong> {panchang?.Karna?.name_en_IN || 'N/A'}</p>
-                <p><strong>Paksha:</strong> {panchang?.Paksha?.name_en_IN || 'N/A'}</p>
-                <p><strong>Raasi:</strong> {panchang?.Raasi?.name_en_UK || 'N/A'}</p>
-              </div>
-            )}
+        {!englishDate && !panchang ? (
+          <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
+            Enter date and time to get Panchang.
           </div>
+        ) : (
+          englishDate && (
+            <div className='mt-6 bg-gray-100 p-4 rounded-lg'>
+              <h2 className='text-xl font-bold text-gray-800'>
+                {nepaliDate.year} {BS_MONTHS[nepaliDate.month - 1]}{' '}
+                {nepaliDate.day}
+              </h2>
+              <p className='text-gray-600'>
+                {dayOfWeek}
+                {', '}
+                {timeOfBirth || 'N/A'}
+              </p>
+              <p className='text-gray-800 text-lg'>{englishDate}</p>
+              {panchang && (
+                <div className='mt-4'>
+                  <h3 className='text-lg font-semibold'>Panchang Details</h3>
+                  <p>
+                    <strong>Day:</strong> {panchang?.Day?.name_en_UK || 'N/A'}
+                  </p>
+
+                  <p>
+                    <strong>Tithi:</strong>{' '}
+                    {panchang?.Tithi?.name_en_IN || 'N/A'}
+                  </p>
+                  <p>
+                    <strong>Nakshatra:</strong>{' '}
+                    {panchang?.Nakshatra?.name_en_IN || 'N/A'}
+                  </p>
+                  <p>
+                    <strong>Yoga:</strong> {panchang?.Yoga?.name_en_IN || 'N/A'}
+                  </p>
+                  <p>
+                    <strong>Karna:</strong>{' '}
+                    {panchang?.Karna?.name_en_IN || 'N/A'}
+                  </p>
+                  <p>
+                    <strong>Paksha:</strong>{' '}
+                    {panchang?.Paksha?.name_en_IN || 'N/A'}
+                  </p>
+                  <p>
+                    <strong>Raasi:</strong>{' '}
+                    {panchang?.Raasi?.name_en_UK || 'N/A'}
+                  </p>
+                </div>
+              )}
+            </div>
+          )
         )}
       </div>
     </div>
