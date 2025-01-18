@@ -13,10 +13,10 @@ These 5 Components are
 | 6. Paksha | Waning or Waxing Moon|
 | 7. Raasi | Moon Sign |
 
+[ 🔗 SriPatro](https://sripatro.vercel.app)
 
 Currently, for Daily Panchang These are provided 
-
-[ 🔗 SriPatro](https://sripatro.vercel.app)
+![homepage](https://api.pikwy.com/web/678b410d51fb8756df4d5921.png)
 
 ## Panchanng from Bikram Sambat and Anno Domini
 
