@@ -35,7 +35,7 @@ const Calendar = () => {
   const currentYear = today.getFullYear();
 
   return (
-    <div className=' flex flex-col items-center bg-gray-50 py-2'>
+    <div className=' flex flex-col items-center bg-gray-50'>
       <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-md'>
         <h2 className='text-xl font-semibold text-gray-800 text-center mb-6'>
           {currentMonth} {currentYear}
