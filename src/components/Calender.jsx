@@ -40,32 +40,32 @@ const Calendar = () => {
         <h2 className='text-xl font-semibold text-gray-800 text-center mb-6'>
           {currentMonth} {currentYear}
         </h2>
-        <div className="">
-        <div className='grid grid-cols-7 gap-1 text-center text-gray-700 font-medium mb-4'>
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-            <div
-              key={day}
-              className='text-sm'
-            >
-              {day}
-            </div>
-          ))}
-        </div>
+        <div className=''>
+          <div className='grid grid-cols-7 gap-1 text-center text-gray-700 font-medium mb-4'>
+            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+              <div
+                key={day}
+                className='text-sm'
+              >
+                {day}
+              </div>
+            ))}
+          </div>
 
-        <div className='grid grid-cols-7 gap-1'>
-          {days.map((day, index) => (
-            <div
-              key={index}
-              className={`h-10 flex items-center justify-center rounded-md ${
-                day === today.getDate()
-                  ? 'bg-red-600 text-white font-semibold'
-                  : 'bg-gray-100 text-gray-700'
-              } ${!day && 'bg-transparent cursor-default'}`}
-            >
-              {day || ''}
-            </div>
-          ))}
-        </div>
+          <div className='grid grid-cols-7 gap-1'>
+            {days.map((day, index) => (
+              <div
+                key={index}
+                className={`text-sm h-8 flex items-center justify-center rounded-md ${
+                  day === today.getDate()
+                    ? 'bg-red-600 text-white font-semibold'
+                    : 'bg-gray-100 text-gray-700'
+                } ${!day && 'bg-transparent cursor-default'}`}
+              >
+                {day || ''}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

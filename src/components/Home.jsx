@@ -1,5 +1,5 @@
 
-
+import Tools from "./Tools.jsx"
 import React from 'react';
 import Patro from './Patro.jsx';
 import Calender from './Calender.jsx';
@@ -11,6 +11,7 @@ const Home = () => {
         <div className="">
           <Patro />
         </div>
+        <Tools />
         <div>
           <Calender />
         </div>
