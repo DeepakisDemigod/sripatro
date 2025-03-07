@@ -239,62 +239,61 @@ const BirthPanchangBS = () => {
 export default BirthPanchangBS;
 */
 
-
-import React, { useState, useEffect } from 'react';
-import { MhahPanchang } from 'mhah-panchang';
-import NepaliDate from 'nepali-date-converter';
-import { Alarm, Calendar } from 'phosphor-react';
-import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
+import React, { useState, useEffect } from "react";
+import { MhahPanchang } from "mhah-panchang";
+import NepaliDate from "nepali-date-converter";
+import { Alarm, Calendar } from "phosphor-react";
+import nakshatraData from "./nakshatraData.json"; // Import the Nakshatra data
 
 const BS_MONTHS = [
-  'Baisakh',
-  'Jestha',
-  'Ashadh',
-  'Shrawan',
-  'Bhadra',
-  'Ashwin',
-  'Kartik',
-  'Mangsir',
-  'Paush',
-  'Magh',
-  'Falgun',
-  'Chaitra',
+  "Baisakh",
+  "Jestha",
+  "Ashadh",
+  "Shrawan",
+  "Bhadra",
+  "Ashwin",
+  "Kartik",
+  "Mangsir",
+  "Paush",
+  "Magh",
+  "Falgun",
+  "Chaitra",
 ];
 
 const DAYS = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
 
 const BirthPanchangBS = () => {
   useEffect(() => {
-    document.title = 'Birth Panchang for BS Date | Sri Patro';
+    document.title = "Birth Panchang for BS Date | Sri Patro";
   }, []);
 
   const [nepaliDate, setNepaliDate] = useState({
     year: 2081,
-    month: 1,
+    month: 11,
     day: 1,
   });
-  const [timeOfBirth, setTimeOfBirth] = useState('09:00');
-  const [englishDate, setEnglishDate] = useState('');
-  const [dayOfWeek, setDayOfWeek] = useState('');
+  const [timeOfBirth, setTimeOfBirth] = useState("09:00");
+  const [englishDate, setEnglishDate] = useState("");
+  const [dayOfWeek, setDayOfWeek] = useState("");
   const [panchang, setPanchang] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [age, setAge] = useState(null);
   const [nakshatraInfo, setNakshatraInfo] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNepaliDate((prev) => ({ ...prev, [name]: parseInt(value, 10) || '' }));
-    setError('');
-    setEnglishDate('');
-    setDayOfWeek('');
+    setNepaliDate((prev) => ({ ...prev, [name]: parseInt(value, 10) || "" }));
+    setError("");
+    setEnglishDate("");
+    setDayOfWeek("");
     setPanchang(null);
     setAge(null);
     setNakshatraInfo(null);
@@ -326,14 +325,14 @@ const BirthPanchangBS = () => {
       const { year, month, day } = nepaliDate;
 
       // Validate inputs
-      if (!year || !month || !day) throw new Error('Invalid date input.');
+      if (!year || !month || !day) throw new Error("Invalid date input.");
 
       // Convert BS to AD
       const bsDate = new NepaliDate(year, month - 1, day);
       const adDate = bsDate.toJsDate();
 
       // Add Time of Birth
-      const [hours, minutes] = timeOfBirth.split(':').map(Number);
+      const [hours, minutes] = timeOfBirth.split(":").map(Number);
       adDate.setHours(hours, minutes);
 
       // Calculate age
@@ -342,10 +341,10 @@ const BirthPanchangBS = () => {
 
       // Format AD Date and Panchang
       setEnglishDate(
-        adDate.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
+        adDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
         })
       );
       setDayOfWeek(DAYS[adDate.getDay()]);
@@ -365,9 +364,9 @@ const BirthPanchangBS = () => {
         setNakshatraInfo(null);
       }
     } catch (err) {
-      setError('Invalid date or time. Please check your input.');
-      setEnglishDate('');
-      setDayOfWeek('');
+      setError("Invalid date or time. Please check your input.");
+      setEnglishDate("");
+      setDayOfWeek("");
       setPanchang(null);
       setAge(null);
       setNakshatraInfo(null);
@@ -466,13 +465,13 @@ const BirthPanchangBS = () => {
           englishDate && (
             <div className="mt-6 bg-gray-100 p-4 rounded-lg overflow-x-auto">
               <h2 className="text-xl font-bold text-gray-800">
-                {nepaliDate.year} {BS_MONTHS[nepaliDate.month - 1]}{' '}
+                {nepaliDate.year} {BS_MONTHS[nepaliDate.month - 1]}{" "}
                 {nepaliDate.day}
               </h2>
               <p className="text-gray-600">
                 {dayOfWeek}
-                {', '}
-                {timeOfBirth || 'N/A'}
+                {", "}
+                {timeOfBirth || "N/A"}
               </p>
               <p className="text-gray-800 text-lg">{englishDate}</p>
 
@@ -481,61 +480,62 @@ const BirthPanchangBS = () => {
                   <tbody>
                     <tr>
                       <th>Day</th>
-                      <td>{panchang?.Day?.name_en_UK || 'N/A'}</td>
+                      <td>{panchang?.Day?.name_en_UK || "N/A"}</td>
                     </tr>
                     <tr>
                       <th>Tithi</th>
-                      <td>{panchang?.Tithi?.name_en_IN || 'N/A'}</td>
+                      <td>{panchang?.Tithi?.name_en_IN || "N/A"}</td>
                     </tr>
                     <tr>
                       <th>Nakshatra</th>
-                      <td>{panchang?.Nakshatra?.name_en_IN || 'N/A'}</td>
+                      <td>{panchang?.Nakshatra?.name_en_IN || "N/A"}</td>
                     </tr>
                     {nakshatraInfo && (
                       <>
                         <tr>
                           <th>Syllables</th>
                           <td>
-                            {nakshatraInfo['first syllables'] || 'Not Available'}
+                            {nakshatraInfo["first syllables"] ||
+                              "Not Available"}
                           </td>
                         </tr>
                         <tr>
                           <th>Deity</th>
-                          <td>{nakshatraInfo.Diety || 'Not Available'}</td>
+                          <td>{nakshatraInfo.Diety || "Not Available"}</td>
                         </tr>
                         <tr>
                           <th>Ganam</th>
-                          <td>{nakshatraInfo.ganam || 'Not Available'}</td>
+                          <td>{nakshatraInfo.ganam || "Not Available"}</td>
                         </tr>
                         <tr>
                           <th>Animal Sign</th>
                           <td>
-                            {nakshatraInfo['animal sign'] || 'Not Available'}
+                            {nakshatraInfo["animal sign"] || "Not Available"}
                           </td>
                         </tr>
                         <tr>
                           <th>Best Direction</th>
                           <td>
-                            {nakshatraInfo['best direction'] || 'Not Available'}
+                            {nakshatraInfo["best direction"] || "Not Available"}
                           </td>
                         </tr>
                       </>
                     )}
                     <tr>
                       <th>Yoga</th>
-                      <td>{panchang?.Yoga?.name_en_IN || 'N/A'}</td>
+                      <td>{panchang?.Yoga?.name_en_IN || "N/A"}</td>
                     </tr>
                     <tr>
                       <th>Karna</th>
-                      <td>{panchang?.Karna?.name_en_IN || 'N/A'}</td>
+                      <td>{panchang?.Karna?.name_en_IN || "N/A"}</td>
                     </tr>
                     <tr>
                       <th>Paksha</th>
-                      <td>{panchang?.Paksha?.name_en_IN || 'N/A'}</td>
+                      <td>{panchang?.Paksha?.name_en_IN || "N/A"}</td>
                     </tr>
                     <tr>
                       <th>Raasi</th>
-                      <td>{panchang?.Raasi?.name_en_UK || 'N/A'}</td>
+                      <td>{panchang?.Raasi?.name_en_UK || "N/A"}</td>
                     </tr>
                     {age && (
                       <tr>

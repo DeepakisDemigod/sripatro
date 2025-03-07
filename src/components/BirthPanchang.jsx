@@ -1,6 +1,3 @@
-
-
-
 /*
 import React, { useState, useEffect } from 'react';
 import { MhahPanchang } from 'mhah-panchang';
@@ -221,20 +218,18 @@ const BirthPanchang = () => {
 export default BirthPanchang;
 */
 
-
-
-import React, { useState, useEffect } from 'react';
-import { MhahPanchang } from 'mhah-panchang';
-import { Alarm, Swap, Calendar } from 'phosphor-react';
-import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
+import React, { useState, useEffect } from "react";
+import { MhahPanchang } from "mhah-panchang";
+import { Alarm, Swap, Calendar } from "phosphor-react";
+import nakshatraData from "./nakshatraData.json"; // Import the Nakshatra data
 
 const BirthPanchang = () => {
   useEffect(() => {
-    document.title = 'Birth Panchang | Sri Patro';
+    document.title = "Birth Panchang | Sri Patro";
   }, []);
 
-  const [dob, setDob] = useState('');
-  const [time, setTime] = useState('');
+  const [dob, setDob] = useState("2025-02-01");
+  const [time, setTime] = useState("09:00");
   const [panchang, setPanchang] = useState(null);
   const [age, setAge] = useState(null);
   const [nakshatraInfo, setNakshatraInfo] = useState(null); // New state
@@ -280,7 +275,7 @@ const BirthPanchang = () => {
         setNakshatraInfo(null);
       }
     } catch (error) {
-      console.error('Error calculating Panchang:', error);
+      console.error("Error calculating Panchang:", error);
       setPanchang(null);
       setAge(null);
       setNakshatraInfo(null);
@@ -348,55 +343,59 @@ const BirthPanchang = () => {
               <tbody>
                 <tr>
                   <th>Day</th>
-                  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>
+                  <td>{panchang?.Day?.name_en_UK || "Not Available"}</td>
                 </tr>
                 <tr>
                   <th>Tithi</th>
-                  <td>{panchang?.Tithi?.name_en_IN || 'Not Available'}</td>
+                  <td>{panchang?.Tithi?.name_en_IN || "Not Available"}</td>
                 </tr>
                 <tr>
                   <th>Nakshatra</th>
-                  <td>{panchang?.Nakshatra?.name_en_IN || 'Not Available'}</td>
+                  <td>{panchang?.Nakshatra?.name_en_IN || "Not Available"}</td>
                 </tr>
                 {nakshatraInfo && (
                   <>
                     <tr>
                       <th>Syllables</th>
-                      <td>{nakshatraInfo['first syllables'] || 'Not Available'}</td>
+                      <td>
+                        {nakshatraInfo["first syllables"] || "Not Available"}
+                      </td>
                     </tr>
                     <tr>
                       <th>Deity</th>
-                      <td>{nakshatraInfo.Diety || 'Not Available'}</td>
+                      <td>{nakshatraInfo.Diety || "Not Available"}</td>
                     </tr>
                     <tr>
                       <th>Ganam</th>
-                      <td>{nakshatraInfo.ganam || 'Not Available'}</td>
+                      <td>{nakshatraInfo.ganam || "Not Available"}</td>
                     </tr>
                     <tr>
                       <th>Animal Sign</th>
-                      <td>{nakshatraInfo['animal sign'] || 'Not Available'}</td>
+                      <td>{nakshatraInfo["animal sign"] || "Not Available"}</td>
                     </tr>
                     <tr>
                       <th>Best Direction</th>
-                      <td>{nakshatraInfo['best direction'] || 'Not Available'}</td>
+                      <td>
+                        {nakshatraInfo["best direction"] || "Not Available"}
+                      </td>
                     </tr>
                   </>
                 )}
                 <tr>
                   <th>Yoga</th>
-                  <td>{panchang?.Yoga?.name_en_IN || 'Not Available'}</td>
+                  <td>{panchang?.Yoga?.name_en_IN || "Not Available"}</td>
                 </tr>
                 <tr>
                   <th>Karna</th>
-                  <td>{panchang?.Karna?.name_en_IN || 'Not Available'}</td>
+                  <td>{panchang?.Karna?.name_en_IN || "Not Available"}</td>
                 </tr>
                 <tr>
                   <th>Paksha</th>
-                  <td>{panchang?.Paksha?.name_en_IN || 'Not Available'}</td>
+                  <td>{panchang?.Paksha?.name_en_IN || "Not Available"}</td>
                 </tr>
                 <tr>
                   <th>Raasi</th>
-                  <td>{panchang?.Raasi?.name_en_UK || 'Not Available'}</td>
+                  <td>{panchang?.Raasi?.name_en_UK || "Not Available"}</td>
                 </tr>
                 {age && (
                   <tr>
