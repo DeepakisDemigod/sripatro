@@ -5,6 +5,7 @@ import BirthPanchang from "./components/BirthPanchang.jsx";
 import NepaliToIndianDateConverter from "./components/NepaliToIndianDateConverter.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Kundali from "./components/Kundali.jsx";
+import Horoscope from "./components/Horoscope.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           element={<NepaliToIndianDateConverter />}
         />
         <Route path="/kundali" element={<Kundali />} />
+        <Route path="/horoscope/daily" element={<Horoscope />} />
       </Routes>
       <Footer />
     </Router>
