@@ -58,7 +58,7 @@ const Calendar = () => {
                 key={index}
                 className={`text-sm h-8 flex items-center justify-center rounded-md ${
                   day === today.getDate()
-                    ? 'bg-red-600 text-white font-semibold'
+                    ? 'bg-blue-600 text-white font-semibold'
                     : 'bg-gray-100 text-gray-700'
                 } ${!day && 'bg-transparent cursor-default'}`}
               >

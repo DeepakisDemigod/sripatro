@@ -126,13 +126,13 @@ const BirthPanchangBS = () => {
                 min='1970'
                 max='2100'
                 placeholder='Year'
-                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500'
               />
               <select
                 name='month'
                 value={nepaliDate.month}
                 onChange={handleInputChange}
-                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500'
               >
                 {BS_MONTHS.map((month, index) => (
                   <option
@@ -151,7 +151,7 @@ const BirthPanchangBS = () => {
                 min='1'
                 max={getMaxDays()}
                 placeholder='Day'
-                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500'
               />
             </div>
           </div>
@@ -165,19 +165,19 @@ const BirthPanchangBS = () => {
               type='time'
               value={timeOfBirth}
               onChange={handleTimeChange}
-              className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+              className='w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500'
             />
           </div>
 
           <button
             onClick={convertAndCalculatePanchang}
-            className='w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200'
+            className='w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200'
           >
             Convert and Get Panchang
           </button>
         </div>
 
-        {error && <div className='mt-4 text-red-600 font-medium'>{error}</div>}
+        {error && <div className='mt-4 text-blue-600 font-medium'>{error}</div>}
 
         {!englishDate && !panchang ? (
           <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
@@ -387,7 +387,7 @@ const BirthPanchangBS = () => {
 
   return (
     <div className="bg-gray-50 flex items-center justify-center p-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+      <div className="bg-white border border-t-blue-600 shadow-lg rounded-lg p-8 max-w-lg w-full">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
           Bikram Sambat to Panchang
         </h1>
@@ -407,13 +407,13 @@ const BirthPanchangBS = () => {
                 min="1970"
                 max="2100"
                 placeholder="Year"
-                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
               />
               <select
                 name="month"
                 value={nepaliDate.month}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
               >
                 {BS_MONTHS.map((month, index) => (
                   <option key={index} value={index + 1}>
@@ -429,7 +429,7 @@ const BirthPanchangBS = () => {
                 min="1"
                 max={getMaxDays()}
                 placeholder="Day"
-                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -443,19 +443,19 @@ const BirthPanchangBS = () => {
               type="time"
               value={timeOfBirth}
               onChange={handleTimeChange}
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <button
             onClick={convertAndCalculatePanchang}
-            className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200"
+            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200"
           >
             Convert and Get Panchang
           </button>
         </div>
 
-        {error && <div className="mt-4 text-red-600 font-medium">{error}</div>}
+        {error && <div className="mt-4 text-blue-600 font-medium">{error}</div>}
 
         {!englishDate && !panchang ? (
           <div className="mt-6 bg-gray-100 p-4 rounded-lg text-gray-600">

@@ -98,8 +98,8 @@ const BirthPanchang = () => {
               type='date'
               value={dob}
               onChange={e => setDob(e.target.value)}
-              required
-              className='mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
+              requiblue
+              className='mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none'
             />
           </div>
 
@@ -116,14 +116,14 @@ const BirthPanchang = () => {
               type='time'
               value={time}
               onChange={e => setTime(e.target.value)}
-              required
-              className='mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
+              requiblue
+              className='mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none'
             />
           </div>
 
           <button
             type='submit'
-            className='w-full bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 transition'
           >
             Get Panchang
           </button>
@@ -204,7 +204,7 @@ const BirthPanchang = () => {
         <div className='mt-6 flex justify-between'>
           <a
             href='/nepalitoenglish'
-            className='flex items-center gap-2 bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='flex items-center gap-2 bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 transition'
           >
             <Swap size={18} />
             <span>Change Nepali to English Date</span>
@@ -284,7 +284,7 @@ const BirthPanchang = () => {
 
   return (
     <div className="bg-gray-50 flex items-center justify-center py-10 px-5">
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
+      <div className="bg-white border border-t-blue-600 shadow-lg rounded-lg p-6 w-full max-w-3xl">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6">
           Birth Panchang
         </h2>
@@ -303,8 +303,8 @@ const BirthPanchang = () => {
               type="date"
               value={dob}
               onChange={(e) => setDob(e.target.value)}
-              required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none"
+              requiblue
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           </div>
 
@@ -321,14 +321,14 @@ const BirthPanchang = () => {
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none"
+              requiblue
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 transition"
           >
             Get Panchang
           </button>
@@ -417,7 +417,7 @@ const BirthPanchang = () => {
         <div className="mt-6 flex justify-between">
           <a
             href="/nepalitoenglish"
-            className="flex items-center gap-2 bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition"
+            className="flex items-center gap-2 bg-blue-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-600 transition"
           >
             <Swap size={18} />
             <span>Change Nepali to English Date</span>
