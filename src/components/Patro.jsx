@@ -53,7 +53,7 @@ const Patro = () => {
         <div className="overflow-x-auto">
           <table className="table  w-full">
             {/* head */}
-            <thead className="bg-blue-600 text-white text-sm">
+            <thead className="bg-red-600 text-white text-sm">
               <tr>
                 <th>PANCHANG</th>
                 <th>VALUE</th>

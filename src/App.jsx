@@ -6,11 +6,14 @@ import NepaliToIndianDateConverter from "./components/NepaliToIndianDateConverte
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Kundali from "./components/Kundali.jsx";
 import Horoscope from "./components/Horoscope.jsx";
+import SiteBanner from "./components/SiteBanner.jsx";
+import NotFound from "./components/NotFound.jsx";
 
 function App() {
   return (
     <Router>
       <Header />
+      <SiteBanner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Birthpanchang" element={<BirthPanchang />} />
@@ -20,6 +23,8 @@ function App() {
         />
         <Route path="/kundali" element={<Kundali />} />
         <Route path="/horoscope/daily" element={<Horoscope />} />
+        <Route path="*" element={<NotFound />} />
+        
       </Routes>
       <Footer />
     </Router>
