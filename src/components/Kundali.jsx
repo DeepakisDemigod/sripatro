@@ -179,8 +179,8 @@ function Kundali() {
 
   if (!planets) {
     return (
-      <div className='flex h-screen items-center justify-center'>
-        <p>Gettings Date and Time...</p>
+      <div className='bg-white text-black gap-2  flex h-[60vh] items-center justify-center'>
+        <span className='loading loading-spinner loading-lg'></span>
       </div>
     );
   }
@@ -280,7 +280,12 @@ function Kundali() {
         <div className='breadcrumbs border rounded text-black px-4 text-sm'>
           <ul>
             <li>
-              <a href='/' className="hover:underline">Home</a>
+              <a
+                href='/'
+                className='hover:underline'
+              >
+                Home
+              </a>
             </li>
             <li>Kundali Report</li>
           </ul>
@@ -310,6 +315,7 @@ function Kundali() {
                 Date and Time:
               </label>
               <input
+                required
                 type='datetime-local'
                 id='datetime'
                 name='datetime'
@@ -335,6 +341,7 @@ function Kundali() {
                 Latitude:
               </label>
               <input
+                required
                 type='number'
                 id='latitude'
                 name='latitude'
@@ -353,6 +360,7 @@ function Kundali() {
                 Longitude:
               </label>
               <input
+                required
                 type='number'
                 id='longitude'
                 name='longitude'
