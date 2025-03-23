@@ -364,7 +364,7 @@ function Kundali() {
           </div>
         </form>
 
-        <div className='flex flex-col items-center justify-center  mt-8'>
+        <div className='flex flex-col items-center justify-center text-center mt-8'>
           <svg
             width='350'
             height='350'

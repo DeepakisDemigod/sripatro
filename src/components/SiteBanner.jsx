@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import { ArrowLineDown } from 'phosphor-react';
 import { usePWAInstall } from 'react-use-pwa-install'
 
@@ -41,7 +41,7 @@ const SiteBanner = () => {
 export default SiteBanner;
 
 
-*/
+/*
 
  import React, { useEffect, useState } from 'react';
 
@@ -96,3 +96,4 @@ export default SiteBanner;
     </header>
   );
  }
+*/
