@@ -6,7 +6,7 @@ const SiteBanner = () => {
   const install = usePWAInstall();
 
   return (
-    <div className='bg-white rounded-lg shadow-md overflow-hidden'>
+    <div className='bg-white shadow-md overflow-hidden'>
       <div className='flex items-center p-4 gap-2'>
         <div className='flex justify-between items-center gap-2'>
           <p className='text-white flex items-center justify-center w-14 h-14 bg-gradient-to-r from-red-400 to-red-700 px-2 rounded text-3xl font-bold'>
@@ -36,10 +36,11 @@ const SiteBanner = () => {
                     <span>Download</span>
                   </button>
                 ) : (
-                  <button className='flex items-center gap-2 border border-green-500 bg-white text-green-500 rounded-full px-4 py-2 text-sm font-medium transition duration-300'>
-                    <CheckCircle size={19} />
-                    <span>Installed</span>
-                  </button>
+                  
+                    <button className='flex items-center gap-2 border border-green-500 bg-white text-green-500 rounded-full px-4 py-2 text-sm font-medium transition duration-300'>
+                      <CheckCircle size={19} />
+                      <span>Installed</span>
+                    </button>
                 )}
               </span>
             </button>

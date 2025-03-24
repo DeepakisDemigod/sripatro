@@ -579,14 +579,14 @@ export default function Header() {
                       className='card-body bg-white'
                     >
                       <h2 className='card-title text-md md:text-md lg:text-lg'>
-                        🎉 Download SriPatro on Andriod 
+                        🎉 Download SriPatro!
                       </h2>
                       <p
                         className='text-sm md:text-sm lg:text-md'
                         style={{ lineHeight: '19px' }}
                       >
-                        sripatro is now available to download for andriod
-                        devices.
+                        sripatro is now available to download 
+                        
                       </p>
                     </div>
                   </div>
