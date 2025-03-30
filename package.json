@@ -11,13 +11,15 @@
   },
   "dependencies": {
     "axios": "^1.8.2",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "mhah-panchang": "^1.2.0",
     "nepali-date-converter": "^3.3.2",
     "phosphor-react": "^1.4.1",
-    "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.1",
+    "react-share": "^5.2.2",
     "react-use-pwa-install": "^1.0.3",
     "vite-plugin-pwa": "^0.21.2"
   },
