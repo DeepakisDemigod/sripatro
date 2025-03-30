@@ -206,7 +206,7 @@ function HoroscopeForm() {
     try {
       const responses = await Promise.all(
         zodiacSigns.map(({ sign }) =>
-          fetch("https://sripatro-server-1.onrender.com/get-horoscope", {
+          fetch("https://sripatro-server.vercel.app/get-horoscope", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sign, day }),
