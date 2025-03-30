@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@zener/nepali-datepicker-react": "^1.6.1",
     "axios": "^1.8.2",
+    "bikram-sambat-js": "^1.0.2",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "mhah-panchang": "^1.2.0",
+    "nepali-calendar-react": "^1.0.3",
     "nepali-date-converter": "^3.3.2",
     "phosphor-react": "^1.4.1",
     "react-dom": "^18.3.1",

@@ -1,3 +1,4 @@
+/*
 import { useEffect, useState } from 'react';
 import { WhatsappLogo, TelegramLogo, TwitterLogo } from 'phosphor-react';
 import ScrollTop from './ScrollTop.jsx';
@@ -129,7 +130,6 @@ function HoroscopeForm() {
             </select>
           </label>
           <br />
-          {/* <button type='submit'>Get Horoscope</button> */}
         </form>
 
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
@@ -143,7 +143,7 @@ function HoroscopeForm() {
               {horoscope.data.horoscope_data}
             </p>
 
-            {/* Share Buttons */}
+          
             <div className='mt-4 text-right flex gap-3 justify-between items-center bg-gray-100 rounded p-1.5'>
               <h3 className='font-bold text-gray-700 flex-[0.2]'>
                 Share Pridiction
@@ -169,6 +169,110 @@ function HoroscopeForm() {
             </div>
           </div>
         )}
+      </div>
+      <ScrollTop />
+    </div>
+  );
+}
+
+export default HoroscopeForm;
+*/
+
+import { useEffect, useState } from "react";
+import ScrollTop from "./ScrollTop.jsx";
+
+function HoroscopeForm() {
+  const [day, setDay] = useState("today");
+  const [horoscopeData, setHoroscopeData] = useState({});
+  const [error, setError] = useState(null);
+
+  const zodiacSigns = [
+    { sign: "aries", emoji: "🐏" },
+    { sign: "taurus", emoji: "🐂" },
+    { sign: "gemini", emoji: "👬" },
+    { sign: "cancer", emoji: "🦀" },
+    { sign: "leo", emoji: "🦁" },
+    { sign: "virgo", emoji: "🧚" },
+    { sign: "libra", emoji: "⚖️" },
+    { sign: "scorpio", emoji: "🦂" },
+    { sign: "sagittarius", emoji: "🐎" },
+    { sign: "capricorn", emoji: "🐐" },
+    { sign: "aquarius", emoji: "💧" },
+    { sign: "pisces", emoji: "🐟" },
+  ];
+
+  const fetchHoroscopes = async () => {
+    setError(null);
+    try {
+      const responses = await Promise.all(
+        zodiacSigns.map(({ sign }) =>
+          fetch("https://sripatro-server-1.onrender.com/get-horoscope", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sign, day }),
+          }).then((res) => res.json().then((data) => ({ sign, data })))
+        )
+      );
+
+      const updatedHoroscopeData = responses.reduce((acc, { sign, data }) => {
+        acc[sign] = data;
+        return acc;
+      }, {});
+
+      setHoroscopeData(updatedHoroscopeData);
+    } catch (err) {
+      console.error("Error fetching horoscope:", err);
+      setError("Failed to fetch horoscope.");
+    }
+  };
+
+  useEffect(() => {
+    fetchHoroscopes();
+  }, [day]);
+
+  return (
+    <div className="bg-gray-50 flex items-center justify-center py-10 px-5">
+      <div className="bg-white border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-6xl mx-auto">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-6 underline">
+          Daily Horoscope for All Signs
+        </h3>
+
+        <label className="block text-sm font-medium text-gray-700 mb-4">
+          <select
+            className="bg-white text-black w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500"
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
+          >
+            <option value="yesterday">Yesterday</option>
+            <option value="today">Today</option>
+            <option value="tomorrow">Tomorrow</option>
+          </select>
+        </label>
+
+        {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {zodiacSigns.map(({ sign, emoji }) =>
+            horoscopeData[sign] ? (
+              <div key={sign} className="p-4 bg-gray-100 rounded-lg shadow">
+                <div className="flex ">
+                  <h2 className="text-5xl font-bold text-gray-900 capitalize">
+                    {emoji}
+                  </h2>
+                  <h2 className="text-2xl font-bold text-gray-900 capitalize">
+                    {sign}
+                  </h2>
+                </div>
+                <span className="text-xs text-gray-500">
+                  {horoscopeData[sign].data.date}
+                </span>
+                <p className="text-sm text-gray-700">
+                  {horoscopeData[sign].data.horoscope_data}
+                </p>
+              </div>
+            ) : null
+          )}
+        </div>
       </div>
       <ScrollTop />
     </div>

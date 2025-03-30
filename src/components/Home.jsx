@@ -12,6 +12,7 @@ const Home = () => {
     <div className='bg-white text-black container mx-auto px-4 py-8'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto'>
         <Tiles />
+        
         <div className=''>
           <Calender />
         </div>
