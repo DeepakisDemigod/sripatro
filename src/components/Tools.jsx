@@ -74,7 +74,7 @@ const Tools = () => {
         <ul className='text-sm list-none pl-0 border border-l-4 border-l-red-600'>
           <li>
             <Link
-              to='/horoscope/daily'
+              to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
               Daily Horoscope
@@ -83,7 +83,7 @@ const Tools = () => {
           </li>
           <li>
             <Link
-              to='/horoscope/weekly'
+              to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
               Weekly Horoscope
@@ -92,7 +92,7 @@ const Tools = () => {
           </li>
           <li>
             <Link
-              to='/horoscope/monthly'
+              to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
               Monthly Horoscope

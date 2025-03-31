@@ -30,7 +30,7 @@ const Tiles = () => {
             </div>
           </a>
 
-          <a href='/horoscope/daily'>
+          <a href='/horoscope'>
             <div className='stat'>
               <div className='stat-figure text-secondary'>AD</div>
               <div className='stat-value'>🐏</div>
