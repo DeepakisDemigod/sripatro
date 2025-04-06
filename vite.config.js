@@ -16,11 +16,11 @@ export default defineConfig({
       manifest: {
         name: 'Sri Patro',
         short_name: 'SriPatro',
-        description: 'My Personal Portfolio',
+        description: 'Best Nepali and English Calender forAccurate Hourly Panchang',
         start_url: '.',
         display: 'fullscreen',
-        background_color: '#d70000',
-        theme_color: '#d70000',
+        background_color: '#c10000',
+        theme_color: '#c10000',
         icons: [
           {
             src: '/pwa-192x192.png',

@@ -4,8 +4,8 @@
   "description": "My Personal Portfolio",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff0000",
+  "background_color": "#c10000",
+  "theme_color": "#c10000",
   "icons": [
     {
       "src": "/pwa-192x192.png",
