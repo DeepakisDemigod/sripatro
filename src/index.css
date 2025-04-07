@@ -23,3 +23,17 @@ table tr > * {
 }
 
 
+.text-red-500 {
+  color: #ff0000;
+}
+.group:hover .group-hover:text-white {
+  color: white;
+}
+.btn-outline {
+  border: 1px solid #e4e4e7; /* zinc-200 hex value */
+}
+.btn-outline:hover {
+  border-color: white;
+  background-color: #ff0000;
+  color: white;
+}

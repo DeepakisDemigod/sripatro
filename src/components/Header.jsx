@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowSquareOut, Bell } from 'phosphor-react';
+import { FlagBanner, Bell, Cake, Calendar, ChartLine, Star, Sun } from 'phosphor-react';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
 export default function Header() {
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const drawerCheckboxRef = useRef(null);
+
+  const handleLinkClick = () => {
+    if (drawerCheckboxRef.current) {
+      drawerCheckboxRef.current.checked = false;
+    }
+  };
 
   return (
     <header className='bg-white text-black shadow-sm'>
@@ -14,6 +21,7 @@ export default function Header() {
           id='my-drawer'
           type='checkbox'
           className='drawer-toggle'
+          ref={drawerCheckboxRef}
         />
 
         {/* Main Content */}
@@ -58,34 +66,6 @@ export default function Header() {
 
             {/* Actions */}
             <div className='flex items-center gap-2'>
-              {/* Search */}
-              {/*  <button
-                className='btn btn-ghost btn-circle'
-                onClick={() => setShowSearchBar(!showSearchBar)}
-              >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-5 w-5'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
-                  />
-                </svg>
-              </button>
-
-              {showSearchBar && (
-                <div className='absolute top-full mt-2 right-4 w-72 bg-white rounded shadow-lg z-50'>
-                  <SearchBar />
-                </div>
-              )}*/}
-
-              {/* Notification */}
               {/* Notification Bell Button */}
               <div
                 className='btn btn-ghost btn-circle'
@@ -94,17 +74,15 @@ export default function Header() {
                 }
               >
                 <div className='indicator'>
-                  <Bell size={21} />
-                  <span className="indicator-item status status-success"></span>
-
+                  <Bell size={24} className='text-red-500' />
+                  <span className='indicator-item status status-success'></span>
                 </div>
-                
               </div>
 
               {/* Modal */}
               <dialog
                 id='notif_modal'
-                className='modal '
+                className='modal'
               >
                 <div className='modal-box bg-white text-black'>
                   <h2 className='font-bold text-lg'>🎉 Download SriPatro!</h2>
@@ -141,13 +119,14 @@ export default function Header() {
         </div>
 
         {/* Drawer Sidebar */}
-        <div className='drawer-side z-40 text-black bg-white'>
+        <div className='drawer-side z-40'>
           <label
             htmlFor='my-drawer'
             className='drawer-overlay'
           ></label>
-          <aside className='menu p-4 w-80 min-h-full bg-white  space-y-6 overflow-y-auto'>
-            <div className='flex items-center gap-2 text-xl text-black font-bold'>
+          <aside className='p-4 w-80 min-h-full bg-white text-black overflow-y-auto'>
+            {/* Logo */}
+            <div className='flex items-center gap-2 text-xl font-bold mb-6'>
               <img
                 src='/Shri-symbol.svg'
                 alt='Logo'
@@ -156,61 +135,84 @@ export default function Header() {
               Sri Patro
             </div>
 
-            <SearchBar />
-            <LanguageSwitcher />
-
-            <div className='text-black'>
-              <h3 className='text-lg font-semibold mb-2 underline'>
-                Explore More Tools
-              </h3>
-              <ul className='space-y-1 pl-2 border-l-4 border-red-600'>
-                <li>
-                  <Link to='/'>
-                    Panchang Today <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/birthpanchang'>
-                    Birth Panchang (AD) <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/nepalitoenglish'>
-                    Bikram Sambat to Panchang (BS) <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/kundali'>
-                    Birth Kundali (AD) <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-              </ul>
+            {/* Search and Language */}
+            <div className='space-y-4 mb-6'>
+              <SearchBar />
+              <LanguageSwitcher />
             </div>
 
-            <div className='text-black'>
-              <h3 className='text-lg font-semibold mb-2 underline'>
-                Horoscope
-              </h3>
-              <ul className='space-y-1 pl-2 border-l-4 border-red-600'>
-                <li>
-                  <Link to='/horoscope/daily'>
-                    Daily Horoscope <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/horoscope/weekly'>
-                    Weekly Horoscope <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/horoscope/monthly'>
-                    Monthly Horoscope <ArrowSquareOut size={18} />
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {/* Astrology Section */}
+            <section className='mb-6'>
+              <h3 className='text-lg font-semibold mb-3'>Astrology</h3>
+              <div className='grid grid-cols-2 gap-3'>
+                <Link
+                  to='/'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <Calendar size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Panchang Today</span>
+                </Link>
+                <Link
+                  to='/birthpanchang'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <Cake size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Birth Panchang</span>
+                </Link>
+                <Link
+                  to='/nepalitoenglish'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <FlagBanner size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Nepali Panchang</span>
+                </Link>
+                <Link
+                  to='/kundali'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <Sun size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Birth Kundali</span>
+                </Link>
+              </div>
+            </section>
 
-            <div>
+            {/* Horoscope Section */}
+            <section className='mb-6'>
+              <h3 className='text-lg font-semibold mb-3'>Horoscope</h3>
+              <div className='grid grid-cols-2 gap-3'>
+                <Link
+                  to='/horoscope'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <Star size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Daily</span>
+                </Link>
+                <Link
+                  to='/horoscope'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <ChartLine size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Weekly</span>
+                </Link>
+                <Link
+                  to='/horoscope'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <Calendar size={32} className='text-red-500 group-hover:text-white' />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>Monthly</span>
+                </Link>
+              </div>
+            </section>
+
+            {/* Product Hunt Badge */}
+            <div className='mt-6'>
               <a
                 href='https://www.producthunt.com/products/sri-patro/reviews?utm_source=badge-product_review'
                 target='_blank'

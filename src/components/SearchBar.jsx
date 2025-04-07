@@ -3,7 +3,7 @@ import { MagnifyingGlass } from "phosphor-react";
 import { Link } from "react-router-dom";
 
 function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState("a");
+  const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -59,10 +59,7 @@ function SearchBar() {
           onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
           onFocus={() => setShowSuggestions(true)}
         />
-        <div className="flex gap-1">
-          <kbd className="kbd kbd-sm text-sm border border-blue-300">⌘</kbd>
-          <kbd className="kbd kbd-sm text-sm  border border-blue-300">K</kbd>
-        </div>
+        <div className="flex gap-1"></div>
       </label>
 
       {showSuggestions && suggestions.length > 0 && (
