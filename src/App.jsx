@@ -8,11 +8,13 @@ import Kundali from './components/Kundali.jsx';
 import HoroscopePredictions from './components/HoroscopePredictions.jsx';
 import SiteBanner from './components/SiteBanner.jsx';
 import NotFound from './components/NotFound.jsx';
+import TimeNotifier from './components/TimeNotifier.jsx'
 
 function App() {
   return (
     <Router>
       <Header />
+      <TimeNotifier />
       <SiteBanner />
       <Routes>
         <Route

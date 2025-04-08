@@ -1,6 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FlagBanner, Bell, Cake, Calendar, ChartLine, Star, Sun } from 'phosphor-react';
+import {
+  FlagBanner,
+  Bell,
+  Cake,
+  Calendar,
+  ChartLine,
+  Star,
+  Sun
+} from 'phosphor-react';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 
@@ -74,8 +82,11 @@ export default function Header() {
                 }
               >
                 <div className='indicator'>
-                  <Bell size={24} className='text-red-500' />
-                  <span className='indicator-item status status-success'></span>
+                  <Bell
+                    size={24}
+                    className=''
+                  />
+                  <span className='indicator-item status status-error'></span>
                 </div>
               </div>
 
@@ -150,32 +161,52 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Calendar size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Panchang Today</span>
+                  <Calendar
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Panchang Today
+                  </span>
                 </Link>
                 <Link
                   to='/birthpanchang'
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Cake size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Birth Panchang</span>
+                  <Cake
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Birth Panchang
+                  </span>
                 </Link>
                 <Link
                   to='/nepalitoenglish'
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <FlagBanner size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Nepali Panchang</span>
+                  <FlagBanner
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Nepali Panchang
+                  </span>
                 </Link>
                 <Link
                   to='/kundali'
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Sun size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Birth Kundali</span>
+                  <Sun
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Birth Kundali
+                  </span>
                 </Link>
               </div>
             </section>
@@ -189,24 +220,39 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Star size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Daily</span>
+                  <Star
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Daily
+                  </span>
                 </Link>
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <ChartLine size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Weekly</span>
+                  <ChartLine
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Weekly
+                  </span>
                 </Link>
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Calendar size={32} className='text-red-500 group-hover:text-white' />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>Monthly</span>
+                  <Calendar
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    Monthly
+                  </span>
                 </Link>
               </div>
             </section>

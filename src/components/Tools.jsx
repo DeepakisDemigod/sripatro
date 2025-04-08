@@ -1,35 +1,16 @@
-/*import React from 'react';
-
-const Tools = () => {
-  return (
-    <div>
-      <h3>Also Checkout</h3>
-      <ul>
-        <a href='/birthpanchang'>
-          <li>Birth Panchang (AD)</li>
-        </a>
-        <a href='/nepalitoenglish'>
-          <li>Bikram Sambat to Panchang (BS)</li>
-        </a>
-      </ul>
-    </div>
-  );
-};
-
-export default Tools;
-*/
-
 import { ArrowSquareOut } from 'phosphor-react';
 import React from 'react';
 import { Link } from 'react-router-dom'; // If using React Router
 import SiteBanner from './SiteBanner.jsx';
+import { useTranslation } from 'react-i18next';
 
 const Tools = () => {
+  const { t } = useTranslation();
   return (
-    <div className="bg-white text-black">
+    <div className='bg-white text-black'>
       <div className='bg-white rounded-lg shadow-md p-6'>
-        <h3 className='text-lg font-semibold underline mb-4'>
-          Explore More Tools
+        <h3 className='text-lg font-semibold mb-4'>
+          {t('Explore More Tools')}
         </h3>
         <ol className='text-sm list-none pl-0 border border-l-4 border-l-red-600'>
           <li>
@@ -37,7 +18,7 @@ const Tools = () => {
               to='/'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Panchang Today (Live) <ArrowSquareOut size={18} />
+              {t('Panchang Today (Live)')} <ArrowSquareOut size={18} />
             </Link>
           </li>
           <li>
@@ -45,7 +26,7 @@ const Tools = () => {
               to='/birthpanchang'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Birth Panchang (AD)
+              {t('Birth Panchang (AD)')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>
@@ -54,7 +35,7 @@ const Tools = () => {
               to='/nepalitoenglish'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Bikram Sambat to Panchang (BS)
+              {t('Bikram Sambat to Panchang (BS)')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>
@@ -63,21 +44,21 @@ const Tools = () => {
               to='/kundali'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Birth Kundali (AD)
+              {t('Birth Kundali (AD)')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>
         </ol>
         <br />
 
-        <h3 className='text-lg font-semibold underline mb-4'>Horoscope</h3>
+        <h3 className='text-lg font-semibold mb-4'>{t('Horoscope')}</h3>
         <ul className='text-sm list-none pl-0 border border-l-4 border-l-red-600'>
           <li>
             <Link
               to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Daily Horoscope
+              {t('Daily Horoscope')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>
@@ -86,7 +67,7 @@ const Tools = () => {
               to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Weekly Horoscope
+              {t('Weekly Horoscope')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>
@@ -95,7 +76,7 @@ const Tools = () => {
               to='/horoscope'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
-              Monthly Horoscope
+              {t('Monthly Horoscope')}
               <ArrowSquareOut size={18} />
             </Link>
           </li>

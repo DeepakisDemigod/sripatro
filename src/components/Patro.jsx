@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { MhahPanchang } from "mhah-panchang";
 import { Calendar, Alarm } from "phosphor-react";
+import { useTranslation } from "react-i18next";
+
 
 const Patro = () => {
   const [mhahObj, setMhahObj] = useState(null);
   const [currentTime, setCurrentTime] = useState("");
+  const { t } = useTranslation();
 
   // Fetch Panchang details once
   useEffect(() => {
@@ -40,8 +43,8 @@ const Patro = () => {
   return mhahObj ? (
     <div className="flex justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-4 w-full max-w-3xl">
-        <h3 className="text-2xl font-semibold text-gray-800 underline mb-4">
-          Panchang Today
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          {t('Panchang Today')}
         </h3>
         <div className="text-center text-gray-600 mb-6">
           <h2 className="text-md flex items-center justify-start gap-2">
