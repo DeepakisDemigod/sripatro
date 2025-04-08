@@ -33,7 +33,7 @@ const TimeNotifier = () => {
           'Time Update jsj',
           `${date} - ${time} We are a UK-based publisher producing educational posters suitable for wall space at home, work or places of study. Allcharts themed educational wallcharts are for anyone who loves discovery. Spanning the arts, sciences, culture and politics, they celebrate humanity’s most accomplished achievers, introducing their stories in an accessible format. We create visually engaging classroom posters that spark curiosity and inspire future pioneers, innovators and adventurers.`
         );
-      }, 1000); // every 1 min
+      }, 60000); // every 1 min
 
       return () => clearInterval(interval);
     }
