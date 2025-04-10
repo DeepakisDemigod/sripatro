@@ -414,7 +414,7 @@ const TimeNotifier = () => {
 
       await showNotification(title, description);
       setLastNotifiedMinute(minute);
-    }, 1000); // every 15 seconds
+    }, 60000); // every minute
 
     return () => clearInterval(interval);
   }, [lastNotifiedMinute]);

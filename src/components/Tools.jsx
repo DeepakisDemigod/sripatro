@@ -9,9 +9,7 @@ const Tools = () => {
   return (
     <div className='bg-white text-black'>
       <div className='bg-white rounded-lg shadow-md p-6'>
-        <h3 className='text-lg font-semibold mb-4'>
-          {t('Explore More Tools')}
-        </h3>
+        <h3 className='text-lg font-semibold mb-4'>{t('Jyotish')}</h3>
         <ol className='text-sm list-none pl-0 border border-l-4 border-l-red-600'>
           <li>
             <Link

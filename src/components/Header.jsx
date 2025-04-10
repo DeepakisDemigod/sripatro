@@ -11,8 +11,10 @@ import {
 } from 'phosphor-react';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+  const { t } = useTranslation();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const drawerCheckboxRef = useRef(null);
 
@@ -154,7 +156,7 @@ export default function Header() {
 
             {/* Astrology Section */}
             <section className='mb-6'>
-              <h3 className='text-lg font-semibold mb-3'>Astrology</h3>
+              <h3 className='text-lg font-semibold mb-3'>{t('Jyotish')}</h3>
               <div className='grid grid-cols-2 gap-3'>
                 <Link
                   to='/'
@@ -166,7 +168,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Panchang Today
+                    {t('Panchang Today')}
                   </span>
                 </Link>
                 <Link
@@ -179,7 +181,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Birth Panchang
+                    {t('Birth Panchang (AD)')}
                   </span>
                 </Link>
                 <Link
@@ -192,7 +194,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Nepali Panchang
+                    {t('Bikram Sambat to Panchang (BS)')}
                   </span>
                 </Link>
                 <Link
@@ -205,7 +207,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Birth Kundali
+                    {t('Birth Kundali (AD)')}
                   </span>
                 </Link>
               </div>
@@ -213,7 +215,7 @@ export default function Header() {
 
             {/* Horoscope Section */}
             <section className='mb-6'>
-              <h3 className='text-lg font-semibold mb-3'>Horoscope</h3>
+              <h3 className='text-lg font-semibold mb-3'>{t('Horoscope')}</h3>
               <div className='grid grid-cols-2 gap-3'>
                 <Link
                   to='/horoscope'
@@ -225,7 +227,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Daily
+                    {t('Daily Horoscope')}
                   </span>
                 </Link>
                 <Link
@@ -238,7 +240,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Weekly
+                    {t('Weekly Horoscope')}
                   </span>
                 </Link>
                 <Link
@@ -251,7 +253,7 @@ export default function Header() {
                     className='text-red-500 group-hover:text-white'
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
-                    Monthly
+                    {t('Monthly Horoscope')}
                   </span>
                 </Link>
               </div>

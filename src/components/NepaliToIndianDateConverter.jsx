@@ -341,6 +341,7 @@ import { MhahPanchang } from 'mhah-panchang';
 import NepaliDate from 'nepali-date-converter';
 import { Alarm, Calendar, CaretLeft } from 'phosphor-react';
 import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
+import { useTranslation } from 'react-i18next';
 
 const BS_MONTHS = [
   'Baisakh',
@@ -368,6 +369,7 @@ const DAYS = [
 ];
 
 const BirthPanchangBS = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = 'Birth Panchang for BS Date | Sri Patro';
   }, []);
@@ -502,7 +504,7 @@ const BirthPanchangBS = () => {
                 href='/'
                 className='hover:underline'
               >
-                <CaretLeft size={19} /> <span>Back</span>
+                <CaretLeft size={19} /> <span>{t('Back')}</span>
               </a>
             </li>
           </ul>
@@ -515,7 +517,7 @@ const BirthPanchangBS = () => {
           <div>
             <label className='block text-gray-600 font-medium mb-1 flex items-center gap-2'>
               <Calendar size={18} />
-              <span>Date of Birth</span>
+              <span>{t('Date of Birth')}</span>
             </label>
             <div className='grid grid-cols-3 gap-3'>
               <input
@@ -559,7 +561,7 @@ const BirthPanchangBS = () => {
           <div>
             <label className='block text-gray-600 font-medium mb-1 flex items-center gap-2'>
               <Alarm size={18} />
-              <span>Time of Birth</span>
+              <span>{t('Time of Birth')}</span>
             </label>
             <input
               type='time'
@@ -601,71 +603,92 @@ const BirthPanchangBS = () => {
                 <table className='table w-full mt-4'>
                   <tbody>
                     <tr>
-                      <th>Day</th>
-                      <td>{panchang?.Day?.name_en_UK || 'N/A'}</td>
+                      <th>{t('Day')}</th>
+                      <td>{t(`day.${panchang?.Day?.name_en_UK}`) || 'N/A'}</td>
                     </tr>
                     <tr>
-                      <th>Paksha</th>
-                      <td>{panchang?.Paksha?.name_en_IN || 'N/A'}</td>
+                      <th>{t('Paksh')}</th>
+                      <td>
+                        {t(`paksha.${panchang?.Paksha?.name_en_IN}`) || 'N/A'}
+                      </td>
                     </tr>
                     <tr>
-                      <th>Tithi</th>
-                      <td>{panchang?.Tithi?.name_en_IN || 'N/A'}</td>
+                      <th>{t('Tithi')}</th>
+                      <td>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`) || 'N/A'}
+                      </td>
                     </tr>
                     <tr>
-                      <th>Nakshatra</th>
-                      <td>{panchang?.Nakshatra?.name_en_IN || 'N/A'}</td>
+                      <th>{t('Nakshatra')}</th>
+                      <td>
+                        {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
+                          'N/A'}
+                      </td>
                     </tr>
                     <tr>
-                      <th>Raasi</th>
-                      <td>{panchang?.Raasi?.name_en_UK || 'N/A'}</td>
+                      <th>{t('Rasi')}</th>
+                      <td>
+                        {t(`rasi.${panchang?.Raasi?.name_en_UK}`) || 'N/A'}
+                      </td>
                     </tr>
                     {nakshatraInfo && (
                       <>
                         <tr>
-                          <th>Syllables</th>
+                          <th>{t('Syllables')}</th>
                           <td>
-                            {nakshatraInfo['first syllables'] ||
+                            {t(
+                              `syllables.${nakshatraInfo['first syllables']}`
+                            ) || 'Not Available'}
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{t('Gan')}</th>
+                          <td>
+                            {t(`ganam.${nakshatraInfo.ganam}`) ||
                               'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th>Ganam</th>
-                          <td>{nakshatraInfo.ganam || 'Not Available'}</td>
-                        </tr>
-                        <tr>
-                          <th>Animal Sign</th>
+                          <th>{t('Animal Sign')}</th>
                           <td>
-                            {nakshatraInfo['animal sign'] || 'Not Available'}
+                            {t(`animal.${nakshatraInfo['animal sign']}`) ||
+                              'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th>Deity</th>
-                          <td>{nakshatraInfo.Diety || 'Not Available'}</td>
+                          <th>{t('Deity')}</th>
+                          <td>
+                            {t(`deity.${nakshatraInfo.Diety}`) ||
+                              'Not Available'}
+                          </td>
                         </tr>
 
                         <tr>
-                          <th>Best Direction</th>
+                          <th>{t('Best Direction')}</th>
                           <td>
-                            {nakshatraInfo['best direction'] || 'Not Available'}
+                            {t(
+                              `best_direction.${nakshatraInfo['best direction']}`
+                            ) || 'Not Available'}
                           </td>
                         </tr>
                       </>
                     )}
                     <tr>
-                      <th>Yoga</th>
-                      <td>{panchang?.Yoga?.name_en_IN || 'N/A'}</td>
+                      <th>{t('Yoga')}</th>
+                      <td>
+                        {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'N/A'}
+                      </td>
                     </tr>
                     <tr>
-                      <th>Karna</th>
-                      <td>{panchang?.Karna?.name_en_IN || 'N/A'}</td>
+                      <th>{t('Karna')}</th>
+                      <td>{t(`karna.${panchang?.Karna?.name_en_IN}`) || 'N/A'}</td>
                     </tr>
 
                     {age && (
                       <tr>
-                        <th>Age</th>
+                        <th>{t('Age')}</th>
                         <td>
-                          {age.years} years and {age.months} months
+                          {age.years} {t('years and')} {age.months} {t('months')}
                         </td>
                       </tr>
                     )}

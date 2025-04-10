@@ -234,8 +234,10 @@ import { MhahPanchang } from 'mhah-panchang';
 import { Alarm, Swap, Calendar, CaretLeft } from 'phosphor-react';
 import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
 import ScrollTop from './ScrollTop.jsx';
+import { useTranslation } from 'react-i18next';
 
 const BirthPanchang = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     document.title = 'Birth Panchang | Sri Patro';
     //handleSubmit()
@@ -313,18 +315,18 @@ const BirthPanchang = () => {
       <div className='bg-white border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
         <div className='breadcrumbs border rounded text-black px-4 text-sm'>
           <ul>
-            <li className="hover:border">
+            <li className='hover:border'>
               <a
                 href='/'
                 className='hover:underline'
               >
-                <CaretLeft size={19} /> <span>Back</span>
+                <CaretLeft size={19} /> <span>{t('Back')}</span>
               </a>
             </li>
           </ul>
         </div>
         <h2 className='text-2xl font-semibold text-gray-800 mb-6'>
-          Birth Panchang
+          {t('Birth Panchang (AD)')}
         </h2>
 
         <form
@@ -337,7 +339,7 @@ const BirthPanchang = () => {
               className='flex items-center gap-2 block text-sm font-medium text-gray-700'
             >
               <Calendar size={18} />
-              <span>Date of Birth</span>
+              <span>{t('Date of Birth')}</span>
             </label>
             <input
               id='dob'
@@ -355,7 +357,7 @@ const BirthPanchang = () => {
               className='flex items-center gap-2 block text-sm font-medium text-gray-700'
             >
               <Alarm size={18} />
-              <span>Time of Birth</span>
+              <span>{t('Time of Birth')}</span>
             </label>
             <input
               id='time'
@@ -371,82 +373,109 @@ const BirthPanchang = () => {
             type='submit'
             className='w-full bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
           >
-            Get Panchang
+            {t('Get Panchang')}
           </button>
         </form>
 
         {panchang ? (
           <div className='mt-6 bg-gray-100 p-4 rounded-lg overflow-x-auto'>
             <h3 className='text-lg font-semibold underline text-gray-800 mb-4'>
-              Birth Panchang Details
+              {t('Birth Panchang Details')}
             </h3>
             <table className='table w-full bg-white text-black'>
               <tbody>
                 <tr>
-                  <th>Day</th>
-                  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>
+                  <th>{t('Day')}</th>
+                  <td>
+                    {t(`day.${panchang?.Day?.name_en_UK}`) || 'Not Available'}
+                  </td>
+                  {/*  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>*/}
                 </tr>
 
                 <tr>
-                  <th>Paksh</th>
-                  <td>{panchang?.Paksha?.name_en_IN || 'Not Available'}</td>
+                  <th>{t('Paksh')}</th>
+                  <td>
+                    {t(`paksha.${panchang?.Paksha?.name_en_IN}`) ||
+                      'Not Available'}
+                  </td>
                 </tr>
 
                 <tr>
-                  <th>Tithi</th>
-                  <td>{panchang?.Tithi?.name_en_IN || 'Not Available'}</td>
+                  <th>{t('Tithi')}</th>
+                  <td>
+                    {t(`tithi.${panchang?.Tithi?.name_en_IN}`) ||
+                      'Not Available'}
+                  </td>
                 </tr>
 
                 <tr>
-                  <th>Nakshatra</th>
-                  <td>{panchang?.Nakshatra?.name_en_IN || 'Not Available'}</td>
+                  <th>{t('Nakshatra')}</th>
+                  <td>
+                    {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
+                      'Not Available'}
+                  </td>
                 </tr>
                 <tr>
-                  <th>Raasi</th>
-                  <td>{panchang?.Raasi?.name_en_UK || 'Not Available'}</td>
+                  <th>{t('Rasi')}</th>
+                  <td>
+                    {t(`rasi.${panchang?.Raasi?.name_en_UK}`) ||
+                      'Not Available'}
+                  </td>
                 </tr>
                 {nakshatraInfo && (
                   <>
                     <tr>
-                      <th>Syllables</th>
+                      <th>{t('Syllables')}</th>
                       <td>
-                        {nakshatraInfo['first syllables'] || 'Not Available'}
+                        {t(`syllables.${nakshatraInfo['first syllables']}`) ||
+                          'Not Available'}
                       </td>
                     </tr>
                     <tr>
-                      <th>Gan</th>
-                      <td>{nakshatraInfo.ganam || 'Not Available'}</td>
-                    </tr>
-                    <tr>
-                      <th>Animal Sign</th>
-                      <td>{nakshatraInfo['animal sign'] || 'Not Available'}</td>
-                    </tr>
-                    <tr>
-                      <th>Deity</th>
-                      <td>{nakshatraInfo.Diety || 'Not Available'}</td>
-                    </tr>
-                    <tr>
-                      <th>Best Direction</th>
+                      <th>{t('Gan')}</th>
                       <td>
-                        {nakshatraInfo['best direction'] || 'Not Available'}
+                        {t(`ganam.${nakshatraInfo.ganam}`) || 'Not Available'}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>{t('Animal Sign')}</th>
+                      <td>
+                        {t(`animal.${nakshatraInfo['animal sign']}`) ||
+                          'Not Available'}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>{t('Deity')}</th>
+                      <td>
+                        {t(`deity.${nakshatraInfo.Diety}`) || 'Not Available'}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>{t('Best Direction')}</th>
+                      <td>
+                        {t(
+                          `best_direction.${nakshatraInfo['best direction']}`
+                        ) || 'Not Available'}
                       </td>
                     </tr>
                   </>
                 )}
                 <tr>
-                  <th>Yoga</th>
-                  <td>{panchang?.Yoga?.name_en_IN || 'Not Available'}</td>
+                  <th>{t('Yoga')}</th>
+                  <td>
+                    {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'Not Available'}
+                  </td>
                 </tr>
                 <tr>
-                  <th>Karna</th>
-                  <td>{panchang?.Karna?.name_en_IN || 'Not Available'}</td>
+                  <th>{t('Karna')}</th>
+                  <td>{t(`karna.${panchang?.Karna?.name_en_IN}`) || 'Not Available'}</td>
                 </tr>
 
                 {age && (
                   <tr>
-                    <th>Age</th>
+                    <th>{t('Age')}</th>
                     <td>
-                      {age.years} years and {age.months} months
+                      {age.years} {t('years and')} {age.months} {t('months')}
                     </td>
                   </tr>
                 )}
@@ -455,7 +484,7 @@ const BirthPanchang = () => {
           </div>
         ) : (
           <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
-            Enter your details to get your birth Panchang.
+            {t('Enter your details to get your birth Panchang.')}
           </div>
         )}
 
@@ -465,7 +494,7 @@ const BirthPanchang = () => {
             className='flex items-center gap-2 bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
           >
             <Swap size={18} />
-            <span>Change Nepali to English Date</span>
+            <span>{t('Change Nepali to English Date')}</span>
           </a>
         </div>
       </div>
