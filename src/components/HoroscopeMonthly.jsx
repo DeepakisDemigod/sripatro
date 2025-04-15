@@ -110,7 +110,7 @@ function HoroscopeMonthly() {
                     </div>
                     <button onClick={() => toggleSpeech(sign)}>
                       {activeSign === sign && speechStatus === "started" ? (
-                        <p className="bg-blue-600 rounded-full p-2">
+                        <p className="bg-red-600 rounded-full p-2">
                           <Pause
                             size={21}
                             weight="bold"
@@ -118,7 +118,7 @@ function HoroscopeMonthly() {
                           />
                         </p>
                       ) : (
-                        <p className="bg-blue-600 rounded-full p-2">
+                        <p className="bg-red-600 rounded-full p-2">
                           <Play
                             size={21}
                             weight="bold"

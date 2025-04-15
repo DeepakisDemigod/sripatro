@@ -1,5 +1,5 @@
 {
-  "Panchang": "पञ्चाङ",
+  "Panchang": "पञ्चाङ्ग",
   "Kundali": "कुण्डली",
   "Horoscope": "राशिफल",
   "AD": "ईसवी सन",
@@ -39,11 +39,11 @@
   "tithi": {
     "Punnami": "पूर्णिमा",
     "Amavasya": "अमावस्या",
-    "Trayodasi":"त्रयोदशी",
+    "Trayodasi": "त्रयोदशी",
     "Ekadasi": "एकादशी",
     "Dvadasi": "द्वादशी",
     "Thadiya": "तृतीया",
-    "Chaturdashi": "चतुर्दशी",
+    "Chaturdasi": "चतुर्दशी",
     "Chavithi": "चतुर्थी",
     "Panchami": "पञ्चमी",
     "Shasti": "षष्ठी",
@@ -51,20 +51,20 @@
     "Ashtami": "अष्टमी",
     "Navami": "नवमी",
     "Dasami": "दशमी",
-    "Vidhiya":"द्वितीया",
+    "Vidhiya": "द्वितीया",
     "Padyami": "प्रतिपदा"
   },
   "karna": {
-    "Bava": "बव",
+    "Bawa": "बव",
     "Balava": "बालव",
     "Kaulava": "कौलव",
     "Taitula": "तैतिल",
-    "Garija": "गर",
+    "Garaja": "गर",
     "Vanija": "वणिज",
     "Vishti": "विष्टि",
-    "Shakuni": "शकुनि",
+    "Sakuna": "शकुनि",
     "Chatushpada": "चतुष्पद",
-    "Naga": "नाग",
+    "Nagava": "नाग",
     "Kimstughna": "किंस्तुघ्न"
   },
   "nakshatra": {
@@ -89,7 +89,7 @@
     "Mula": "मूल",
     "Purva Ashadha": "पूर्वाषाढा",
     "Uttara Ashadha": "उत्तराषाढा",
-    "Shravana": "श्रवण",
+    "Sravana": "श्रवण",
     "Dhanishta": "धनिष्ठा",
     "Shatabhisha": "शतभिषा",
     "Purva Bhadrapada": "पूर्व भाद्रपद",
@@ -98,14 +98,14 @@
   },
   "yoga": {
     "Vishkambha": "विष्कम्भ",
-    "Priti": "प्रीति",
+    "Prithi": "प्रीति",
     "Ayushman": "आयुष्मान",
     "Saubhagya": "सौभाग्य",
-    "Shobhana": "शोभन",
+    "Sobhana": "शोभन",
     "Atiganda": "अतिगण्ड",
     "Sukarman": "सुकर्मा",
-    "Dhriti": "धृति",
-    "Shoola": "शूल",
+    "Dhrithi": "धृति",
+    "Soola": "शूल",
     "Ganda": "गण्ड",
     "Vridhi": "वृद्धि",
     "Dhruva": "ध्रुव",
@@ -114,20 +114,56 @@
     "Vajra": "वज्र",
     "Siddhi": "सिद्धि",
     "Vyatipata": "व्यतीपात",
-    "Variyana": "वरियान",
+    "Variyan": "वरियान",
     "Parigha": "परिघ",
-    "Shiva": "शिव",
+    "Siva": "शिव",
     "Siddha": "सिद्ध",
     "Sadhya": "साध्य",
-    "Shubha": "शुभ",
-    "Shukla": "शुक्ल",
+    "Subha": "शुभ",
+    "Sukla": "शुक्ल",
     "Brahma": "ब्रह्मा",
     "Indra": "इन्द्र",
-    "Vaidhriti": "वैधृति"
+    "Vaidhruthi": "वैधृति"
   },
   "paksha": {
     "Shukla": "शुक्ल पक्ष",
     "Krishna": "कृष्ण पक्ष"
+  },
+  
+  "timePeriod": {
+    "Morning": "बिहान को",
+    "Afternoon": "दिउँसो को",
+    "Evening": "साँझ को",
+    "Night": "राति को"
+  },
+  
+  "nepaliMonth": {
+    "Baisakh": "बैशाख",
+    "Jestha": "जेठ",
+    "Ashadh": "असार",
+    "Shrawan": "श्रावण",
+    "Bhadra": "भदौ",
+    "Ashwin": "असोज",
+    "Kartik": "कार्तिक",
+    "Mangsir": "मंसिर",
+    "Paush": "पुष",
+    "Magh": "माघ",
+    "Falgun": "फाल्गुण",
+    "Chaitra": "चैत्र"
+  },
+  "month": {
+    "January": "जनवरी",
+    "February": "फेब्रुअरी",
+    "March": "मार्च",
+    "April": "अप्रिल",
+    "May": "मे",
+    "June": "जुन",
+    "July": "जुलाई",
+    "August": "अगस्ट",
+    "September": "सेप्टेम्बर",
+    "October": "अक्टोबर",
+    "November": "नोभेम्बर",
+    "December": "डिसेम्बर"
   },
   "syllables": {
     "Chu, Che, Cho, La": "चु, चे, चो, ला",
@@ -160,7 +196,7 @@
   },
   "ganam": {
     "Deva": "देव",
-    "Manushya": "मनुष्य",
+    "Manushya": "नर",
     "Rakshasa": "राक्षस"
   },
   "animal": {
@@ -224,11 +260,10 @@
     "West": "पश्चिम",
     "North": "उत्तर"
   },
-  
-  
+
   "Jyotish": "ज्योतिष",
-  "Panchang Today": "आजको पञ्चाङ",
-  "Panchang Today (Live)": "आजको पञ्चाङ (लाइभ)",
+  "Panchang Today": "आजको पञ्चाङ्ग",
+  "Panchang Today (Live)": "आजको पञ्चाङ्ग (लाइभ)",
   "Value": "मूल्य",
   "Start Time": "सुरु समय",
   "End Time": "अन्त्य समय",
@@ -237,8 +272,8 @@
   "Karna": "कर्ण",
   "Yoga": "योग",
   "Rasi": "राशी",
-  "Birth Panchang (AD)": "जन्म पञ्चाङ (इस्वी संवत्)",
-  "Bikram Sambat to Panchang (BS)": "विक्रम संवत देखी पञ्चाङ (बि.स.)",
+  "Birth Panchang (AD)": "जन्म पञ्चाङ्ग (इस्वी संवत्)",
+  "Bikram Sambat to Panchang (BS)": "विक्रम संवत देखी पञ्चाङ्ग (बि.स.)",
   "Birth Kundali (AD)": "जन्म कुण्डली (ईस्वी.)",
   "Horoscope": "राशिफल",
   "Daily Horoscope": "दैनिक राशिफल",
@@ -248,7 +283,7 @@
   "Time of Birth": "जन्म समय",
   "Birth Panchang Details": "जन्म पञ्चांग विवरण",
   "Enter your details to get your birth Panchang.": "आफ्नो जन्म पञ्चङ्ग प्राप्त गर्न आफ्नो विवरणहरू प्रविष्ट गर्नुहोस्।",
-  "Change Nepali to English Date":"नेपालीलाई भारतीय मितिमा परिवर्तन गर्नुहोस्",
+  "Change Nepali to English Date": "नेपालीलाई भारतीय मितिमा परिवर्तन गर्नुहोस्",
   "Day": "बार",
   "Paksh": "पक्ष",
   "Syllables": "अक्षरहरू",
@@ -260,5 +295,6 @@
   "years and": "वर्ष र",
   "months": "महिना",
   "Back": "पछाडि",
-  "Get Panchang": "पञ्चङ्ग प्राप्त गर्नुहोस्"
+  "Get Panchang": "पञ्चाङ्ग प्राप्त गर्नुहोस्",
+  "Bikram Sambat to Panchang": "नेपाली पञ्चाङ्ग"
 }

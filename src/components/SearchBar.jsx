@@ -47,7 +47,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="bg-white text-black relative w-full md:w-96 lg:w-1/2">
+    <div className="bg-white text-black relative w-full ">
       <label className="flex items-center gap-2 text-base-content border border-blue-300 rounded-xl shadow-sm w-full px-3 py-2">
         <MagnifyingGlass className="text-black" size={20} />
         <input

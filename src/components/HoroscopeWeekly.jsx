@@ -247,7 +247,7 @@ function HoroscopeWeekly() {
                           horoscopeData[sign].data.horoscope_data
                         )
                       }
-                      className="ml-4 text-green-600 text-sm p-2 bg-blue-600 rounded-full"
+                      className="ml-4 text-green-600 text-sm p-2 bg-red-600 rounded-full"
                     >
                       {speaking === sign ? (
                         <Pause size={21} color="white" />

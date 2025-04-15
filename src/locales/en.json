@@ -43,7 +43,7 @@
     "Ekadasi": "Ekadashi",
     "Dvadasi": "Dvadasi",
     "Thadiya": "Tritiya",
-    "Chaturdashi": "Chaturdashi",
+    "Chaturdasi": "Chaturdashi",
     "Chavithi": "Chaturthi",
     "Panchami": "Panchami",
     "Shasti": "Shasti",
@@ -84,28 +84,28 @@
     "Rebati": "Revati"
   },
   "karna": {
-    "Bava": "Bava",
+    "Bawa": "Bava",
     "Balava": "Balava",
     "Kaulava": "Kaulava",
     "Taitula": "Taitila",
-    "Garija": "Garija",
+    "Garaja": "Garija",
     "Vanija": "Vanija",
     "Vishti": "Vishti",
-    "Shakuni": "Shakuni",
+    "Sakuna": "Shakuni",
     "Chatushpada": "Chatushpada",
-    "Naga": "Naga",
+    "Nagava": "Naga",
     "Kimstughna": "Kimstughna"
   },
   "yoga": {
     "Vishkambha": "Vishkambha",
-    "Priti": "Priti",
+    "Prithi": "Priti",
     "Ayushman": "Ayushman",
     "Saubhagya": "Saubhagya",
-    "Shobhana": "Shobhana",
+    "Sobhana": "Shobhana",
     "Atiganda": "Atiganda",
     "Sukarman": "Sukarman",
-    "Dhriti": "Dhriti",
-    "Shoola": "Shoola",
+    "Dhrithi": "Dhriti",
+    "Soola": "Shoola",
     "Ganda": "Ganda",
     "Vridhi": "Vriddhi",
     "Dhruva": "Dhruva",
@@ -114,26 +114,60 @@
     "Vajra": "Vajra",
     "Siddhi": "Siddhi",
     "Vyatipata": "Vyatipata",
-    "Variyana": "Variyana",
+    "Variyan": "Variyana",
     "Parigha": "Parigha",
-    "Shiva": "Shiva",
+    "Siva": "Shiva",
     "Siddha": "Siddha",
     "Sadhya": "Sadhya",
-    "Shubha": "Shubha",
-    "Shukla": "Shukla",
+    "Subha": "Shubha",
+    "Sukla": "Shukla",
     "Brahma": "Brahma",
     "Indra": "Indra",
-    "Vaidhriti": "Vaidhriti"
+    "Vaidhruthi": "Vaidhriti"
   },
   "paksha": {
     "Shukla": "Shukla",
     "Krishna": "Krishna"
   },
   
+  "timePeriod": {
+    "Morning": "Morning",
+    "Afternoon": "Afternoon",
+    "Evening": "Evening",
+    "Night": "Night"
+  },
   
-  
-  
-  
+  "nepaliMonth": {
+    "Baisakh": "Baisakh",
+    "Jestha": "Jestha",
+    "Ashadh": "Ashadh",
+    "Shrawan": "Shrawan",
+    "Bhadra": "Bhadra",
+    "Ashwin": "Ashwin",
+    "Kartik": "Kartik",
+    "Mangsir": "Mangsir",
+    "Paush": "Poush",
+    "Magh": "Magh",
+    "Falgun": "Falgun",
+    "Chaitra": "Chaitra"
+  },
+
+  "month": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
+
+
   "syllables": {
     "Chu, Che, Cho, La": "Chu, Che, Cho, La",
     "Lee, Lu, Le, Lo": "Lee, Lu, Le, Lo",
@@ -229,8 +263,7 @@
     "West": "West",
     "North": "North"
   },
-  
-  
+
   "Jyotish": "Jyotish",
   "Panchang Today": "Panchang Today",
   "Panchang Today (Live)": "Panchang Today (Live)",
@@ -253,7 +286,7 @@
   "Time of Birth": "Time of Birth",
   "Birth Panchang Details": "Birth Panchang Details",
   "Enter your details to get your birth Panchang.": "Enter your details to get your birth Panchang.",
-  "Change Nepali to English Date":"Change Nepali to English Date",
+  "Change Nepali to English Date": "Change Nepali to English Date",
   "Day": "Day",
   "Paksh": "Paksh",
   "Syllables": "Syllables",
@@ -265,5 +298,6 @@
   "years and": "years and",
   "months": "months",
   "Back": "Back",
-  "Get Panchang": "Get Panchang"
+  "Get Panchang": "Get Panchang",
+  "Bikram Sambat to Panchang": "Bikram Sambat to Panchang"
 }

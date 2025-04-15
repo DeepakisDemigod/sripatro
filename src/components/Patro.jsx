@@ -44,8 +44,6 @@ const Patro = () => {
     return () => clearInterval(timer); // Cleanup on component unmount
   }, []);
 
-  console.log(mhahObj);
-
   return mhahObj ? (
     <div className='flex justify-center bg-gray-50'>
       <div className='bg-white shadow-lg rounded-lg p-4 w-full max-w-3xl'>
@@ -53,10 +51,11 @@ const Patro = () => {
           {t('Panchang Today')}
         </h3>
         <div className='text-center text-gray-600 mb-6'>
-          <h2 className='text-md flex items-center justify-start gap-2'>
+          <h2 className='text-sm flex items-center justify-start gap-2'>
             <Calendar size={18} />
             {/*{mhahObj?.Day?.name_en_UK || 'Day not available'}*/}
-            {t(`day.${mhahObj?.Day?.name_en_UK}`) || 'Day not available'}{' '}
+            {t(`day.${mhahObj?.Day?.name_en_UK}`) || 'Day not available'}
+            {', '}
             {currentTime}
           </h2>
         </div>
@@ -72,7 +71,7 @@ const Patro = () => {
                 <th>{t('End Time')}</th>
               </tr>
             </thead>
-            <tbody className='text-sm'>
+            <tbody className='text-xs'>
               {/* row 1 */}
               <tr>
                 <td>{t('Tithi')}</td>
