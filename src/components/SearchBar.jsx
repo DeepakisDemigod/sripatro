@@ -24,10 +24,16 @@ function SearchBar() {
       desc: "Get Kundali from date of birth and time.",
     },
     {
-      title: "Horoscope (Daily)",
+      title: "Horoscope",
       link: "/horoscope",
-      desc: "Get daily horoscope today, yesterday and tomorrow.",
+      desc: "Get daily, weekly and monthly horoscope.",
     },
+    {
+      title: "Nepali Cheena",
+      link: "/nepali-cheema",
+      desc: "Get daily, weekly and monthly horoscope.",
+    
+    }
   ];
 
   const handleChange = (event) => {

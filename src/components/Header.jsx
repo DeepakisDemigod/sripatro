@@ -7,7 +7,7 @@ import {
   Calendar,
   ChartLine,
   Star,
-  Sun
+  Sun, DiamondsFour
 } from 'phosphor-react';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
@@ -208,6 +208,17 @@ export default function Header() {
                   />
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Birth Kundali (AD)')}
+                  </span>
+                </Link>
+                <Link
+                to='/nepali-cheena'
+                  onClick={handleLinkClick}
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                >
+                  <DiamondsFour size={32}          className='text-red-500 group-hover:text-white'
+                 />
+                                   <span className='text-xs mt-2 text-center group-hover:text-white'>
+                    {t('Nepali Cheena')}
                   </span>
                 </Link>
               </div>

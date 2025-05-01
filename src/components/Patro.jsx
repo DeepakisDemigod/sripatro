@@ -61,9 +61,9 @@ const Patro = () => {
         </div>
 
         <div className='overflow-x-auto'>
-          <table className='table  w-full'>
+          <table className='table w-full'>
             {/* head */}
-            <thead className='bg-red-600 text-white text-sm'>
+            <thead className='bg-red-700 text-zinc-100 text-sm'>
               <tr>
                 <th>{t('Panchang')}</th>
                 <th>{t('Value')}</th>
@@ -159,7 +159,7 @@ const Patro = () => {
     </div>
   ) : (
     <div className='min-h-screen flex items-center justify-center bg-gray-50'>
-      <p className='text-lg text-gray-700'>Loading...</p>
+      <span className='loading loading-spinner loading-lg'></span>
     </div>
   );
 };

@@ -78,9 +78,9 @@ function HoroscopeForm() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="min-h-screen bg-white border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-6xl mx-auto">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6 underline">
+       {/* <h3 className="text-2xl font-semibold text-gray-800 mb-6 underline">
           Daily Horoscope for All Signs
-        </h3>
+        </h3> */}
 
         {error && <p className="text-red-600 text-center">{error}</p>}
 

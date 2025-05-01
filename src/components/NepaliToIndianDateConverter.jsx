@@ -268,7 +268,7 @@ const BirthPanchangBS = () => {
 
         {!englishDate && !panchang ? (
           <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
-            Enter date and time to get Panchang.
+            {t('Enter date and time to get Panchang.')}
           </div>
         ) : (
           englishDate && (

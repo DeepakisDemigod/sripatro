@@ -9,7 +9,7 @@
     "Mon": "Mon",
     "Tues": "Tues",
     "Wed": "Wed",
-    "Thurs": "Thurs",
+    "Thur": "Thur",
     "Fri": "Fri",
     "Sat": "Sat"
   },
@@ -121,7 +121,7 @@
     "Sadhya": "Sadhya",
     "Subha": "Shubha",
     "Sukla": "Shukla",
-    "Brahma": "Brahma",
+    "Bramha": "Brahma",
     "Indra": "Indra",
     "Vaidhruthi": "Vaidhriti"
   },
@@ -299,5 +299,6 @@
   "months": "months",
   "Back": "Back",
   "Get Panchang": "Get Panchang",
-  "Bikram Sambat to Panchang": "Bikram Sambat to Panchang"
+  "Bikram Sambat to Panchang": "Bikram Sambat to Panchang",
+  "Enter date and time to get Panchang.":"Enter date and time to get Panchang."
 }

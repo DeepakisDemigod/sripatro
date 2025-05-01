@@ -18,7 +18,7 @@
     "Mon": "सोम",
     "Tues": "मंगल",
     "Wed": "बुध",
-    "Thurs": "बिही",
+    "Thur": "बिही",
     "Fri": "शुक्र",
     "Sat": "शनि"
   },
@@ -121,7 +121,7 @@
     "Sadhya": "साध्य",
     "Subha": "शुभ",
     "Sukla": "शुक्ल",
-    "Brahma": "ब्रह्मा",
+    "Bramha": "ब्रह्मा",
     "Indra": "इन्द्र",
     "Vaidhruthi": "वैधृति"
   },
@@ -296,5 +296,6 @@
   "months": "महिना",
   "Back": "पछाडि",
   "Get Panchang": "पञ्चाङ्ग प्राप्त गर्नुहोस्",
-  "Bikram Sambat to Panchang": "नेपाली पञ्चाङ्ग"
+  "Bikram Sambat to Panchang": "नेपाली पञ्चाङ्ग",
+  "Enter date and time to get Panchang.": "पञ्चाङ प्राप्त गर्न मिति र समय प्रविष्ट गर्नुहोस्।"
 }
