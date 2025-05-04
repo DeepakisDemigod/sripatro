@@ -180,9 +180,9 @@ const BirthPanchangBS = () => {
   };
 
   return (
-    <div className='bg-gray-50 flex items-center justify-center p-6'>
-      <div className='bg-white border border-t-red-600 shadow-lg rounded-lg p-8 max-w-lg w-full'>
-        <div className='breadcrumbs border rounded text-black px-4 text-sm'>
+    <div className='text-base-content  bg-base-50 flex items-center justify-center p-6'>
+      <div className=' bg-base-100 border border-t-red-600 shadow-lg rounded-lg p-8 max-w-lg w-full'>
+        <div className='breadcrumbs border rounded   px-4 text-sm'>
           <ul>
             <li className='hover:border'>
               <a
@@ -194,13 +194,13 @@ const BirthPanchangBS = () => {
             </li>
           </ul>
         </div>
-        <h1 className='text-2xl font-bold text-gray-800 mb-6'>
+        <h1 className='text-2xl font-bold text-base-800 mb-6'>
           {t('Bikram Sambat to Panchang')}
         </h1>
 
         <div className='space-y-6'>
           <div>
-            <label className='block text-gray-600 font-medium mb-1 flex items-center gap-2'>
+            <label className='block text-base-600 font-medium mb-1 flex items-center gap-2'>
               <Calendar size={18} />
               <span>{t('Date of Birth')}</span>
             </label>
@@ -213,13 +213,13 @@ const BirthPanchangBS = () => {
                 min='1970'
                 max='2100'
                 placeholder='Year'
-                className='bg-white text-black w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
               />
               <select
                 name='month'
                 value={nepaliDate.month}
                 onChange={handleInputChange}
-                className='bg-white text-black w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
               >
                 {BS_MONTHS.map((month, index) => (
                   <option
@@ -238,13 +238,13 @@ const BirthPanchangBS = () => {
                 min='1'
                 max={getMaxDays()}
                 placeholder='Day'
-                className='bg-white text-black w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
               />
             </div>
           </div>
 
           <div>
-            <label className='block text-gray-600 font-medium mb-1 flex items-center gap-2'>
+            <label className='block text-base-600 font-medium mb-1 flex items-center gap-2'>
               <Alarm size={18} />
               <span>{t('Time of Birth')}</span>
             </label>
@@ -252,7 +252,7 @@ const BirthPanchangBS = () => {
               type='time'
               value={timeOfBirth}
               onChange={handleTimeChange}
-              className='bg-white text-black w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+              className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
             />
           </div>
 
@@ -267,89 +267,89 @@ const BirthPanchangBS = () => {
         {error && <div className='mt-4 text-red-600 font-medium'>{error}</div>}
 
         {!englishDate && !panchang ? (
-          <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
+          <div className='mt-6  bg-base-100 p-4 rounded-lg text-base-600'>
             {t('Enter date and time to get Panchang.')}
           </div>
         ) : (
           englishDate && (
-            <div className='mt-6 bg-gray-100 p-4 rounded-lg overflow-x-auto'>
-              <h2 className='text-lg font-bold text-gray-800'>
+            <div className='mt-6  bg-base-100 p-4 rounded-lg overflow-x-auto'>
+              <h2 className='text-lg font-bold text-base-800'>
                 {t(`day.${dayOfWeek}`)}
                 {', '} {nepaliDate.year}{' '}
                 {t(`nepaliMonth.${BS_MONTHS[nepaliDate.month - 1]}`)}{' '}
                 {nepaliDate.day}
               </h2>
-              <p className='text-gray-600 font-semibold'>
+              <p className='text-base-600 font-semibold'>
                 {formatTimeWithPeriod(timeOfBirth, t)}
               </p>
-              <p className='text-gray-800 text-md font-bold'>{englishDate}</p>
+              <p className='text-base-800 text-md font-bold'>{englishDate}</p>
               {panchang && (
                 <table className='table w-full mt-4'>
                   <tbody>
                     <tr>
-                      <th>{t('Day')}</th>
-                      <td>{t(`day.${panchang?.Day?.name_en_UK}`) || 'N/A'}</td>
+                      <th className="text-base-content">{t('Day')}</th>
+                      <td className="text-base-content">{t(`day.${panchang?.Day?.name_en_UK}`) || 'N/A'}</td>
                     </tr>
                     <tr>
-                      <th>{t('Paksh')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Paksh')}</th>
+                      <td className="text-base-content">
                         {t(`paksha.${panchang?.Paksha?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th>{t('Tithi')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Tithi')}</th>
+                      <td className="text-base-content">
                         {t(`tithi.${panchang?.Tithi?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th>{t('Nakshatra')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Nakshatra')}</th>
+                      <td className="text-base-content">
                         {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
                           'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th>{t('Rasi')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Rasi')}</th>
+                      <td className="text-base-content">
                         {t(`rasi.${panchang?.Raasi?.name_en_UK}`) || 'N/A'}
                       </td>
                     </tr>
                     {nakshatraInfo && (
                       <>
                         <tr>
-                          <th>{t('Syllables')}</th>
-                          <td>
+                          <th className="text-base-content">{t('Syllables')}</th>
+                          <td className="text-base-content">
                             {t(
                               `syllables.${nakshatraInfo['first syllables']}`
                             ) || 'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th>{t('Gan')}</th>
-                          <td>
+                          <th className="text-base-content">{t('Gan')}</th>
+                          <td className="text-base-content">
                             {t(`ganam.${nakshatraInfo.ganam}`) ||
                               'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th>{t('Animal Sign')}</th>
-                          <td>
+                          <th className="text-base-content">{t('Animal Sign')}</th>
+                          <td className="text-base-content">
                             {t(`animal.${nakshatraInfo['animal sign']}`) ||
                               'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th>{t('Deity')}</th>
-                          <td>
+                          <th className="text-base-content">{t('Deity')}</th>
+                          <td className="text-base-content">
                             {t(`deity.${nakshatraInfo.Diety}`) ||
                               'Not Available'}
                           </td>
                         </tr>
 
                         <tr>
-                          <th>{t('Best Direction')}</th>
-                          <td>
+                          <th className="text-base-content">{t('Best Direction')}</th>
+                          <td className="text-base-content">
                             {t(
                               `best_direction.${nakshatraInfo['best direction']}`
                             ) || 'Not Available'}
@@ -358,22 +358,22 @@ const BirthPanchangBS = () => {
                       </>
                     )}
                     <tr>
-                      <th>{t('Yoga')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Yoga')}</th>
+                      <td className="text-base-content">
                         {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th>{t('Karna')}</th>
-                      <td>
+                      <th className="text-base-content">{t('Karna')}</th>
+                      <td className="text-base-content">
                         {t(`karna.${panchang?.Karna?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
 
                     {age && (
                       <tr>
-                        <th>{t('Age')}</th>
-                        <td>
+                        <th className="text-base-content">{t('Age')}</th>
+                        <td className="text-base-content">
                           {age.years} {t('years and')} {age.months}{' '}
                           {t('months')}
                         </td>

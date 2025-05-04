@@ -7,8 +7,10 @@ import {
   Calendar,
   ChartLine,
   Star,
-  Sun, DiamondsFour
+  Sun,
+  DiamondsFour
 } from 'phosphor-react';
+import ThemeToggle from './ThemeToggle.jsx';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +27,7 @@ export default function Header() {
   };
 
   return (
-    <header className='bg-white text-black shadow-sm'>
+    <header className='bg-base-300 text-base-content shadow-sm'>
       <div className='drawer'>
         <input
           id='my-drawer'
@@ -97,7 +99,7 @@ export default function Header() {
                 id='notif_modal'
                 className='modal'
               >
-                <div className='modal-box bg-white text-black'>
+                <div className='modal-box bg-base-100 text-base-content'>
                   <h2 className='font-bold text-lg'>🎉 Download SriPatro!</h2>
                   <p className='py-4'>
                     SriPatro is now available to download at{' '}
@@ -123,29 +125,32 @@ export default function Header() {
                 className='tooltip tooltip-bottom'
                 data-tip='Send Feedback'
               >
-                <button className='btn btn-sm btn-outline text-black'>
-                  Feedback
-                </button>
+                <button className='btn btn-sm btn-outline'>Feedback</button>
               </a>
             </div>
           </nav>
         </div>
 
         {/* Drawer Sidebar */}
-        <div className='drawer-side z-40'>
+        <div className='drawer-side z-40 text-base-content'>
           <label
             htmlFor='my-drawer'
             className='drawer-overlay'
           ></label>
-          <aside className='p-4 w-80 min-h-full bg-white text-black overflow-y-auto'>
+          <aside className='p-4 w-80 min-h-full bg-base-200 overflow-y-auto'>
             {/* Logo */}
-            <div className='flex items-center gap-2 text-xl font-bold mb-6'>
-              <img
-                src='/Shri-symbol.svg'
-                alt='Logo'
-                className='w-8'
-              />
-              Sri Patro
+            <div className='flex items-center justify-between gap-2 text-xl font-bold mb-6'>
+              <div className='flex items-center gap-2 justify-between'>
+                <img
+                  src='/Shri-symbol.svg'
+                  alt='Logo'
+                  className='w-8'
+                />
+                Sri Patro
+              </div>
+              <div>
+                <ThemeToggle />
+              </div>
             </div>
 
             {/* Search and Language */}
@@ -155,26 +160,26 @@ export default function Header() {
             </div>
 
             {/* Astrology Section */}
-            <section className='mb-6'>
+            <section className='mb-6 '>
               <h3 className='text-lg font-semibold mb-3'>{t('Jyotish')}</h3>
-              <div className='grid grid-cols-2 gap-3'>
+              <div className='grid grid-cols-2 gap-3 mx-2'>
                 <Link
                   to='/'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-base-200 transition duration-200 group'
                 >
                   <Calendar
                     size={32}
-                    className='text-red-500 group-hover:text-white'
+                    className=' group-hover:text-base-content'
                   />
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-xs mt-2 text-center group-hover:text-base-content'>
                     {t('Panchang Today')}
                   </span>
                 </Link>
                 <Link
                   to='/birthpanchang'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:bg-base-300 transition duration-200 group'
                 >
                   <Cake
                     size={32}
@@ -187,7 +192,7 @@ export default function Header() {
                 <Link
                   to='/nepalitoenglish'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
                   <FlagBanner
                     size={32}
@@ -200,7 +205,7 @@ export default function Header() {
                 <Link
                   to='/kundali'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
                   <Sun
                     size={32}
@@ -211,13 +216,15 @@ export default function Header() {
                   </span>
                 </Link>
                 <Link
-                to='/nepali-cheena'
+                  to='/nepali-cheena'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <DiamondsFour size={32}          className='text-red-500 group-hover:text-white'
-                 />
-                                   <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <DiamondsFour
+                    size={32}
+                    className='text-red-500 group-hover:text-white'
+                  />
+                  <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Nepali Cheena')}
                   </span>
                 </Link>
@@ -231,7 +238,7 @@ export default function Header() {
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
                   <Star
                     size={32}
@@ -244,7 +251,7 @@ export default function Header() {
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
                   <ChartLine
                     size={32}
@@ -257,7 +264,7 @@ export default function Header() {
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-white text-black border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
                   <Calendar
                     size={32}

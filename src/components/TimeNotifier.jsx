@@ -92,7 +92,7 @@ const TimeNotifier = () => {
 
       await showNotification(title, description);
       setLastNotifiedMinute(minute);
-    }, 1000); // every minute
+    }, 60000); // every minute
 
     return () => clearInterval(interval);
   }, [lastNotifiedMinute]);

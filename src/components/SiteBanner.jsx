@@ -5,22 +5,22 @@ const SiteBanner = () => {
   const install = usePWAInstall();
 
   return (
-    <div className="bg-white shadow-md overflow-hidden">
+    <div className="bg-base-100 shadow-md overflow-hidden text-base-content">
       <div className="flex items-center p-4 gap-2">
         <div className="flex justify-between items-center gap-2">
-          <p className="text-white flex items-center justify-center w-14 h-14 bg-gradient-to-r from-red-400 to-red-700 px-2 rounded text-3xl font-bold">
+          <p className=" flex items-center justify-center w-14 h-14 bg-gradient-to-r from-red-400 to-red-700 px-2 rounded text-3xl font-bold">
             <img src="/Shri_symbol_white.svg" alt="sri logo" />
           </p>
           <div className="flex flex-col ">
-            <h2 className="text-lg font-semibold text-gray-800">SriPatro</h2>
+            <h2 className="text-lg font-semibold text-base-800">SriPatro</h2>
 
             <div className="flex items-center mt-1">
-              <span className="text-sm text-gray-500">4.5</span>
+              <span className="text-sm text-base-500">4.5</span>
               <span className="text-yellow-500">★</span>
-              <span className="text-sm text-gray-500 ml-1">(1,234)</span>
+              <span className="text-sm text-base-500 ml-1">(1,234)</span>
             </div>
           </div>
-          <div className="p-4 border-t border-gray-200 flex justify-end">
+          <div className="p-4  flex justify-end">
             <button>
               <span>
                 {install ? (

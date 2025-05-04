@@ -1,14 +1,13 @@
 import { ArrowSquareOut } from 'phosphor-react';
 import React from 'react';
 import { Link } from 'react-router-dom'; // If using React Router
-import SiteBanner from './SiteBanner.jsx';
 import { useTranslation } from 'react-i18next';
 
 const Tools = () => {
   const { t } = useTranslation();
   return (
-    <div className='bg-white text-black'>
-      <div className='bg-white rounded-lg shadow-md p-6'>
+    <div className=' text-white text-left'>
+      <div className='p-6'>
         <h3 className='text-lg font-semibold mb-4'>{t('Jyotish')}</h3>
         <ol className='text-sm list-none pl-0 border border-l-4 border-l-red-600'>
           <li>
@@ -86,13 +85,12 @@ const Tools = () => {
           target='_blank'
         >
           <img
-            src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light'
+            src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=dark'
             alt='Sri&#0032;Patro - Best&#0032;Nepali&#0032;and&#0032;English&#0032;Calender&#0032;forAccurate&#0032;Hourly&#0032;Panchang | Product Hunt'
             style={{ width: '100vw', height: '54px' }}
           />
         </a>
       </div>
-      <SiteBanner />
     </div>
   );
 };

@@ -6,8 +6,7 @@ const tiles = [
   { label: 'Panchang', icon: '🇮🇳', tag: 'AD', href: '/birthpanchang' },
   { label: 'Kundali', icon: '🪐', tag: 'AD', href: '/kundali' },
   { label: 'Horoscope', icon: '🐏', tag: 'AD', href: '/horoscope' },
-  { label: 'Cheena', icon: '🧧', tag: 'AD', href: '/nepali-cheena' },
-  
+  { label: 'Cheena', icon: '🧧', tag: 'AD', href: '/nepali-cheena' }
 ];
 
 const Tiles = () => {
@@ -33,7 +32,7 @@ const Tiles = () => {
   };
 
   return (
-    <div className=''>
+    <div className='text-base-content'>
       <Slider {...settings}>
         {tiles.map(({ label, icon, tag, href }) => (
           <div
@@ -42,17 +41,13 @@ const Tiles = () => {
           >
             <a
               href={href}
-              className='flex items-center justify-between p-4 bg-white rounded-xl shadow hover:shadow-md transition duration-200 hover:bg-gray-50'
+              className='flex items-center justify-between p-2 bg-base-100 rounded-xl shadow hover:shadow-md transition duration-200 hover:bg-base-50'
             >
               <div className='flex items-center gap-4'>
                 <div className='text-3xl'>{icon}</div>
                 <div>
-                  <div className='text-sm text-gray-500 font-medium'>
-                    {t(tag)}
-                  </div>
-                  <div className='text-md font-semibold text-black'>
-                    {t(label)}
-                  </div>
+                  <div className='text-sm font-medium'>{t(tag)}</div>
+                  <div className='text-md font-semibold'>{t(label)}</div>
                 </div>
               </div>
               <div className=''>

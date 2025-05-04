@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import NepaliDate from 'nepali-date-converter';
@@ -80,17 +78,17 @@ const Calendar = () => {
   };
 
   return (
-    <div className='flex flex-col items-center bg-gray-50'>
-      <div className='bg-white shadow-lg rounded-lg p-4 w-full max-w-md'>
-        <h2 className='underline text-xl font-semibold text-gray-700 text-center mb-6'>
+    <div className='flex flex-col items-center bg-base-50'>
+      <div className='bg-base-200 shadow-lg rounded-lg w-full max-w-md'>
+        {/* <h2 className='underline text-xl font-semibold  text-center mb-6'>
           {currentMonth} {currentYear} ({currentNepaliMonth})
-        </h2>
+        </h2> */}
         <div>
-          <div className='grid grid-cols-7 gap-[2px] text-center text-gray-700 font-medium mb-4'>
+          <div className='grid grid-cols-7 gap-[2px] text-center text-base-content font-medium mb-4'>
             {dayKeys.map(key => (
               <div
                 key={key}
-                className='text-sm bg-red-600 text-white '
+                className='text-sm bg-red-800 text-gray-200 rounded'
               >
                 {t(`calender.${key}`)}
               </div>
@@ -104,8 +102,8 @@ const Calendar = () => {
                   !dayObj
                     ? 'bg-transparent'
                     : dayObj.day === today.getDate()
-                    ? 'hover:animate-bounce bg-red-600 text-white font-semibold'
-                    : 'hover:animate-bounce hover:border-red-200 bg-gray-100 text-gray-600 hover:bg-gray-200 '
+                    ? 'hover: bg-red-700 text-white font-semibold'
+                    : 'hover: hover:border-red-200 bg-base-300 text-base-600 hover:bg-base-200'
                 }`}
               >
                 <div className='text-[18px] ml-2 mb-[-12px]'>
@@ -113,7 +111,7 @@ const Calendar = () => {
                 </div>
                 <div
                   className={`text-[10px] leading-tight ${
-                    dayObj?.isTodayNepali ? 'text-white' : 'text-gray-600'
+                    dayObj?.isTodayNepali ? 'text-white' : 'text-base-700'
                   }`}
                 >
                   {dayObj?.nepDate || ''}
