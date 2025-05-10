@@ -10,7 +10,6 @@ import SiteBanner from "./components/SiteBanner.jsx";
 import NotFound from "./components/NotFound.jsx";
 import TimeNotifier from "./components/TimeNotifier.jsx";
 import CheenaMaker from "./components/CheenaMaker.jsx";
-import { Analytics } from '@vercel/analytics/next';
  
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-<Analytics />
     </Router>
   );
 }

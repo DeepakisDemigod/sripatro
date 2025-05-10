@@ -6,6 +6,11 @@ import "./i18n";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { inject } from '@vercel/analytics';
+
+inject();
+
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js').then(reg => {
     console.log('Service worker registered:', reg);
