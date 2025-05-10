@@ -52,7 +52,7 @@ const Patro = () => {
         {/*<h3 className='text-2xl font-semibold mb-4 underline'>
           {t('Panchang Today')}
         </h3>*/}
-        <div className='bg-base-300 rounded-lg border border-2 border-red-800 p-2 text-sm flex items-center justify-between font-semibold'>
+        <div style={{borderRadius: '4px 4px 0 0'}} className='bg-base-300 border border-2 border-red-800 p-2 text-sm flex items-center justify-between font-semibold'>
           <div className='mx-4'>
             <div className='flex gap-2'>
               <p>
@@ -102,7 +102,7 @@ const Patro = () => {
             )}
           </div>
         </div>
-        <div className='bg-red-800 text-white rounded-lg p-2 text-center mb-6'>
+        <div style={{borderRadius: '0 0 4px 4px'}} className='bg-red-800 text-white p-2 text-center mb-6'>
           <h2 className='text-sm flex items-center justify-start gap-2'>
             <Calendar size={18} />
             {/*{mhahObj?.Day?.name_en_UK || 'Day not available'}*/}
@@ -113,12 +113,12 @@ const Patro = () => {
             {currentTime}
           </h2>
         </div>
-
+<div>
         <Calender />
-        <br />
-
+        
+<br/>
         <div className='overflow-x-auto'>
-          <table className='table w-full border border-base-100 text-base-content'>
+          <table className='rounded table w-full border border-base-100 text-base-content'>
             {/* head */}
             <thead className='bg-red-800 text-sm'>
               <tr className='text-gray-100'>
@@ -214,6 +214,7 @@ const Patro = () => {
               </tr>
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     </div>

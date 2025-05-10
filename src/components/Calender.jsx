@@ -78,8 +78,8 @@ const Calendar = () => {
   };
 
   return (
-    <div className='flex flex-col items-center bg-base-50'>
-      <div className='bg-base-200 shadow-lg rounded-lg w-full max-w-md'>
+    <div className='max-w-80 flex flex-col items-center bg-base-50'>
+      <div className='bg-base-200 rounded-lg w-full max-w-md'>
         {/* <h2 className='underline text-xl font-semibold  text-center mb-6'>
           {currentMonth} {currentYear} ({currentNepaliMonth})
         </h2> */}

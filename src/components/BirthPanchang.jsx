@@ -80,9 +80,9 @@ const BirthPanchang = () => {
   };
 
   return (
-    <div className='bg-white text-black flex items-center justify-center py-10 px-5'>
-      <div className='bg-white border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
-        <div className='breadcrumbs border rounded text-black px-4 text-sm'>
+    <div className='bg-base-100 text-base-content flex items-center justify-center'>
+      <div className='bg-base-200 border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
+        <div className='breadcrumbs border rounded   px-4 text-sm'>
           <ul>
             <li className='hover:border'>
               <a
@@ -94,7 +94,7 @@ const BirthPanchang = () => {
             </li>
           </ul>
         </div>
-        <h2 className='text-2xl font-semibold text-gray-800 mb-6'>
+        <h2 className='text-2xl font-semibold text-base-800 mb-6'>
           {t('Birth Panchang (AD)')}
         </h2>
 
@@ -105,7 +105,7 @@ const BirthPanchang = () => {
           <div>
             <label
               htmlFor='dob'
-              className='flex items-center gap-2 block text-sm font-medium text-gray-700'
+              className='flex items-center gap-2 block text-sm font-medium text-base-700'
             >
               <Calendar size={18} />
               <span>{t('Date of Birth')}</span>
@@ -116,14 +116,14 @@ const BirthPanchang = () => {
               value={dob}
               onChange={e => setDob(e.target.value)}
               required
-              className='bg-white mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
+              className=' bg-base-200 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
             />
           </div>
 
           <div>
             <label
               htmlFor='time'
-              className='flex items-center gap-2 block text-sm font-medium text-gray-700'
+              className='flex items-center gap-2 block text-sm font-medium text-base-700'
             >
               <Alarm size={18} />
               <span>{t('Time of Birth')}</span>
@@ -134,26 +134,26 @@ const BirthPanchang = () => {
               value={time}
               onChange={e => setTime(e.target.value)}
               required
-              className='bg-white mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
+              className=' bg-base-200 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
             />
           </div>
 
           <button
             type='submit'
-            className='w-full bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='w-full bg-red-700 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
           >
             {t('Get Panchang')}
           </button>
         </form>
 
         {panchang ? (
-          <div className='mt-6 bg-gray-100 p-4 rounded-lg overflow-x-auto'>
-            <h3 className='text-lg font-semibold underline text-gray-800 mb-4'>
+          <div className='mt-6 bg-base-200 p-4 rounded-lg overflow-x-auto'>
+            <h3 className='text-lg font-semibold underline text-base-800 mb-4'>
               {t('Birth Panchang Details')}
             </h3>
-            <table className='table w-full bg-white text-black'>
+            <table className='table w-full  bg-base-200 text-base-content '>
               <tbody>
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Day')}</th>
                   <td>
                     {t(`day.${panchang?.Day?.name_en_UK}`) || 'Not Available'}
@@ -161,7 +161,7 @@ const BirthPanchang = () => {
                   {/*  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>*/}
                 </tr>
 
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Paksh')}</th>
                   <td>
                     {t(`paksha.${panchang?.Paksha?.name_en_IN}`) ||
@@ -169,18 +169,20 @@ const BirthPanchang = () => {
                   </td>
                 </tr>
 
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Tithi')}</th>
-                  <td className="flex items-center border-none">
-                    <div>
+                  <td className='flex gap-2 items-start border-none'>
+                    <div className='bg-zinc-200 rounded-full p-[.5px]'>
                       {' '}
                       {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
                         <img
+                          className='shadow-2xl'
                           width='20'
                           src={`moon/shukla/${panchang?.Tithi?.name_en_IN}.png`}
                         />
                       ) : (
                         <img
+                          className='shadow-2xl'
                           width='20'
                           src={`moon/krishna/${panchang?.Tithi?.name_en_IN}.png`}
                         />
@@ -193,14 +195,14 @@ const BirthPanchang = () => {
                   </td>
                 </tr>
 
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Nakshatra')}</th>
                   <td>
                     {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
                       'Not Available'}
                   </td>
                 </tr>
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Rasi')}</th>
                   <td>
                     {t(`rasi.${panchang?.Raasi?.name_en_UK}`) ||
@@ -209,33 +211,33 @@ const BirthPanchang = () => {
                 </tr>
                 {nakshatraInfo && (
                   <>
-                    <tr>
+                    <tr className='text-base-content'>
                       <th>{t('Syllables')}</th>
                       <td>
                         {t(`syllables.${nakshatraInfo['first syllables']}`) ||
                           'Not Available'}
                       </td>
                     </tr>
-                    <tr>
+                    <tr className='text-base-content'>
                       <th>{t('Gan')}</th>
                       <td>
                         {t(`ganam.${nakshatraInfo.ganam}`) || 'Not Available'}
                       </td>
                     </tr>
-                    <tr>
+                    <tr className='text-base-content'>
                       <th>{t('Animal Sign')}</th>
                       <td>
                         {t(`animal.${nakshatraInfo['animal sign']}`) ||
                           'Not Available'}
                       </td>
                     </tr>
-                    <tr>
+                    <tr className='text-base-content'>
                       <th>{t('Deity')}</th>
                       <td>
                         {t(`deity.${nakshatraInfo.Diety}`) || 'Not Available'}
                       </td>
                     </tr>
-                    <tr>
+                    <tr className='text-base-content'>
                       <th>{t('Best Direction')}</th>
                       <td>
                         {t(
@@ -245,13 +247,13 @@ const BirthPanchang = () => {
                     </tr>
                   </>
                 )}
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Yoga')}</th>
                   <td>
                     {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'Not Available'}
                   </td>
                 </tr>
-                <tr>
+                <tr className='text-base-content'>
                   <th>{t('Karna')}</th>
                   <td>
                     {t(`karna.${panchang?.Karna?.name_en_IN}`) ||
@@ -260,7 +262,7 @@ const BirthPanchang = () => {
                 </tr>
 
                 {age && (
-                  <tr>
+                  <tr className='text-base-content'>
                     <th>{t('Age')}</th>
                     <td>
                       {age.years} {t('years and')} {age.months} {t('months')}
@@ -271,7 +273,7 @@ const BirthPanchang = () => {
             </table>
           </div>
         ) : (
-          <div className='mt-6 bg-gray-100 p-4 rounded-lg text-gray-600'>
+          <div className='mt-6 bg-base-100 p-4 rounded-lg text-base-600'>
             {t('Enter your details to get your birth Panchang.')}
           </div>
         )}
@@ -279,7 +281,7 @@ const BirthPanchang = () => {
         <div className='mt-6 flex justify-between'>
           <a
             href='/nepalitoenglish'
-            className='flex items-center gap-2 bg-red-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='flex items-center gap-2 bg-red-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
           >
             <Swap size={18} />
             <span>{t('Change Nepali to English Date')}</span>

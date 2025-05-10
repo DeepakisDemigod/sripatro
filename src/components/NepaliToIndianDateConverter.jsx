@@ -180,7 +180,7 @@ const BirthPanchangBS = () => {
   };
 
   return (
-    <div className='text-base-content  bg-base-50 flex items-center justify-center p-6'>
+    <div className='text-base-content  bg-base-50 flex items-center justify-center'>
       <div className=' bg-base-100 border border-t-red-600 shadow-lg rounded-lg p-8 max-w-lg w-full'>
         <div className='breadcrumbs border rounded   px-4 text-sm'>
           <ul>
@@ -272,84 +272,145 @@ const BirthPanchangBS = () => {
           </div>
         ) : (
           englishDate && (
-            <div className='mt-6  bg-base-100 p-4 rounded-lg overflow-x-auto'>
-              <h2 className='text-lg font-bold text-base-800'>
-                {t(`day.${dayOfWeek}`)}
-                {', '} {nepaliDate.year}{' '}
-                {t(`nepaliMonth.${BS_MONTHS[nepaliDate.month - 1]}`)}{' '}
-                {nepaliDate.day}
-              </h2>
-              <p className='text-base-600 font-semibold'>
-                {formatTimeWithPeriod(timeOfBirth, t)}
-              </p>
-              <p className='text-base-800 text-md font-bold'>{englishDate}</p>
+            <div className='mt-6  bg-base-100 rounded overflow-x-auto'>
+              <div className='flex justify-between border border-red-700 p-1 rounded gap-1'>
+                <div className='pt-2 pl-2'>
+                  <h2 className='text-sm font-bold text-base-800'>
+                    {t(`day.${dayOfWeek}`)}
+                    {', '} {nepaliDate.year}{' '}
+                    {t(`nepaliMonth.${BS_MONTHS[nepaliDate.month - 1]}`)}{' '}
+                    {nepaliDate.day}
+                  </h2>
+                  <p className='text-base-600 text-sm font-bold'>
+                    {formatTimeWithPeriod(timeOfBirth, t)}
+                  </p>
+                  <p className='text-base-800 text-sm font-bold'>
+                    {englishDate}
+                  </p>
+                </div>
+                <div className=''>
+                  {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
+                    <div>
+                      <div className='flex items-center justify-end'>
+                        <img
+                          className='shadow-2xl rounded-full m-1 bg-zinc-200'
+                          width='50'
+                          src={`moon/shukla/${panchang?.Tithi?.name_en_IN}.png`}
+                        />
+                      </div>
+                      <p className='text-sm font-bold'>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`)},
+                        {t(`paksha.${panchang?.Paksha?.name_en_IN}`)}
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className='flex items-center justify-end'>
+                        <img
+                          className='shadow-2xl rounded-full m-1 bg-zinc-200'
+                          width='50'
+                          src={`moon/krishna/${panchang?.Tithi?.name_en_IN}.png`}
+                        />
+                      </div>
+                      <p className='text-sm font-bold'>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`)},
+                        {t(`paksha.${panchang?.Paksha?.name_en_IN}`)}
+                      </p>
+                    </div>
+                  )}{' '}
+                </div>
+              </div>
               {panchang && (
                 <table className='table w-full mt-4'>
                   <tbody>
                     <tr>
-                      <th className="text-base-content">{t('Day')}</th>
-                      <td className="text-base-content">{t(`day.${panchang?.Day?.name_en_UK}`) || 'N/A'}</td>
+                      <th className='text-base-content'>{t('Day')}</th>
+                      <td className='text-base-content'>
+                        {t(`day.${panchang?.Day?.name_en_UK}`) || 'N/A'}
+                      </td>
                     </tr>
                     <tr>
-                      <th className="text-base-content">{t('Paksh')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Paksh')}</th>
+                      <td className='text-base-content'>
                         {t(`paksha.${panchang?.Paksha?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th className="text-base-content">{t('Tithi')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Tithi')}</th>
+                      <td className='text-base-content flex gap-2 items-start border-none'>
+                        {/*  <div>
+                          {' '}
+                          {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
+                            <img
+                              className='shadow-2xl'
+                              width='20'
+                              src={`moon/shukla/${panchang?.Tithi?.name_en_IN}.png`}
+                            />
+                          ) : (
+                            <img
+                              className='shadow-2xl'
+                              width='20'
+                              src={`moon/krishna/${panchang?.Tithi?.name_en_IN}.png`}
+                            />
+                          )}{' '}
+                        </div>*/}
                         {t(`tithi.${panchang?.Tithi?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th className="text-base-content">{t('Nakshatra')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Nakshatra')}</th>
+                      <td className='text-base-content'>
                         {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
                           'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th className="text-base-content">{t('Rasi')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Rasi')}</th>
+                      <td className='text-base-content'>
                         {t(`rasi.${panchang?.Raasi?.name_en_UK}`) || 'N/A'}
                       </td>
                     </tr>
                     {nakshatraInfo && (
                       <>
                         <tr>
-                          <th className="text-base-content">{t('Syllables')}</th>
-                          <td className="text-base-content">
+                          <th className='text-base-content'>
+                            {t('Syllables')}
+                          </th>
+                          <td className='text-base-content'>
                             {t(
                               `syllables.${nakshatraInfo['first syllables']}`
                             ) || 'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th className="text-base-content">{t('Gan')}</th>
-                          <td className="text-base-content">
+                          <th className='text-base-content'>{t('Gan')}</th>
+                          <td className='text-base-content'>
                             {t(`ganam.${nakshatraInfo.ganam}`) ||
                               'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th className="text-base-content">{t('Animal Sign')}</th>
-                          <td className="text-base-content">
+                          <th className='text-base-content'>
+                            {t('Animal Sign')}
+                          </th>
+                          <td className='text-base-content'>
                             {t(`animal.${nakshatraInfo['animal sign']}`) ||
                               'Not Available'}
                           </td>
                         </tr>
                         <tr>
-                          <th className="text-base-content">{t('Deity')}</th>
-                          <td className="text-base-content">
+                          <th className='text-base-content'>{t('Deity')}</th>
+                          <td className='text-base-content'>
                             {t(`deity.${nakshatraInfo.Diety}`) ||
                               'Not Available'}
                           </td>
                         </tr>
 
                         <tr>
-                          <th className="text-base-content">{t('Best Direction')}</th>
-                          <td className="text-base-content">
+                          <th className='text-base-content'>
+                            {t('Best Direction')}
+                          </th>
+                          <td className='text-base-content'>
                             {t(
                               `best_direction.${nakshatraInfo['best direction']}`
                             ) || 'Not Available'}
@@ -358,22 +419,22 @@ const BirthPanchangBS = () => {
                       </>
                     )}
                     <tr>
-                      <th className="text-base-content">{t('Yoga')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Yoga')}</th>
+                      <td className='text-base-content'>
                         {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
                     <tr>
-                      <th className="text-base-content">{t('Karna')}</th>
-                      <td className="text-base-content">
+                      <th className='text-base-content'>{t('Karna')}</th>
+                      <td className='text-base-content'>
                         {t(`karna.${panchang?.Karna?.name_en_IN}`) || 'N/A'}
                       </td>
                     </tr>
 
                     {age && (
                       <tr>
-                        <th className="text-base-content">{t('Age')}</th>
-                        <td className="text-base-content">
+                        <th className='text-base-content'>{t('Age')}</th>
+                        <td className='text-base-content'>
                           {age.years} {t('years and')} {age.months}{' '}
                           {t('months')}
                         </td>

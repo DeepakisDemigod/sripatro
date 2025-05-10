@@ -4,6 +4,20 @@
   "Horoscope": "Horoscope",
   "AD": "AD",
   "BS": "BS",
+  "planets": {
+    "Ke": "Ke",
+    "Ra": "Ra",
+    "Su": "Su",
+    "Sa": "Sa",
+    "Ju": "Ju",
+    "Me": "Me",
+    "Mo": "Mo",
+    "Ma": "Ma",
+    "Ve": "Venus",
+    "Ne": "Neptupe",
+    "Ur": "Uranus",
+    "Pl": "Pluto"
+  },
   "calender": {
     "Sun": "Sun",
     "Mon": "Mon",
@@ -57,6 +71,7 @@
   },
   "nakshatra": {
     "Ashwini": "Ashwini",
+    "Aswini": "Ashwini",
     "Bharani": "Bharani",
     "Krittika": "Krittika",
     "Rohini": "Rohini",

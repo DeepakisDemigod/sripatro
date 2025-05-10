@@ -14,6 +14,7 @@ import ThemeToggle from './ThemeToggle.jsx';
 import SearchBar from './SearchBar.jsx';
 import LanguageSwitcher from './LanguageSwitcher.jsx';
 import { useTranslation } from 'react-i18next';
+import SiteBanner from './SiteBanner.jsx';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -109,6 +110,7 @@ export default function Header() {
                     >
                       @sripatro
                     </a>
+                    <SiteBanner />
                   </p>
                 </div>
                 <form
