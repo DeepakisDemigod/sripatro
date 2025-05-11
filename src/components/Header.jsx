@@ -170,10 +170,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-base-200 transition duration-200 group'
                 >
-                  <Calendar
-                    size={32}
-                    className=' group-hover:text-base-content'
-                  />
+                  <span className='text-3xl'>📆</span>
                   <span className='text-xs mt-2 text-center group-hover:text-base-content'>
                     {t('Panchang Today')}
                   </span>
@@ -183,10 +180,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:bg-base-300 transition duration-200 group'
                 >
-                  <Cake
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'> 🇮🇳</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Birth Panchang (AD)')}
                   </span>
@@ -196,10 +190,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <FlagBanner
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🇳🇵</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Bikram Sambat to Panchang (BS)')}
                   </span>
@@ -209,10 +200,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Sun
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🪐</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Birth Kundali (AD)')}
                   </span>
@@ -222,10 +210,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <DiamondsFour
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🧧</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Nepali Cheena')}
                   </span>
@@ -242,10 +227,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Star
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🐏</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Daily Horoscope')}
                   </span>
@@ -255,10 +237,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <ChartLine
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🐏</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Weekly Horoscope')}
                   </span>
@@ -268,10 +247,7 @@ export default function Header() {
                   onClick={handleLinkClick}
                   className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
                 >
-                  <Calendar
-                    size={32}
-                    className='text-red-500 group-hover:text-white'
-                  />
+                  <span className='text-3xl'>🐏</span>
                   <span className='text-xs mt-2 text-center group-hover:text-white'>
                     {t('Monthly Horoscope')}
                   </span>
@@ -287,7 +263,7 @@ export default function Header() {
                 rel='noopener noreferrer'
               >
                 <img
-                  src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light'
+                  src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=neutral'
                   alt='Sri Patro on Product Hunt'
                   className='w-full'
                 />
