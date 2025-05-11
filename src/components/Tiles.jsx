@@ -13,7 +13,7 @@ const Tiles = () => {
   const { t } = useTranslation();
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 700,
     slidesToShow: 2,

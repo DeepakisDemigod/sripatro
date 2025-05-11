@@ -127,7 +127,9 @@ export default function Header() {
                 className='tooltip tooltip-bottom'
                 data-tip='Send Feedback'
               >
-                <button className='btn btn-sm btn-outline'>Feedback</button>
+                <button className='btn btn-sm text-[13px] bg-red-700 text-white'>
+                  Feedback
+                </button>
               </a>
             </div>
           </nav>
@@ -168,9 +170,9 @@ export default function Header() {
                 <Link
                   to='/'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-base-200 transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>📆</span>
+                  <span className='text-3xl shadow-2xl'>📆</span>
                   <span className='text-xs mt-2 text-center group-hover:text-base-content'>
                     {t('Panchang Today')}
                   </span>
@@ -178,40 +180,40 @@ export default function Header() {
                 <Link
                   to='/birthpanchang'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:bg-base-300 transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'> 🇮🇳</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'> 🇮🇳</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Birth Panchang (AD)')}
                   </span>
                 </Link>
                 <Link
                   to='/nepalitoenglish'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🇳🇵</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'>🇳🇵</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Bikram Sambat to Panchang (BS)')}
                   </span>
                 </Link>
                 <Link
                   to='/kundali'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🪐</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-4xl shadow-2xl'>🪐</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Birth Kundali (AD)')}
                   </span>
                 </Link>
                 <Link
                   to='/nepali-cheena'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🧧</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'>🧧</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Nepali Cheena')}
                   </span>
                 </Link>
@@ -225,30 +227,30 @@ export default function Header() {
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🐏</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'>🐏</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Daily Horoscope')}
                   </span>
                 </Link>
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🐏</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'>🐏</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Weekly Horoscope')}
                   </span>
                 </Link>
                 <Link
                   to='/horoscope'
                   onClick={handleLinkClick}
-                  className='btn btn-outline flex items-center flex-col h-24 justify-center bg-base-200   border border-zinc-200 hover:bg-red-500 hover:text-white hover:border-white transition duration-200 group'
+                  className='btn   flex items-center flex-col h-24 justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
                 >
-                  <span className='text-3xl'>🐏</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-white'>
+                  <span className='text-3xl shadow-2xl'>🐏</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
                     {t('Monthly Horoscope')}
                   </span>
                 </Link>
@@ -265,7 +267,7 @@ export default function Header() {
                 <img
                   src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=neutral'
                   alt='Sri Patro on Product Hunt'
-                  className='w-full'
+                  className='w-25'
                 />
               </a>
             </div>

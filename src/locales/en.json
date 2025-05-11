@@ -13,10 +13,10 @@
     "Me": "Me",
     "Mo": "Mo",
     "Ma": "Ma",
-    "Ve": "Venus",
-    "Ne": "Neptupe",
-    "Ur": "Uranus",
-    "Pl": "Pluto"
+    "Ve": "Ve",
+    "Ne": "Ne",
+    "Ur": "Ur",
+    "Pl": "Pl"
   },
   "calender": {
     "Sun": "Sun",
@@ -92,6 +92,7 @@
     "Mula": "Mula",
     "Purva Ashadha": "Purva Ashadha",
     "Uttara Ashadha": "Uttara Ashadha",
+    "Uttaraashaada": "Uttara Ashadha",
     "Sravana": "Sravana",
     "Dhanishta": "Dhanishta",
     "Shatabhisha": "Shatabhisha",

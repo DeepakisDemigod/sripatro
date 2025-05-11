@@ -22,7 +22,7 @@ const Patro = () => {
   }, []);
 
   // Update the clock every second
-  useEffect(() => {
+  /*useEffect(() => {
     const timer = setInterval(() => {
       const originalDate = new Date();
       const datePart = originalDate.toLocaleDateString(); // Get the date
@@ -44,6 +44,33 @@ const Patro = () => {
     }, 1000);
 
     return () => clearInterval(timer); // Cleanup on component unmount
+  }, []);*/
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const originalDate = new Date();
+      const datePart = originalDate.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+      const timePart = originalDate.toLocaleTimeString();
+
+      const formattedString = (
+        <>
+          {datePart},{' '}
+          <Alarm
+            size={18}
+            className='mr-[-4px]'
+          />{' '}
+          {timePart}
+        </>
+      );
+
+      setCurrentTime(formattedString);
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   return mhahObj ? (
@@ -52,8 +79,11 @@ const Patro = () => {
         {/*<h3 className='text-2xl font-semibold mb-4 underline'>
           {t('Panchang Today')}
         </h3>*/}
-        <div style={{borderRadius: '4px 4px 0 0'}} className='bg-base-300 border border-2 border-red-800 p-2 text-sm flex items-center justify-between font-semibold'>
-          <div className='mx-4'>
+        <div
+          style={{ borderRadius: '4px 4px 0 0' }}
+          className='bg-base-300 border border-2 border-red-800 p-2 text-sm flex items-center justify-between font-semibold'
+        >
+          <div className='mx-2'>
             <div className='flex gap-2'>
               <p>
                 {t(`tithi.${mhahObj?.Tithi?.name_en_IN}`) || 'Not available'}{' '}
@@ -102,119 +132,124 @@ const Patro = () => {
             )}
           </div>
         </div>
-        <div style={{borderRadius: '0 0 4px 4px'}} className='bg-red-800 text-white p-2 text-center mb-6'>
+        <div
+          style={{ borderRadius: '0 0 4px 4px' }}
+          className='bg-red-800 text-white p-2 text-center mb-6'
+        >
           <h2 className='text-sm flex items-center justify-start gap-2'>
             <Calendar size={18} />
             {/*{mhahObj?.Day?.name_en_UK || 'Day not available'}*/}
-            <span className='font-semibold'>
-              {t(`day.${mhahObj?.Day?.name_en_UK}`) || 'Day not available'}
+            <span className=''>
+              {t(`day.${mhahObj?.Day?.name_en_UK}`) || 'Day not available'},
             </span>
-            {', '}
+
             {currentTime}
           </h2>
         </div>
-<div>
-        <Calender />
-        
-<br/>
-        <div className='overflow-x-auto'>
-          <table className='rounded table w-full border border-base-100 text-base-content'>
-            {/* head */}
-            <thead className='bg-red-800 text-sm'>
-              <tr className='text-gray-100'>
-                <th className='p-1'>{t('Panchang')}</th>
-                <th className='p-1'>{t('Value')}</th>
-                <th className='p-1'>{t('Start Time')}</th>
-                <th className='p-1'>{t('End Time')}</th>
-              </tr>
-            </thead>
-            <tbody className='text-xs'>
-              {/* row 1 */}
-              <tr>
-                <td className='text-base-content p-1'>{t('Tithi')}</td>
-                <td className='text-base-content p-1'>
-                  {t(`tithi.${mhahObj?.Tithi?.name_en_IN}`) || 'Not available'}
-                </td>
-                {/*<td>{t(`${mhahObj?.Tithi?.name_en_IN}`) || 'Not available'}</td>*/}
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Tithi?.start
-                    ? new Date(mhahObj?.Tithi?.start).toLocaleString()
-                    : 'Unknown'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Tithi?.end
-                    ? new Date(mhahObj?.Tithi?.end).toLocaleString()
-                    : 'Unknown'}
-                </td>
-              </tr>
-              {/* row 2 */}
-              <tr>
-                <td className='text-base-content p-1'>{t('Nakshatra')}</td>
-                {/*   <td>{mhahObj?.Nakshatra?.name_en_IN || 'Not available'}</td> */}
-                <td className='text-base-content p-1'>
-                  {t(`nakshatra.${mhahObj?.Nakshatra?.name_en_IN}`) ||
-                    'Not available'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Nakshatra?.start
-                    ? new Date(mhahObj?.Nakshatra?.start).toLocaleString()
-                    : 'Unknown'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Nakshatra?.end
-                    ? new Date(mhahObj?.Nakshatra?.end).toLocaleString()
-                    : 'Unknown'}
-                </td>
-              </tr>
-              {/* row 3 */}
-              <tr>
-                <td className='text-base-content p-1'>{t('Karna')}</td>
-                {/*  <td>{mhahObj?.Karna?.name_en_IN || 'Not available'}</td> */}
-                <td className='text-base-content p-1'>
-                  {t(`karna.${mhahObj?.Karna?.name_en_IN}`) || 'Not available'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Karna?.start
-                    ? new Date(mhahObj?.Karna?.start).toLocaleString()
-                    : 'Unknown'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Karna?.end
-                    ? new Date(mhahObj?.Karna?.end).toLocaleString()
-                    : 'Unknown'}
-                </td>
-              </tr>
-              {/* row 4 */}
-              <tr>
-                <td className='text-base-content p-1'>{t('Yoga')}</td>
-                {/* <td>{mhahObj?.Yoga?.name_en_IN || 'Not available'}</td> */}
-                <td className='text-base-content p-1'>
-                  {t(`yoga.${mhahObj?.Yoga?.name_en_IN}`) || 'Not available'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Yoga?.start
-                    ? new Date(mhahObj?.Yoga?.start).toLocaleString()
-                    : 'Unknown'}
-                </td>
-                <td className='text-base-content p-1'>
-                  {mhahObj?.Yoga?.end
-                    ? new Date(mhahObj?.Yoga?.end).toLocaleString()
-                    : 'Unknown'}
-                </td>
-              </tr>
-              {/* row 5 */}
-              <tr>
-                <td className='text-base-content p-1'>{t('Rasi')}</td>
-                <td
-                  className='text-base-content p-1'
-                  colSpan={3}
-                >
-                  {t(`rasi.${mhahObj?.Raasi?.name_en_UK}`) || 'Not available'}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div>
+          <Calender />
+
+          <br />
+          <div className='overflow-x-auto'>
+            <table className='rounded table w-full border border-base-100 text-base-content'>
+              {/* head */}
+              <thead className='bg-red-800 text-sm'>
+                <tr className='text-gray-100'>
+                  <th className='p-1'>{t('Panchang')}</th>
+                  <th className='p-1'>{t('Value')}</th>
+                  <th className='p-1'>{t('Start Time')}</th>
+                  <th className='p-1'>{t('End Time')}</th>
+                </tr>
+              </thead>
+              <tbody className='text-xs'>
+                {/* row 1 */}
+                <tr>
+                  <td className='text-base-content p-1'>{t('Tithi')}</td>
+                  <td className='text-base-content p-1'>
+                    {t(`tithi.${mhahObj?.Tithi?.name_en_IN}`) ||
+                      'Not available'}
+                  </td>
+                  {/*<td>{t(`${mhahObj?.Tithi?.name_en_IN}`) || 'Not available'}</td>*/}
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Tithi?.start
+                      ? new Date(mhahObj?.Tithi?.start).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Tithi?.end
+                      ? new Date(mhahObj?.Tithi?.end).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                </tr>
+                {/* row 2 */}
+                <tr>
+                  <td className='text-base-content p-1'>{t('Nakshatra')}</td>
+                  {/*   <td>{mhahObj?.Nakshatra?.name_en_IN || 'Not available'}</td> */}
+                  <td className='text-base-content p-1'>
+                    {t(`nakshatra.${mhahObj?.Nakshatra?.name_en_IN}`) ||
+                      'Not available'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Nakshatra?.start
+                      ? new Date(mhahObj?.Nakshatra?.start).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Nakshatra?.end
+                      ? new Date(mhahObj?.Nakshatra?.end).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                </tr>
+                {/* row 3 */}
+                <tr>
+                  <td className='text-base-content p-1'>{t('Karna')}</td>
+                  {/*  <td>{mhahObj?.Karna?.name_en_IN || 'Not available'}</td> */}
+                  <td className='text-base-content p-1'>
+                    {t(`karna.${mhahObj?.Karna?.name_en_IN}`) ||
+                      'Not available'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Karna?.start
+                      ? new Date(mhahObj?.Karna?.start).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Karna?.end
+                      ? new Date(mhahObj?.Karna?.end).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                </tr>
+                {/* row 4 */}
+                <tr>
+                  <td className='text-base-content p-1'>{t('Yoga')}</td>
+                  {/* <td>{mhahObj?.Yoga?.name_en_IN || 'Not available'}</td> */}
+                  <td className='text-base-content p-1'>
+                    {t(`yoga.${mhahObj?.Yoga?.name_en_IN}`) || 'Not available'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Yoga?.start
+                      ? new Date(mhahObj?.Yoga?.start).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                  <td className='text-base-content p-1'>
+                    {mhahObj?.Yoga?.end
+                      ? new Date(mhahObj?.Yoga?.end).toLocaleString()
+                      : 'Unknown'}
+                  </td>
+                </tr>
+                {/* row 5 */}
+                <tr>
+                  <td className='text-base-content p-1'>{t('Rasi')}</td>
+                  <td
+                    className='text-base-content p-1'
+                    colSpan={3}
+                  >
+                    {t(`rasi.${mhahObj?.Raasi?.name_en_UK}`) || 'Not available'}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

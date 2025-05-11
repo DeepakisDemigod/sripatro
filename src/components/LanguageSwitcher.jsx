@@ -54,15 +54,15 @@ const LanguageSwitcher = () => {
           htmlFor={`lang-${code}`}
           className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all w-full duration-200 ${
             selectedLang === code
-              ? 'border-green-500 border-2  bg-base-200'
-              : 'border-gray-700 bg-base-200 hover:bg-base-200'
+              ? 'border-green-500  bg-base-100'
+              : 'border-base-300 outline-none bg-base-100 hover:bg-base-200'
           }`}
         >
           <div className='flex items-center space-x-3'>
             <img
               src={flag}
               alt={`${name} flag`}
-              className='w-6 h-6 rounded-full object-cover'
+              className='w-6 h-6  rounded-full object-cover'
               loading='lazy'
             />
             <span className='text-base-content text-md font-medium'>
@@ -81,7 +81,7 @@ const LanguageSwitcher = () => {
           />
           <div
             className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-              selectedLang === code ? 'border-green-500' : 'border-gray-400'
+              selectedLang === code ? 'border-green-500' : 'border-base-400'
             }`}
           >
             {selectedLang === code && (
