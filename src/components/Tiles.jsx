@@ -6,7 +6,8 @@ const tiles = [
   { label: 'Panchang', icon: '🇮🇳', tag: 'AD', href: '/birthpanchang' },
   { label: 'Kundali', icon: '🪐', tag: 'AD', href: '/kundali' },
   { label: 'Horoscope', icon: '🐏', tag: 'AD', href: '/horoscope' },
-  { label: 'Cheena', icon: '🧧', tag: 'AD', href: '/nepali-cheena' }
+  { label: 'Cheena', icon: '🧧', tag: 'AD', href: '/nepali-cheena' },
+  { label: 'Date Converter', icon: '🗓', tag: 'BS', href: '/date-converter' }
 ];
 
 const Tiles = () => {

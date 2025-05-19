@@ -4,6 +4,22 @@
   "Horoscope": "राशिफल",
   "AD": "ईसवी सन",
   "BS": "विक्रम संवत",
+  "planetFull": {
+    "Ascendant": "लग्न",
+    "Sun": "सूर्य",
+    "Moon": "चन्द्रमा",
+    "Mars": "मंगल",
+    "Mercury": "बुध",
+    "Jupiter": "बृहस्पति",
+    "Venus": "शुक्र",
+    "Saturn": "शनि",
+    "Rahu": "राहु",
+    "Ketu": "केतु",
+    "Uranus": "युरेनस",
+    "Neptune": "नेप्च्यून",
+    "Pluto": "प्लुटो"
+  },
+
   "planets": {
     "Ke": "के॰",
     "Ra": "रा॰",
@@ -86,16 +102,20 @@
     "Ashwini": "अश्विनी",
     "Aswini": "अश्विनी",
     "Dwija": "भरणी",
+    "Bharani": "भरणी",
     "Krittika": "कृत्तिका",
     "Rohini": "रोहिणी",
     "Mrigashirsha": "मृगशिरा",
+    "Mrigasira": "मृगशिरा",
     "Ardra": "आर्द्रा",
     "Punarvasu": "पुनर्वसु",
     "Pushya": "पुष्य",
     "Ashlesha": "आश्लेषा",
+    "Aaslesha": "आश्लेषा",
     "Magha": "मघा",
     "Purva Phalguni": "पूर्व फाल्गुनी",
     "Uttara Phalguni": "उत्तर फाल्गुनी",
+    "Uttara Phalguni(Uttara)": "उत्तर फाल्गुनी",
     "Hasta": "हस्त",
     "Chitra": "चित्रा",
     "Swati": "स्वाती",
@@ -107,11 +127,15 @@
     "Uttara Ashadha": "उत्तराषाढा",
     "Uttaraashaada": "उत्तराषाढा",
     "Sravana": "श्रवण",
+    "Sravanam": "श्रवण",
     "Dhanishta": "धनिष्ठा",
     "Shatabhisha": "शतभिषा",
     "Purva Bhadrapada": "पूर्व भाद्रपद",
+    "Poorvaabhadra": "पूर्व भाद्रपद",
     "Uttara Bhadrapada": "उत्तर भाद्रपद",
-    "Rebati": "रेवती"
+    "Uttaraabhadra": "उत्तर भाद्रपद",
+    "Rebati": "रेवती",
+    "Revati": "रेवती"
   },
   "yoga": {
     "Vishkambha": "विष्कम्भ",
@@ -146,14 +170,14 @@
     "Shukla": "शुक्ल पक्ष",
     "Krishna": "कृष्ण पक्ष"
   },
-  
+
   "timePeriod": {
     "Morning": "बिहान को",
     "Afternoon": "दिउँसो को",
     "Evening": "साँझ को",
     "Night": "राति को"
   },
-  
+
   "nepaliMonth": {
     "Baisakh": "बैशाख",
     "Jestha": "जेठ",
@@ -314,5 +338,10 @@
   "Back": "पछाडि",
   "Get Panchang": "पञ्चाङ्ग प्राप्त गर्नुहोस्",
   "Bikram Sambat to Panchang": "नेपाली पञ्चाङ्ग",
-  "Enter date and time to get Panchang.": "पञ्चाङ प्राप्त गर्न मिति र समय प्रविष्ट गर्नुहोस्।"
+  "Enter date and time to get Panchang.": "पञ्चाङ प्राप्त गर्न मिति र समय प्रविष्ट गर्नुहोस्।",
+  "your date of birth in yyyy-mm-dd format": "तपाईंको जन्म मिति yyyy-mm-dd स्वरूपमा",
+  "your time of birth hh:mm in 24hrs format": "जन्म समय hh-mm २४ घण्टेमा",
+  "Date Converter": "मिति परिवर्तन",
+  "Indian Date": "भारतीय तारीख",
+  "Nepali Date": "नेपाली मिति"
 }

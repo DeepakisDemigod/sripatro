@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {NepaliDate} from "nepali-date";
+import { NepaliDate } from 'nepali-date';
 
 const CheenaMaker = () => {
   const [formData, setFormData] = useState({
@@ -76,7 +76,7 @@ const CheenaMaker = () => {
   };
 
   return (
-    <div className='bg-white text-black flex flex-col md:flex-row p-5 gap-8'>
+    <div className='bg-base-100 text-base-700 flex flex-col md:flex-row p-5 gap-8'>
       {/* Form Section */}
       <div className='w-full md:w-1/2 space-y-4'>
         <h2 className='text-xl font-semibold'>Cheena Details</h2>
@@ -103,7 +103,7 @@ const CheenaMaker = () => {
               name={name}
               value={formData[name]}
               onChange={handleChange}
-              className='flex-[.8] border p-2 rounded w-full bg-zinc-100 text-black'
+              className='flex-[.8] border p-2 rounded w-full bg-base-100 text-base-700'
             />
           </div>
         ))}
@@ -114,7 +114,7 @@ const CheenaMaker = () => {
             name='gender'
             value={formData.gender}
             onChange={handleChange}
-            className='flex-[.8] border p-2 rounded w-full bg-zinc-100 text-black'
+            className='flex-[.8] border p-2 rounded w-full bg-base-100 text-base-700'
           >
             <option value='बालक'>बालक</option>
             <option value='बालिका'>बालिका</option>
@@ -123,7 +123,7 @@ const CheenaMaker = () => {
       </div>
 
       {/* Cheena Preview */}
-      <div className='w-full md:w-1/2 bg-white border border-red-600 shadow-lg rounded-xl p-6 text-justify leading-relaxed whitespace-pre-line'>
+      <div className='w-full md:w-1/2 bg-base-100 border border-double border-base-800 shadow-lg rounded-xl p-6 text-justify leading-relaxed whitespace-pre-line'>
         <div className='flex justify-center mb-4'>
           <img
             className='w-[30%] md:w-[20%] lg:w-[15%]'
@@ -131,38 +131,42 @@ const CheenaMaker = () => {
             alt='Lord Ganesha'
           />
         </div>
-        <p className='text-black'>
+        <p className='text-base-700'>
           श्री गणेशाय नमः ।। श्री मंगलमुहुर्तये नमः। श्री ईष्टदेवेभ्यो नमः।
-          मातायस्य उमादेवी पिता यस्य तु शंङ्कर । मूषको वाहनो यस्य{' '}
-          <span className='text-red-600 font-semibold'>(सामांपातु)</span>{' '}
-          सामांपातु विनायकः।। आदित्यादि ग्रहा सर्वे सनक्षेत्र सरासय: ।।
-          दीर्घमायुः प्रयच्छन्तु लिखिता जन्म पत्रिका।। श्री शाली वाहनीय शाके
-          _______ श्री वीर विक्रमादित्य संवत{' '}
-          <span className='text-red-600 font-bold'>{birthYear + 56}</span>{' '}
-          ईस्वीयसन् <span className='text-red-600 font-bold'>{birthYear}</span>{' '}
-          मास <span className='text-red-600 font-bold'>{birthMonthName}</span>{' '}
-          तारिका <span className='text-red-600 font-bold'>{birthDay}</span>{' '}
-          श्रीसुर्य <span className='text-red-600 font-bold'>{getAyane()}</span>{' '}
-          अयने <span className='text-red-600 font-bold'>{getRitu()}</span> ऋतौ
-          (correspodimg nepali month name)_______ मासे (paksha)________ पक्षे
-          (tithi)_______ तिथौ _________ जन्म पुन _________ नक्षत्रे घटिका _____
-          पला _______ भभोग _______ घटिका ______ पला । _______ योगे _______ वारे
-          _______लग्ने _______ करणे ________ राशौ जन्मः ।। इति पञ्चाङ्ग ।।
-          अथसौरमानेन ________ मासे ________ दिन ________ गते ______ वासरे
-          सूर्योदयादृष्टि घटिका _______पला ________ गत _________ घटिका
-          _______पला ________ प्रचलित वर्तमान _________ गत घंण्टायां ______ बजे
-          ______ मिनेटेषु यवं विधे शुभ कल्याणवती वेलायां जात ।। अथ ______ गणे
-          _______ वर्णे ________ वर्गे ______‌योनौ _______ नाड्याम् श्री
-          नेपालाधिराज्य ________ न‌द्यासमीपे __________ देवश्चचरणतले{' '}
-          <span className='text-red-400 font-semibold'>{getVal('anchal')}</span>
-          अंचले <span className='text-red-400'>{getVal('jilla')}</span>{' '}
+          मातायस्य उमादेवी पिता यस्य तु शंङ्कर । मूषको वाहनो यस्य (
+          <span className='text-red-500 font-bold'>सामांपातु</span>) सामांपातु
+          विनायकः।। आदित्यादि ग्रहा सर्वे सनक्षेत्र सरासय: ।। दीर्घमायुः
+          प्रयच्छन्तु लिखिता जन्म पत्रिका।। श्री शाली वाहनीय शाके _______ श्री
+          वीर विक्रमादित्य संवत{' '}
+          <span className='text-red-500 font-bold'>{birthYear + 56}</span>{' '}
+          ईस्वीयसन् <span className='text-red-500 font-bold'>{birthYear}</span>{' '}
+          मास <span className='text-red-500 font-bold'>{birthMonthName}</span>{' '}
+          तारिका <span className='text-red-500 font-bold'>{birthDay}</span>{' '}
+          श्रीसुर्य <span className='text-red-500 font-bold'>{getAyane()}</span>{' '}
+          अयने <span className='text-red-500 font-bold'>{getRitu()}</span> ऋतौ
+          _______ मासे ________ पक्षे _______ तिथौ _________ जन्म पुन _________
+          नक्षत्रे घटिका _____ पला _______ भभोग _______ घटिका ______ पला ।
+          _______ योगे _______ वारे _______लग्ने _______ करणे ________ राशौ
+          जन्मः ।। इति पञ्चाङ्ग ।। अथसौरमानेन ________ मासे ________ दिन
+          ________ गते ______ वासरे सूर्योदयादृष्टि घटिका _______पला ________ गत
+          _________ घटिका _______पला ________ प्रचलित वर्तमान _________ गत
+          घंण्टायां ______ बजे ______ मिनेटेषु यवं विधे शुभ कल्याणवती वेलायां
+          जात ।। अथ ______ गणे _______ वर्णे ________ वर्गे ______‌योनौ _______
+          नाड्याम् श्री नेपालाधिराज्य ________ न‌द्यासमीपे __________
+          देवश्चचरणतले{' '}
+          <span className='text-red-500 font-semibold'>
+            {getVal('anchal')}{' '}
+          </span>
+          अंचले{' '}
+          <span className='text-red-500 font-bold'>{getVal('jilla')}</span>{' '}
           जिल्लायाम्{' '}
-          <span className='text-red-400 font-bold'>{getVal('gram')}</span>{' '}
+          <span className='text-red-500 font-bold'>{getVal('gram')}</span>{' '}
           ग्राह्मे वा.नं.{' '}
-          <span className='text-red-400 font-bold'>{getVal('wardNo')}</span>
-          निवसतः श्री {getVal('gotra')} गोत्रस्य श्रीमत पिता{' '}
-          {getVal('fatherName')} तस्यवामाङ्गी श्रीमती {getVal('motherName')}{' '}
-          नाम्नी _______ गर्भ _______ गर्भे‌{' '}
+          <span className='text-red-500 font-bold'>{getVal('wardNo')}</span>{' '}
+          निवसतः श्री{' '}
+          <span className='text-red-500 font-bold'>{getVal('gotra')}</span>{' '}
+          गोत्रस्य श्रीमत पिता {getVal('fatherName')} तस्यवामाङ्गी श्रीमती{' '}
+          {getVal('motherName')} नाम्नी _______ गर्भ _______ गर्भे‌{' '}
           {formData.gender === 'बालक' ? 'सुपुत्र' : 'सुपुत्री'} जातः || अस्य
           होराशास्त्र प्रमाणोनं _______ देवता _______ नक्षत्रस्य ________
           श्चरणात्वे श्री {getVal('name')} नाम __________ ({formData.gender})

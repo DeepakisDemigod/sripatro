@@ -51,6 +51,7 @@ const BirthPanchang = () => {
   const handleSubmit = e => {
     e.preventDefault();
     try {
+      console.log('log');
       const dateTime = new Date(`${dob}T${time}`);
       const panchangObj = new MhahPanchang();
       const result = panchangObj.calculate(dateTime);
@@ -81,22 +82,23 @@ const BirthPanchang = () => {
 
   return (
     <div className='bg-base-100 text-base-content flex items-center justify-center'>
-      <div className='bg-base-200 border border-t-red-600 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
-        <div className='breadcrumbs border rounded   px-4 text-sm'>
-          <ul>
-            <li className='hover:border'>
-              <a
-                href='/'
-                className='hover:underline'
-              >
+      <div className='bg-base-200 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
+        <a
+          href='/'
+          className='hover:underline'
+        >
+          <div className='breadcrumbs border rounded   px-4 text-sm hover:bg-base-200'>
+            <ul>
+              <li className='hover:border'>
                 <CaretLeft size={19} /> <span>{t('Back')}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <h2 className='text-2xl font-semibold text-base-800 mb-6'>
-          {t('Birth Panchang (AD)')}
-        </h2>
+              </li>
+            </ul>
+          </div>
+        </a>
+
+        <h1 className='mt-2 text-2xl font-bold text-base-800 mb-6'>
+          {t('Ishwi Sambat to Panchang')}
+        </h1>
 
         <form
           onSubmit={handleSubmit}
@@ -118,12 +120,15 @@ const BirthPanchang = () => {
               required
               className=' bg-base-200 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
             />
+            <span className='text-xs text-base-400'>
+              {t('your date of birth in yyyy-mm-dd format')}
+            </span>
           </div>
 
           <div>
             <label
               htmlFor='time'
-              className='flex items-center gap-2 block text-sm font-medium text-base-700'
+              className='flex items-center gap-2 block text-sm font-medium text-base-600'
             >
               <Alarm size={18} />
               <span>{t('Time of Birth')}</span>
@@ -136,18 +141,21 @@ const BirthPanchang = () => {
               required
               className=' bg-base-200 mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-red-500 focus:outline-none'
             />
+            <span className='text-xs text-base-400'>
+              {t('your time of birth hh:mm in 24hrs format')}
+            </span>
           </div>
 
           <button
             type='submit'
-            className='w-full bg-red-700 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='btn text-[17px] font-bold w-full bg-red-700 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-700 transition'
           >
             {t('Get Panchang')}
           </button>
         </form>
 
         {panchang ? (
-          <div className='mt-6 bg-base-200 p-4 rounded-lg overflow-x-auto'>
+          <div className='mt-6 bg-base-200 p-1 rounded-lg overflow-x-auto'>
             <h3 className='text-lg font-semibold underline text-base-800 mb-4'>
               {t('Birth Panchang Details')}
             </h3>
@@ -273,7 +281,7 @@ const BirthPanchang = () => {
             </table>
           </div>
         ) : (
-          <div className='mt-6 bg-base-100 p-4 rounded-lg text-base-600'>
+          <div className='mt-6 bg-base-100 p-4 rounded-lg text-base-600 text-sm'>
             {t('Enter your details to get your birth Panchang.')}
           </div>
         )}
@@ -281,10 +289,13 @@ const BirthPanchang = () => {
         <div className='mt-6 flex justify-between'>
           <a
             href='/nepalitoenglish'
-            className='flex items-center gap-2 bg-red-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-red-600 transition'
+            className='flex text-sm border border-base-800 items-center gap-2 bg-base-100 text-base-800 py-2 px-4 rounded-md shadow-sm transition'
           >
-            <Swap size={18} />
-            <span>{t('Change Nepali to English Date')}</span>
+            <Swap
+              size={20}
+              className='text-red-700'
+            />
+            <span>{t('🇳🇵 Nepali Date → 🇮🇳 English Date')}</span>
           </a>
         </div>
       </div>

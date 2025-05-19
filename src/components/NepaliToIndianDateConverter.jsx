@@ -197,7 +197,7 @@ const BirthPanchangBS = () => {
           </a>
 
           <h1 className='mt-2 text-2xl font-bold text-base-800 mb-6'>
-            {t('Bikram Sambat to Panchang')}
+             {t('Bikram Sambat to Panchang (BS)')}
           </h1>
 
           <div className='space-y-6'>
@@ -221,7 +221,7 @@ const BirthPanchangBS = () => {
                   name='month'
                   value={nepaliDate.month}
                   onChange={handleInputChange}
-                  className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
+                  className=' bg-base-100   w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
                 >
                   {BS_MONTHS.map((month, index) => (
                     <option
@@ -243,12 +243,17 @@ const BirthPanchangBS = () => {
                   className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
                 />
               </div>
+              <span className='text-xs text-base-400'>
+                {t('your date of birth in yyyy-mm-dd format')}
+              </span>
             </div>
 
             <div>
-              <label className='block text-base-600 font-medium mb-1 flex items-center gap-2'>
-                <Alarm size={18} />
-                <span>{t('Time of Birth')}</span>
+              <label className='block text-base-600 font-medium mb-1  gap-2'>
+                <div className='flex items-center'>
+                  <Alarm size={18} />
+                  <span>{t('Time of Birth')}</span>
+                </div>
               </label>
               <input
                 type='time'
@@ -256,11 +261,14 @@ const BirthPanchangBS = () => {
                 onChange={handleTimeChange}
                 className=' bg-base-100   w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-500'
               />
+              <span className='text-xs text-base-400'>
+                {t('your time of birth hh:mm in 24hrs format')}
+              </span>
             </div>
 
             <button
               onClick={convertAndCalculatePanchang}
-              className='w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition duration-200'
+              className='text-[17px] btn w-full bg-red-700 text-white font-bold py-2 rounded-md hover:bg-red-700 transition duration-200'
             >
               {t('Get Panchang')}
             </button>
@@ -278,7 +286,7 @@ const BirthPanchangBS = () => {
             </div>
           ) : (
             englishDate && (
-              <div className='w-70  bg-base-100 rounded overflow-x-auto'>
+              <div className='w-70 mt-4 bg-base-100 rounded overflow-x-auto'>
                 <div className='flex justify-between border border-base-800 p-1 rounded gap-1'>
                   <div className='pt-2 pl-2'>
                     <h2 className='text-sm font-bold text-base-800'>

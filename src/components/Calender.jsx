@@ -103,7 +103,7 @@ const Calendar = () => {
                     ? 'bg-transparent'
                     : dayObj.day === today.getDate()
                     ? 'hover: bg-red-700 text-white font-semibold'
-                    : 'hover: hover:border-red-200 bg-base-300 text-base-600 hover:bg-base-200'
+                    : 'hover: border hover:border-red-500 bg-none text-base-600 hover:bg-base-200'
                 }`}
               >
                 <div className='text-[18px] ml-2 mb-[-12px]'>

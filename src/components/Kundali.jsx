@@ -57,7 +57,7 @@ function Kundali() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'x-api-key': 'gsH9JZc46V6ReDRpCLQen6DJhw1gquqG3H7NIeeI'
+              'x-api-key': 'OYYcjdh7q61ZNZCqlv4iv4JkVZ5CDv8C5hjyHzqo'
             },
             body: JSON.stringify({
               year: dateTime.year,
@@ -659,7 +659,7 @@ function Kundali() {
               {planetData.map(planet => (
                 <tr key={planet.name}>
                   <td className='flex items-center gap-2 p-2 border-b border-gray-200 bg-base-100 text-sm'>
-                    <span>{planet.name}</span>{' '}
+                    <span>{t(`planetFull.${planet.name}`)}</span>{' '}
                     {planet.isRetro === 'true' ? (
                       <>
                         <span

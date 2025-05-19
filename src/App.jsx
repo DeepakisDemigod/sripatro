@@ -10,6 +10,7 @@ import SiteBanner from "./components/SiteBanner.jsx";
 import NotFound from "./components/NotFound.jsx";
 import TimeNotifier from "./components/TimeNotifier.jsx";
 import CheenaMaker from "./components/CheenaMaker.jsx";
+import DateConvertor from "./components/DateConvertor.jsx";
  
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/kundali" element={<Kundali />} />
         <Route path="/horoscope" element={<HoroscopePredictions />} />
         <Route path="/nepali-cheena" element={<CheenaMaker />} />
+        <Route path="/date-converter" element={<DateConvertor />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

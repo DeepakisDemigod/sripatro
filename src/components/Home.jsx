@@ -4,6 +4,7 @@ import Calender from './Calender.jsx';
 import Tiles from './Tiles.jsx';
 import ScrollTop from './ScrollTop.jsx';
 import HoroscopeTile from './HoroscopeTile.jsx';
+import TestGPT from './TestGPT.jsx';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <Tiles />
          {/* <Calender />*/}
         <Patro />
+        <TestGPT />
       <ScrollTop />
       </div>
     </div>

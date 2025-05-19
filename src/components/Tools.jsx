@@ -20,6 +20,15 @@ const Tools = () => {
           </li>
           <li>
             <Link
+              to='/date-converter'
+              className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
+            >
+              {t('Date Converter')}
+              <ArrowSquareOut size={18} />
+            </Link>
+          </li>
+          <li>
+            <Link
               to='/birthpanchang'
               className='transition-colors duration-200 block hover:underline flex  px-4  focus:outline-none focus:ring-2  focus:ring-opacity-50'
             >
@@ -45,6 +54,7 @@ const Tools = () => {
               <ArrowSquareOut size={18} />
             </Link>
           </li>
+          
         </ol>
         <br />
 

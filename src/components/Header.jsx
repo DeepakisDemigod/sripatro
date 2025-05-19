@@ -178,6 +178,16 @@ export default function Header() {
                   </span>
                 </Link>
                 <Link
+                  to='/date-converter'
+                  onClick={handleLinkClick}
+                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                >
+                  <span className='text-3xl shadow-2xl'>🗓️</span>
+                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
+                    {t('Date Converter')}
+                  </span>
+                </Link>
+                <Link
                   to='/birthpanchang'
                   onClick={handleLinkClick}
                   className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
@@ -217,6 +227,7 @@ export default function Header() {
                     {t('Nepali Cheena')}
                   </span>
                 </Link>
+                
               </div>
             </section>
 

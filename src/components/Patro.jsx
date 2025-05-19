@@ -47,6 +47,17 @@ const Patro = () => {
   }, []);*/
 
   useEffect(() => {
+    const fetchSunDetails = async () => {
+      const response = await fetch(
+        'https://api.sunrisesunset.io/json?lat=28.7041&lng=77.1025'
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const responseData = await response.json();
+      console.log(responseData);
+    };
     const timer = setInterval(() => {
       const originalDate = new Date();
       const datePart = originalDate.toLocaleDateString('en-GB', {
@@ -71,6 +82,7 @@ const Patro = () => {
     }, 1000);
 
     return () => clearInterval(timer);
+    fetchSunDetails()
   }, []);
 
   return mhahObj ? (
@@ -79,6 +91,10 @@ const Patro = () => {
         {/*<h3 className='text-2xl font-semibold mb-4 underline'>
           {t('Panchang Today')}
         </h3>*/}
+        <p className='flex items-center gap-2'>
+          <span className='w-2 h-2 bg-red-600 rounded-full animate-ping'></span>
+          <span>Live</span>
+        </p>
         <div
           style={{ borderRadius: '4px 4px 0 0' }}
           className='bg-base-300 border border-2 border-red-800 p-2 text-sm flex items-center justify-between font-semibold'
@@ -91,14 +107,14 @@ const Patro = () => {
               </p>
               <p>{t(`paksha.${mhahObj?.Paksha?.name_en_IN}`)}</p>
             </div>
-            <div className='flex gap-2'>
-              <p>
+            <div className='flex'>
+              <p className='flex'>
                 {' '}
                 {t(`rasi.${mhahObj?.Raasi?.name_en_UK}`) ||
                   'Not available'}{' '}
                 {t('Rasi')},{' '}
               </p>
-              <p>
+              <p className='flex'>
                 {t(`nakshatra.${mhahObj?.Nakshatra?.name_en_IN}`) ||
                   'Not available'}{' '}
                 {t('Nakshatra')}
@@ -127,7 +143,7 @@ const Patro = () => {
               <img
                 width='80'
                 className=' shadow-2xl rounded-full'
-                src={`moon/shukla/${mhahObj?.Tithi?.name_en_IN}.png`}
+                src={`moon/krishna/${mhahObj?.Tithi?.name_en_IN}.png`}
               />
             )}
           </div>
