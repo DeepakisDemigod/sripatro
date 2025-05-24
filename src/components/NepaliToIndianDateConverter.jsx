@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MhahPanchang } from 'mhah-panchang';
 import NepaliDate from 'nepali-date-converter';
-import { Alarm, Calendar, CaretLeft } from 'phosphor-react';
+import { Alarm, Calendar, CaretLeft,ArrowSquareOut } from 'phosphor-react';
 import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
 import { useTranslation } from 'react-i18next';
 
@@ -195,6 +195,32 @@ const BirthPanchangBS = () => {
               </ul>
             </div>
           </a>
+          
+          <div className='mt-2 px-2 flex flex-col justify-between bg-base-100 rounded-md border border-2 border-base-800 border-t-red-600'>
+          <div>
+            <h3 className='flex items-center gap-1 font-bold text-lg'>
+              <span>Date Converter</span>
+              <ArrowSquareOut
+                weight='bold'
+                size={22}
+              />
+            </h3>
+            <p className='text-xs px-.5'>
+              change nepali date to indian date and indian date to nepali date.
+            </p>
+          </div>
+          <a
+            href='/nepalitoenglish'
+            className='my-2 border border-base-500 flex text-sm bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition'
+          >
+            <div className=''>
+              <span className='text-2xl'> 🇳🇵 </span>
+              {t('Nepali Date')}{' '}
+              <span className='text-xl mx-2 font-bold'>⇄</span>{' '}
+              <span className='text-xl'> 🇮🇳 </span> {t('Indian Date')}
+            </div>
+          </a>
+        </div>
 
           <h1 className='mt-2 text-2xl font-bold text-base-800 mb-6'>
              {t('Bikram Sambat to Panchang (BS)')}

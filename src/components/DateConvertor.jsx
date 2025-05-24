@@ -274,7 +274,7 @@ export default function DateConverter() {
         {convertedToAd && (
           <div className='mt-3 p-4 bg-base-300 text-lg space-y-1'>
             <div>
-              <span className='text-xl font-thin'>{convertedToAd}</span>
+              <span className='text-xl '>{convertedToAd}</span>
               {' , '}
               <span className='text-xl'>{bsDay}</span>
             </div>

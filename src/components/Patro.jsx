@@ -117,6 +117,8 @@ const Patro = () => {
               <p className='flex'>
                 {t(`nakshatra.${mhahObj?.Nakshatra?.name_en_IN}`) ||
                   'Not available'}{' '}
+              </p>
+              <p>
                 {t('Nakshatra')}
               </p>
             </div>

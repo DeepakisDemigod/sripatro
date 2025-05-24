@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react';
-import NepaliDate from 'nepali-date-converter';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from "react";
+import NepaliDate from "nepali-date-converter";
+import { useTranslation } from "react-i18next";
 
-const getTimeOfDay = hours => {
-  if (hours >= 4 && hours < 12) return 'बिहान को';
-  if (hours >= 12 && hours < 15) return 'दिउँसो को';
-  if (hours >= 15 && hours < 20) return 'साँझ को';
-  return 'राती को';
+const getTimeOfDay = (hours) => {
+  if (hours >= 4 && hours < 12) return "बिहान को";
+  if (hours >= 12 && hours < 15) return "दिउँसो को";
+  if (hours >= 15 && hours < 20) return "साँझ को";
+  return "राती को";
 };
 
-const getTithi = async date => {
+const getTithi = async (date) => {
   try {
     const response = await fetch(
-      'https://json.freeastrologyapi.com/tithi-durations',
+      "https://json.freeastrologyapi.com/tithi-durations",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': 'F7YFnQl2777f8cHUFguUZ2rUEF9R4Fal1zr8kH27'
+          "Content-Type": "application/json",
+          "x-api-key": "F7YFnQl2777f8cHUFguUZ2rUEF9R4Fal1zr8kH27",
         },
         body: JSON.stringify({
           year: date.getFullYear(),
@@ -30,31 +30,31 @@ const getTithi = async date => {
           longitude: 85.324,
           timezone: 5.75,
           config: {
-            observation_point: 'topocentric',
-            ayanamsha: 'lahiri'
-          }
-        })
+            observation_point: "topocentric",
+            ayanamsha: "lahiri",
+          },
+        }),
       }
     );
 
     const data = await response.json();
     const output = JSON.parse(data.output);
-    return output.name || 'Tithi not found';
+    return output.name || "Tithi not found";
   } catch (e) {
-    console.error('Tithi fetch error:', e);
-    return 'Tithi error';
+    console.error("Tithi fetch error:", e);
+    return "Tithi error";
   }
 };
 
 const showNotification = async (title, body) => {
-  if ('Notification' in window && Notification.permission === 'granted') {
-    if ('serviceWorker' in navigator) {
+  if ("Notification" in window && Notification.permission === "granted") {
+    if ("serviceWorker" in navigator) {
       const reg = await navigator.serviceWorker.getRegistration();
       if (reg) {
         reg.showNotification(title, {
           body,
-          tag: 'time-update',
-          renotify: true
+          tag: "time-update",
+          renotify: true,
         });
       }
     }
@@ -65,7 +65,7 @@ const TimeNotifier = () => {
   const [lastNotifiedMinute, setLastNotifiedMinute] = useState(null);
   const { t } = useTranslation();
   useEffect(() => {
-    if ('Notification' in window) {
+    if ("Notification" in window) {
       Notification.requestPermission();
     }
   }, []);
@@ -79,12 +79,12 @@ const TimeNotifier = () => {
 
       const timeOfDay = getTimeOfDay(now.getHours());
       const timeStr = now.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
       });
       const nepaliDate = new NepaliDate(now);
-      const formattedNepali = nepaliDate.format('dddd DD MMMM YYYY');
+      const formattedNepali = nepaliDate.format("dddd DD MMMM YYYY");
       const tithi = await getTithi(now);
 
       const title = `${timeOfDay}, ${timeStr}, ${tithi}`;
@@ -92,7 +92,7 @@ const TimeNotifier = () => {
 
       await showNotification(title, description);
       setLastNotifiedMinute(minute);
-    }, 60000); // every minute
+    }, 200000); // every minute
 
     return () => clearInterval(interval);
   }, [lastNotifiedMinute]);
@@ -101,12 +101,12 @@ const TimeNotifier = () => {
     const now = new Date();
     const timeOfDay = getTimeOfDay(now.getHours());
     const timeStr = now.toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
     });
     const nepaliDate = new NepaliDate(now);
-    const formattedNepali = nepaliDate.format('dddd DD MMMM YYYY');
+    const formattedNepali = nepaliDate.format("dddd DD MMMM YYYY");
     const tithi = await getTithi(now);
 
     const title = `${timeOfDay}, ${timeStr}, ${tithi}`;
@@ -393,3 +393,4 @@ const TimeNotifier = () => {
 
 export default TimeNotifier;
 */
+

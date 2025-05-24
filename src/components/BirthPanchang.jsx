@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { MhahPanchang } from 'mhah-panchang';
-import { Alarm, Swap, Calendar, CaretLeft } from 'phosphor-react';
+import {
+  Alarm,
+  Swap,
+  Calendar,
+  CaretLeft,
+  ArrowSquareOut
+} from 'phosphor-react';
 import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
 import ScrollTop from './ScrollTop.jsx';
 import { useTranslation } from 'react-i18next';
@@ -90,11 +96,38 @@ const BirthPanchang = () => {
           <div className='breadcrumbs border rounded   px-4 text-sm hover:bg-base-200'>
             <ul>
               <li className='hover:border'>
-                <CaretLeft size={19} /> <span>{t('Back')}</span>
+                <CaretLeft size={19} />{' '}
+                <span className='ml-2'>{t('Back')}</span>
               </li>
             </ul>
           </div>
         </a>
+
+        <div className='mt-2 px-2 flex flex-col justify-between bg-base-100 rounded-md border border-2 border-base-800 border-t-red-600'>
+          <div>
+            <h3 className='flex items-center gap-1 font-bold text-lg'>
+              <span>Date Converter</span>
+              <ArrowSquareOut
+                weight='bold'
+                size={22}
+              />
+            </h3>
+            <p className='text-xs px-.5'>
+              change nepali date to indian date and indian date to nepali date.
+            </p>
+          </div>
+          <a
+            href='/nepalitoenglish'
+            className='my-2 border border-base-500 flex text-sm bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition'
+          >
+            <div className=''>
+              <span className='text-2xl'> 🇳🇵 </span>
+              {t('Nepali Date')}{' '}
+              <span className='text-xl mx-2 font-bold'>⇄</span>{' '}
+              <span className='text-xl'> 🇮🇳 </span> {t('Indian Date')}
+            </div>
+          </a>
+        </div>
 
         <h1 className='mt-2 text-2xl font-bold text-base-800 mb-6'>
           {t('Ishwi Sambat to Panchang')}
@@ -285,19 +318,6 @@ const BirthPanchang = () => {
             {t('Enter your details to get your birth Panchang.')}
           </div>
         )}
-
-        <div className='mt-6 flex justify-between'>
-          <a
-            href='/nepalitoenglish'
-            className='flex text-sm border border-base-800 items-center gap-2 bg-base-100 text-base-800 py-2 px-4 rounded-md shadow-sm transition'
-          >
-            <Swap
-              size={20}
-              className='text-red-700'
-            />
-            <span>{t('🇳🇵 Nepali Date → 🇮🇳 English Date')}</span>
-          </a>
-        </div>
       </div>
       <ScrollTop />
     </div>
