@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { MhahPanchang } from 'mhah-panchang';
-import { Calendar, Alarm, Sun, Moon } from 'phosphor-react';
+import { Calendar, Alarm, Sun, SunHorizon } from 'phosphor-react';
 import { useTranslation } from 'react-i18next';
 import Calender from './Calender.jsx';
+import NepaliDate from 'nepali-date-converter';
 
 const INFO_FIELDS = [
   {
@@ -175,38 +176,91 @@ const Patro = () => {
             <span className='uppercase text-xs tracking-widest font-semibold'>Live</span>
           </div>
           <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-base-300 border border-red-800 rounded-xl p-4 mb-4'>
-            <div className='flex-1 flex flex-col gap-1'>
-              {tithiPakshaBlock}
-              {rasiNakshatraBlock}
-              {yogaKarnaBlock}
-              <div className='flex gap-4 mt-2 items-center'>
-                <span className='flex items-center gap-1 text-base-content'>
-                  <Sun size={20} className='text-yellow-400' />
-                  <span className='font-semibold'>{sunData?.sunrise || 'Unknown'}</span>
-                </span>
-                <span className='flex items-center gap-1 text-base-content'>
-                  <Moon size={20} className='text-blue-400' />
-                  <span className='font-semibold'>{sunData?.sunset || 'Unknown'}</span>
-                </span>
-              </div>
-            </div>
-            <div className='flex justify-center items-center'>
+          <div className='flex justify-center items-center relative'>
+              {/* Watermark background */}
+              <img
+                src='/watermark.png'
+                alt='Watermark'
+                className='absolute inset-0 w-full h-full object-contain opacity-10 pointer-events-none select-none'
+                style={{ zIndex: 0 }}
+              />
+              {/* Moon image */}
               <img
                 width='80'
-                className='shadow-2xl rounded-full border border-base-300 bg-base-100'
+                className='shadow-2xl rounded-full border border-base-300 bg-base-100 relative z-10'
                 src={`moon/${mhahObj?.Paksha?.name_en_IN === 'Shukla' ? 'shukla' : 'krishna'}/${mhahObj?.Tithi?.name_en_IN}.png`}
                 alt='Moon phase'
               />
             </div>
+            <div className='flex-1 flex flex-col gap-1'>
+              
+            <div className='flex gap-4 mt-2 items-center'>
+                <span className='flex items-center gap-1 text-base-content'>
+                  <Sun size={22} weight="bold" className='text-base-content' />
+                  <span className='font-semibold'>{sunData?.sunrise || 'Unknown'}</span>
+                </span>
+                <span className='flex items-center gap-1 text-base-content'>
+                  <SunHorizon size={22}  weight="bold" className='text-base-content' />
+                  <span className='font-semibold'>{sunData?.sunset || 'Unknown'}</span>
+                </span>
+              </div>
+
+              {tithiPakshaBlock}
+              {rasiNakshatraBlock}
+              {yogaKarnaBlock}
+              
+            </div>
+            
           </div>
-          <div className='bg-red-800 text-white rounded-lg p-3 flex flex-col md:flex-row md:items-center md:justify-between mb-6'>
-            <h2 className='text-base flex items-center gap-2 font-semibold'>
-              <Calendar size={20} />
-              <span>
-                {translateWithFallback(`day.${mhahObj?.Day?.name_en_UK}`, 'Day not available')},
-              </span>
-              <span className='ml-2'>{currentTime}</span>
-            </h2>
+          {/* Modern Date/Time Card */}
+          <div className="relative rounded-2xl overflow-hidden mb-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-700/90 via-red-800/80 to-red-900/90 blur-sm opacity-80"></div>
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 backdrop-blur-md bg-red-800/80 shadow-xl">
+              {/* Left: Day and Date */}
+              <div className="flex flex-col gap-1 md:gap-2">
+                <div className="flex items-center gap-2">
+                  <Calendar size={28} weight="fill" className="text-white drop-shadow animate-fade-in" />
+                  <span className="text-xl md:text-2xl font-extrabold tracking-wide text-white animate-fade-in">
+                    {t(`day.${mhahObj?.Day?.name_en_UK}`) || 'Day not available'}
+                  </span>
+                </div>
+                <span className="text-lg md:text-xl font-semibold text-white/90 animate-fade-in delay-100">
+                  {new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}
+                </span>
+                
+              </div>
+              {/* Right: Time */}
+              <div className="flex flex-col items-start md:items-end gap-1">
+                
+              <div>{/* Nepali Date (BS) */}
+                {(() => {
+                  try {
+                    const now = new Date();
+                    const bsDate = NepaliDate.fromAD(now);
+                    const BS_MONTHS_NEPALI = [
+                      'बैशाख', 'जेठ', 'असार', 'साउन', 'भदौ', 'असोज', 'कार्तिक', 'मंसिर', 'पुष', 'माघ', 'फागुन', 'चैत्र'
+                    ];
+                    const bsYear = bsDate.getYear();
+                    const bsMonth = bsDate.getMonth();
+                    const bsDay = bsDate.getDate();
+                    return (
+                      <span className="text-lg font-semibold text-white animate-fade-in delay-150">
+                        {bsYear} {BS_MONTHS_NEPALI[bsMonth]} {bsDay}
+                      </span>
+                    );
+                  } catch {
+                    return null;
+                  }
+                })()}</div>
+              <div className="flex items-center gap-2">
+                  <Alarm size={24} weight="fill" className="text-white animate-pulse" />
+                  <span className="text-lg md:text-xl font-mono font-bold text-white animate-fade-in delay-200">
+                    {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).toLowerCase()}
+                  </span>
+                </div>
+                
+              </div>
+            </div>
           </div>
           <div className='mb-4'>
             <Calender />
