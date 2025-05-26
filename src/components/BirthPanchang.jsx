@@ -10,6 +10,22 @@ import {
 import nakshatraData from './nakshatraData.json'; // Import the Nakshatra data
 import ScrollTop from './ScrollTop.jsx';
 import { useTranslation } from 'react-i18next';
+import NepaliDate from 'nepali-date-converter';
+
+const BS_MONTHS_NEPALI = [
+  'बैशाख',
+  'जेठ',
+  'असार',
+  'साउन',
+  'भदौ',
+  'असोज',
+  'कार्तिक',
+  'मंसिर',
+  'पुष',
+  'माघ',
+  'फागुन',
+  'चैत्र'
+];
 
 const BirthPanchang = () => {
   const { t } = useTranslation();
@@ -36,6 +52,7 @@ const BirthPanchang = () => {
   const [panchang, setPanchang] = useState(null);
   const [age, setAge] = useState(null);
   const [nakshatraInfo, setNakshatraInfo] = useState(null); // New state
+  const [sunData, setSunData] = useState(null); // <-- Add state for sunrise/sunset
 
   const calculateAge = dateOfBirth => {
     const now = new Date();
@@ -86,11 +103,31 @@ const BirthPanchang = () => {
     }
   };
 
+  // Fetch sunrise/sunset when dob changes
+  useEffect(() => {
+    if (!dob) return;
+    const fetchSunDetails = async () => {
+      try {
+        // Format date as YYYY-MM-DD
+        const dateParam = dob;
+        const response = await fetch(
+          `https://api.sunrisesunset.io/json?lat=28.7041&lng=77.1025&date=${dateParam}`
+        );
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        const data = await response.json();
+        setSunData(data.results);
+      } catch (e) {
+        setSunData(null);
+      }
+    };
+    fetchSunDetails();
+  }, [dob]);
+
   return (
     <div className='bg-base-100 text-base-content flex items-center justify-center'>
       <div className='bg-base-200 shadow-lg rounded-lg p-6 w-full max-w-3xl'>
         <a
-          href='/'
+          href='/date-converter'
           className='hover:underline'
         >
           <div className='breadcrumbs border rounded   px-4 text-sm hover:bg-base-200'>
@@ -188,131 +225,207 @@ const BirthPanchang = () => {
         </form>
 
         {panchang ? (
-          <div className='mt-6 bg-base-200 p-1 rounded-lg overflow-x-auto'>
-            <h3 className='text-lg font-semibold underline text-base-800 mb-4'>
-              {t('Birth Panchang Details')}
-            </h3>
-            <table className='table w-full  bg-base-200 text-base-content '>
-              <tbody>
-                <tr className='text-base-content'>
-                  <th>{t('Day')}</th>
-                  <td>
-                    {t(`day.${panchang?.Day?.name_en_UK}`) || 'Not Available'}
-                  </td>
-                  {/*  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>*/}
-                </tr>
-
-                <tr className='text-base-content'>
-                  <th>{t('Paksh')}</th>
-                  <td>
-                    {t(`paksha.${panchang?.Paksha?.name_en_IN}`) ||
-                      'Not Available'}
-                  </td>
-                </tr>
-
-                <tr className='text-base-content'>
-                  <th>{t('Tithi')}</th>
-                  <td className='flex gap-2 items-start border-none'>
-                    <div className='bg-zinc-200 rounded-full p-[.5px]'>
-                      {' '}
-                      {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
+          <>
+            {/* Extra Info Card */}
+            <div className="w-70 mb-4 bg-base-100 rounded overflow-x-auto">
+              <div className="flex justify-between border border-base-800 p-1 rounded gap-1">
+                <div className="pt-2 pl-2">
+                  <h2 className="text-sm font-bold text-base-800">
+                    {t(`day.${panchang?.Day?.name_en_UK}`)}
+                    {dob ? `, ${dob}` : ''}
+                  </h2>
+                  <p className="text-base-600 text-sm font-bold">
+                    {time ? `${time}` : ''}
+                  </p>
+                  {/*<p className="text-base-800 text-sm font-bold">
+                    {panchang && new Date(dob).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </p>*/}
+                  {/* Show AD to BS conversion */}
+                  {dob && (() => {
+                    try {
+                      const adDate = new Date(dob);
+                      const bsDate = NepaliDate.fromAD(adDate);
+                      const bsYear = bsDate.getYear();
+                      const bsMonth = bsDate.getMonth();
+                      const bsDay = bsDate.getDate();
+                      return (
+                        <span className="text-base-600 text-md font-semibold">
+                          {bsYear} {BS_MONTHS_NEPALI[bsMonth]} {bsDay}
+                        </span>
+                      );
+                    } catch {
+                      return null;
+                    }
+                  })()}
+                </div>
+                <div className='flex flex-col items-end justify-between'>
+                  {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
+                    <div>
+                      <div className='flex items-center justify-end'>
                         <img
-                          className='shadow-2xl'
-                          width='20'
+                          className='shadow-2xl rounded-full m-1 bg-zinc-200'
+                          width='50'
                           src={`moon/shukla/${panchang?.Tithi?.name_en_IN}.png`}
                         />
-                      ) : (
+                      </div>
+                      <p className='text-sm font-bold'>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`)},
+                        {t(`paksha.${panchang?.Paksha?.name_en_IN}`)}
+                      </p>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className='flex items-center justify-end'>
                         <img
-                          className='shadow-2xl'
-                          width='20'
+                          className='shadow-2xl rounded-full m-1 bg-zinc-200'
+                          width='50'
                           src={`moon/krishna/${panchang?.Tithi?.name_en_IN}.png`}
                         />
-                      )}{' '}
+                      </div>
+                      <p className='text-sm font-bold'>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`)},
+                        {t(`paksha.${panchang?.Paksha?.name_en_IN}`)}
+                      </p>
                     </div>
-                    <p>
-                      {t(`tithi.${panchang?.Tithi?.name_en_IN}`) ||
-                        'Not Available'}
-                    </p>
-                  </td>
-                </tr>
-
-                <tr className='text-base-content'>
-                  <th>{t('Nakshatra')}</th>
-                  <td>
-                    {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
-                      'Not Available'}
-                  </td>
-                </tr>
-                <tr className='text-base-content'>
-                  <th>{t('Rasi')}</th>
-                  <td>
-                    {t(`rasi.${panchang?.Raasi?.name_en_UK}`) ||
-                      'Not Available'}
-                  </td>
-                </tr>
-                {nakshatraInfo && (
-                  <>
-                    <tr className='text-base-content'>
-                      <th>{t('Syllables')}</th>
-                      <td>
-                        {t(`syllables.${nakshatraInfo['first syllables']}`) ||
-                          'Not Available'}
-                      </td>
-                    </tr>
-                    <tr className='text-base-content'>
-                      <th>{t('Gan')}</th>
-                      <td>
-                        {t(`ganam.${nakshatraInfo.ganam}`) || 'Not Available'}
-                      </td>
-                    </tr>
-                    <tr className='text-base-content'>
-                      <th>{t('Animal Sign')}</th>
-                      <td>
-                        {t(`animal.${nakshatraInfo['animal sign']}`) ||
-                          'Not Available'}
-                      </td>
-                    </tr>
-                    <tr className='text-base-content'>
-                      <th>{t('Deity')}</th>
-                      <td>
-                        {t(`deity.${nakshatraInfo.Diety}`) || 'Not Available'}
-                      </td>
-                    </tr>
-                    <tr className='text-base-content'>
-                      <th>{t('Best Direction')}</th>
-                      <td>
-                        {t(
-                          `best_direction.${nakshatraInfo['best direction']}`
-                        ) || 'Not Available'}
-                      </td>
-                    </tr>
-                  </>
-                )}
-                <tr className='text-base-content'>
-                  <th>{t('Yoga')}</th>
-                  <td>
-                    {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'Not Available'}
-                  </td>
-                </tr>
-                <tr className='text-base-content'>
-                  <th>{t('Karna')}</th>
-                  <td>
-                    {t(`karna.${panchang?.Karna?.name_en_IN}`) ||
-                      'Not Available'}
-                  </td>
-                </tr>
-
-                {age && (
+                  )}
+                </div>
+              </div>
+            </div>
+            {/* End Extra Info Card */}
+            <div className='mt-6 bg-base-200 p-1 rounded-lg overflow-x-auto'>
+              {/*<h3 className='text-lg font-semibold underline text-base-800 mb-4'>
+                {t('Birth Panchang Details')}
+              </h3>*/}
+              <table className='table w-full  bg-base-200 text-base-content '>
+                <tbody>
                   <tr className='text-base-content'>
-                    <th>{t('Age')}</th>
+                    <th>{t('Day')}</th>
                     <td>
-                      {age.years} {t('years and')} {age.months} {t('months')}
+                      {t(`day.${panchang?.Day?.name_en_UK}`) || 'Not Available'}
+                    </td>
+                    {/*  <td>{panchang?.Day?.name_en_UK || 'Not Available'}</td>*/}
+                  </tr>
+
+                  <tr className='text-base-content'>
+                    <th>{t('Paksh')}</th>
+                    <td>
+                      {t(`paksha.${panchang?.Paksha?.name_en_IN}`) ||
+                        'Not Available'}
                     </td>
                   </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+
+                  <tr className='text-base-content'>
+                    <th>{t('Tithi')}</th>
+                    <td className='flex gap-2 items-start border-none'>
+                      <div className='bg-zinc-200 rounded-full p-[.5px]'>
+                        {' '}
+                        {panchang?.Paksha?.name_en_IN === 'Shukla' ? (
+                          <img
+                            className='shadow-2xl'
+                            width='20'
+                            src={`moon/shukla/${panchang?.Tithi?.name_en_IN}.png`}
+                          />
+                        ) : (
+                          <img
+                            className='shadow-2xl'
+                            width='20'
+                            src={`moon/krishna/${panchang?.Tithi?.name_en_IN}.png`}
+                          />
+                        )}{' '}
+                      </div>
+                      <p>
+                        {t(`tithi.${panchang?.Tithi?.name_en_IN}`) ||
+                          'Not Available'}
+                      </p>
+                    </td>
+                  </tr>
+
+                  <tr className='text-base-content'>
+                    <th>{t('Nakshatra')}</th>
+                    <td>
+                      {t(`nakshatra.${panchang?.Nakshatra?.name_en_IN}`) ||
+                        'Not Available'}
+                    </td>
+                  </tr>
+                  <tr className='text-base-content'>
+                    <th>{t('Rasi')}</th>
+                    <td>
+                      {t(`rasi.${panchang?.Raasi?.name_en_UK}`) ||
+                        'Not Available'}
+                    </td>
+                  </tr>
+                  {nakshatraInfo && (
+                    <>
+                      <tr className='text-base-content'>
+                        <th>{t('Syllables')}</th>
+                        <td>
+                          {t(`syllables.${nakshatraInfo['first syllables']}`) ||
+                            'Not Available'}
+                        </td>
+                      </tr>
+                      <tr className='text-base-content'>
+                        <th>{t('Gan')}</th>
+                        <td>
+                          {t(`ganam.${nakshatraInfo.ganam}`) || 'Not Available'}
+                        </td>
+                      </tr>
+                      <tr className='text-base-content'>
+                        <th>{t('Animal Sign')}</th>
+                        <td>
+                          {t(`animal.${nakshatraInfo['animal sign']}`) ||
+                            'Not Available'}
+                        </td>
+                      </tr>
+                      <tr className='text-base-content'>
+                        <th>{t('Deity')}</th>
+                        <td>
+                          {t(`deity.${nakshatraInfo.Diety}`) || 'Not Available'}
+                        </td>
+                      </tr>
+                      <tr className='text-base-content'>
+                        <th>{t('Best Direction')}</th>
+                        <td>
+                          {t(
+                            `best_direction.${nakshatraInfo['best direction']}`
+                          ) || 'Not Available'}
+                        </td>
+                      </tr>
+                    </>
+                  )}
+                  <tr className='text-base-content'>
+                    <th>{t('Yoga')}</th>
+                    <td>
+                      {t(`yoga.${panchang?.Yoga?.name_en_IN}`) || 'Not Available'}
+                    </td>
+                  </tr>
+                  <tr className='text-base-content'>
+                    <th>{t('Karna')}</th>
+                    <td>
+                      {t(`karna.${panchang?.Karna?.name_en_IN}`) ||
+                        'Not Available'}
+                    </td>
+                  </tr>
+
+                  {age && (
+                    <tr className='text-base-content'>
+                      <th>{t('Age')}</th>
+                      <td>
+                        {age.years} {t('years and')} {age.months} {t('months')}
+                      </td>
+                    </tr>
+                  )}
+                  <tr className='text-base-content'>
+                    <th>{t('Sunrise')}</th>
+                    <td>{sunData?.sunrise || 'Unknown'}</td>
+                  </tr>
+                  <tr className='text-base-content'>
+                    <th>{t('Sunset')}</th>
+                    <td>{sunData?.sunset || 'Unknown'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </>
         ) : (
           <div className='mt-6 bg-base-100 p-4 rounded-lg text-base-600 text-sm'>
             {t('Enter your details to get your birth Panchang.')}

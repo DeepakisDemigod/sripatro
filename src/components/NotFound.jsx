@@ -1,42 +1,25 @@
 import React from 'react';
-import { Headset, House } from 'phosphor-react';
+import { Headset, House, WarningCircle } from 'phosphor-react';
 
 const NotFound = () => {
   return (
-    <div className=''>
-      <div className='h-[60vh] flex flex-col items-center justify-center bg-white text-black min-h-full px-4 py-4  sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8'>
-        <div className='mx-auto max-w-max'>
-          <div className='mt-5'>
-            <div className='flex mt-6'>
-              <p className='mt-4 text-4xl font-extrabold text-black sm:text-5xl'>
-                Oops
-              </p>
-              <div className='ml-6'>
-                <div className='pl-6 border-l border-gray-500'>
-                  <h2 className='text-3xl font-bold tracking-tight text-black  sm:text-4xl'>
-                    Something went wrong!
-                  </h2>
-                  <p className='mt-1 text-md text-black '>
-                    Please select a topic from the tag cloud above or go back
-                    home
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='text-center'>
-          <a href='/'>
-            <button className='btn bg-white text-black px-2 py-1'>
-              <House size={21} />
-              <span>Home</span>
-            </button>
+    <div className="min-h-[40vh] flex items-center justify-center bg-base-100 text-base-content px-4">
+      <div className="card bg-base-200 shadow-xl rounded-xl p-8 max-w-md w-full flex flex-col items-center">
+        <WarningCircle size={64} className="text-error mb-2" />
+        <h1 className="text-5xl font-extrabold tracking-tight mb-2">404</h1>
+        <h2 className="text-2xl font-bold mb-1">Page Not Found</h2>
+        <p className="text-base-content/70 mb-6 text-center">
+          Sorry, the page you are looking for does not exist or has been moved.<br />
+          Please check the URL or return to the homepage.
+        </p>
+        <div className="flex gap-3 w-full justify-center">
+          <a href="/" className="text-white btn bg-red-500 flex items-center gap-2 rounded-lg font-semibold">
+            <House size={22} />
+            Home
           </a>
-          <a href='mailto:deepakthapa'>
-            <button className='btn bg-white text-black px-2 py-1'>
-              <Headset size={21} />
-              <span>Support</span>
-            </button>
+          <a href="mailto:deepakthapa" className="text-base-content hover:border hover:text-red-400 hover:border-red-400 btn flex items-center gap-2 rounded-lg font-semibold">
+            <Headset size={22} />
+            Support
           </a>
         </div>
       </div>

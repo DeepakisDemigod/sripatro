@@ -81,6 +81,7 @@ const BirthPanchangBS = () => {
   const [error, setError] = useState('');
   const [age, setAge] = useState(null);
   const [nakshatraInfo, setNakshatraInfo] = useState(null);
+  const [sunData, setSunData] = useState(null);
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -128,6 +129,16 @@ const BirthPanchangBS = () => {
       // Add Time of Birth
       const [hours, minutes] = timeOfBirth.split(':').map(Number);
       adDate.setHours(hours, minutes);
+
+      // Fetch sunrise/sunset for this AD date
+      const yyyy = adDate.getFullYear();
+      const mm = String(adDate.getMonth() + 1).padStart(2, '0');
+      const dd = String(adDate.getDate()).padStart(2, '0');
+      const dateParam = `${yyyy}-${mm}-${dd}`;
+      fetch(`https://api.sunrisesunset.io/json?lat=28.7041&lng=77.1025&date=${dateParam}`)
+        .then(res => res.ok ? res.json() : Promise.reject(res))
+        .then(data => setSunData(data.results))
+        .catch(() => setSunData(null));
 
       // Calculate age
       const calculatedAge = calculateAge(adDate);
@@ -210,7 +221,7 @@ const BirthPanchangBS = () => {
             </p>
           </div>
           <a
-            href='/nepalitoenglish'
+            href='/date-converter'
             className='my-2 border border-base-500 flex text-sm bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition'
           >
             <div className=''>
@@ -480,6 +491,14 @@ const BirthPanchangBS = () => {
                           </td>
                         </tr>
                       )}
+                      <tr>
+                        <th className='text-base-content'>{t('Sunrise')}</th>
+                        <td className='text-base-content'>{sunData?.sunrise || 'Unknown'}</td>
+                      </tr>
+                      <tr>
+                        <th className='text-base-content'>{t('Sunset')}</th>
+                        <td className='text-base-content'>{sunData?.sunset || 'Unknown'}</td>
+                      </tr>
                     </tbody>
                   </table>
                 )}
