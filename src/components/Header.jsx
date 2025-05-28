@@ -40,7 +40,7 @@ export default function Header() {
         {/* Main Content */}
         <div className='drawer-content flex flex-col'>
           <nav className='navbar px-4 md:px-6'>
-            <div className='flex-none lg:hidden'>
+            <div className='flex-none'>
               <label
                 htmlFor='my-drawer'
                 className='btn btn-ghost btn-circle'

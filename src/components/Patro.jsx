@@ -169,6 +169,7 @@ const Patro = () => {
 
   return (
     <div className='min-h-screen flex items-center justify-center bg-base-100 px-2'>
+  
       <div className='card w-full max-w-lg shadow-2xl bg-base-200 text-base-content rounded-box'>
         <div className='card-body p-4'>
           <div className='flex items-center gap-2 mb-2'>

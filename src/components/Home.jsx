@@ -10,6 +10,7 @@ const Home = () => {
   return (
     <div className='bg-base-200 container mx-auto px-4 pb-8'>
       <div className=' mx-auto'>
+        <marquee></marquee>
         <Tiles />
          {/* <Calender />*/}
         <Patro />
