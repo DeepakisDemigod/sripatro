@@ -276,7 +276,7 @@ export default function Header() {
                 rel='noopener noreferrer'
               >
                 <img
-                  src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=neutral'
+                  src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light'
                   alt='Sri Patro on Product Hunt'
                   className='w-25'
                 />

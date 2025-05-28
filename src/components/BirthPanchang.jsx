@@ -103,6 +103,29 @@ const BirthPanchang = () => {
     }
   };
 
+  const formatTimeWithPeriod = (time, t) => {
+    const [hourStr, minute] = time.split(':');
+    let hour = parseInt(hourStr, 10);
+    const suffix = hour >= 12 ? 'pm' : 'am';
+
+    let periodKey = '';
+    if (hour < 4) periodKey = 'Night';
+    else if (hour < 12) periodKey = 'Morning';
+    else if (hour < 16) periodKey = 'Afternoon';
+    else if (hour < 20) periodKey = 'Evening';
+    else periodKey = 'Night';
+
+    if (hour > 12) hour -= 12;
+    if (hour === 0) hour = 12;
+
+    const translatedPeriod = t(`timePeriod.${periodKey}`);
+
+    return `${translatedPeriod}, ${String(hour).padStart(
+      2,
+      '0'
+    )}:${minute}${suffix}`;
+  };
+
   // Fetch sunrise/sunset when dob changes
   useEffect(() => {
     if (!dob) return;
@@ -405,7 +428,14 @@ const BirthPanchang = () => {
                         'Not Available'}
                     </td>
                   </tr>
-
+                  <tr className='text-base-content'>
+                    <th>{t('Sunrise')}</th>
+                    <td>{t('timePeriod.Morning')} {" "}{sunData?.sunrise || 'Unknown'}</td>
+                  </tr>
+                  <tr className='text-base-content'>
+                    <th>{t('Sunset')}</th>
+                    <td>{t('timePeriod.Evening')} {" "}{sunData?.sunset || 'Unknown'}</td>
+                  </tr>
                   {age && (
                     <tr className='text-base-content'>
                       <th>{t('Age')}</th>
@@ -414,14 +444,7 @@ const BirthPanchang = () => {
                       </td>
                     </tr>
                   )}
-                  <tr className='text-base-content'>
-                    <th>{t('Sunrise')}</th>
-                    <td>{sunData?.sunrise || 'Unknown'}</td>
-                  </tr>
-                  <tr className='text-base-content'>
-                    <th>{t('Sunset')}</th>
-                    <td>{sunData?.sunset || 'Unknown'}</td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>

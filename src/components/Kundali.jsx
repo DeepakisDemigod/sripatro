@@ -1,6 +1,6 @@
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver'; // For saving the image
-import { ArrowCounterClockwise, FileArrowDown, X, Share } from 'phosphor-react';
+import { ArrowCounterClockwise, FileArrowDown, X, ShareNetwork } from 'phosphor-react';
 import { useState, useEffect, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import ScrollTop from './ScrollTop.jsx';
@@ -57,7 +57,7 @@ function Kundali() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'x-api-key': 'F7YFnQl2777f8cHUFguUZ2rUEF9R4Fal1zr8kH27'
+              'x-api-key': 'gsH9JZc46V6ReDRpCLQen6DJhw1gquqG3H7NIeeI'
             },
             body: JSON.stringify({
               year: dateTime.year,
@@ -285,6 +285,23 @@ function Kundali() {
         console.error('Error sharing Kundali:', error);
       }
     }
+  };
+
+  // Mapping of planet names to emojis
+  const planetEmojis = {
+    Sun: '☉',
+    Moon: '☾',
+    Mars: '♂',
+    Mercury: '☿️',
+    Jupiter: '♃',
+    Venus: '♀',
+    Saturn: '♄',
+    Rahu: '☊',
+    Ketu: '☋',
+    Uranus: '⛢',
+    Neptune: '♆',
+    Pluto: '♇',
+    Ascendant: '🔺'
   };
 
   return (
@@ -540,14 +557,6 @@ function Kundali() {
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#555'
-                strokeWidth='1'
-              />
-              <line
-                x1='10'
-                y1='150'
-                x2='150'
-                y2='10'
                 stroke='#111'
                 strokeWidth='1'
               />
@@ -621,16 +630,16 @@ function Kundali() {
           </div>
         </div>
 
-        <div className='mt-4 flex justify-center'>
+        <div className='mt-12 flex justify-center'>
           <button
             onClick={handleShare}
-            className='flex items-center justify-center gap-1 bg-red-600 px-3 py-2 rounded '
+            className='btn flex items-center justify-center gap-1 bg-red-600 px-3 py-2 rounded '
           >
-            <Share
+            <ShareNetwork
               size={21}
               className='cursor-pointer text-white'
             />
-            <span> Share Report</span>
+            <span className='text-white'> Share Report</span>
           </button>
         </div>
 
@@ -659,7 +668,7 @@ function Kundali() {
               {planetData.map(planet => (
                 <tr key={planet.name}>
                   <td className='flex items-center gap-2 p-2 border-b border-gray-200 bg-base-100 text-sm'>
-                    <span>{t(`planetFull.${planet.name}`)}</span>{' '}
+                    <span>{planetEmojis[planet.name] || ''} {t(`planetFull.${planet.name}`)}</span>{' '}
                     {planet.isRetro === 'true' ? (
                       <>
                         <span

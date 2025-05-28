@@ -95,7 +95,7 @@ const Tools = () => {
           target='_blank'
         >
           <img
-            src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=dark'
+            src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light'
             alt='Sri&#0032;Patro - Best&#0032;Nepali&#0032;and&#0032;English&#0032;Calender&#0032;forAccurate&#0032;Hourly&#0032;Panchang | Product Hunt'
             style={{ width: '100vw', height: '54px' }}
           />

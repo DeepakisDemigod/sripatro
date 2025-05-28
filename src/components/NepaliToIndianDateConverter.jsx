@@ -481,6 +481,14 @@ const BirthPanchangBS = () => {
                           {t(`karna.${panchang?.Karna?.name_en_IN}`) || 'N/A'}
                         </td>
                       </tr>
+                      <tr>
+                        <th className='text-base-content'>{t('Sunrise')}</th>
+                        <td className='text-base-content'>{t('timePeriod.Morning')} {" "}{sunData?.sunrise || 'Unknown'}</td>
+                      </tr>
+                      <tr>
+                        <th className='text-base-content'>{t('Sunset')}</th>
+                        <td className='text-base-content'>{t('timePeriod.Evening')} {" "}{sunData?.sunset || 'Unknown'}</td>
+                      </tr>
 
                       {age && (
                         <tr>
@@ -491,14 +499,7 @@ const BirthPanchangBS = () => {
                           </td>
                         </tr>
                       )}
-                      <tr>
-                        <th className='text-base-content'>{t('Sunrise')}</th>
-                        <td className='text-base-content'>{sunData?.sunrise || 'Unknown'}</td>
-                      </tr>
-                      <tr>
-                        <th className='text-base-content'>{t('Sunset')}</th>
-                        <td className='text-base-content'>{sunData?.sunset || 'Unknown'}</td>
-                      </tr>
+                     
                     </tbody>
                   </table>
                 )}
