@@ -1,52 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import NepaliDate from 'nepali-date-converter';
+import { CaretLeft, CaretRight } from 'phosphor-react';
 
 const Calendar = () => {
   const { t } = useTranslation();
   const [days, setDays] = useState([]);
   const [currentNepaliMonth, setCurrentNepaliMonth] = useState('');
+  const [viewYear, setViewYear] = useState(() => new Date().getFullYear());
+  const [viewMonth, setViewMonth] = useState(() => new Date().getMonth());
 
   useEffect(() => {
     const generateCalendar = () => {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = today.getMonth();
-
+      const year = viewYear;
+      const month = viewMonth;
       const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
-
       const calendarDays = [];
-      let nepaliMonthForHeading = ''; // Store the Nepali month for the heading
-
+      let nepaliMonthForHeading = '';
       for (let i = 0; i < firstDay; i++) calendarDays.push(null);
       for (let day = 1; day <= daysInMonth; day++) {
         const engDate = new Date(year, month, day);
         const nepDate = new NepaliDate(engDate);
         const bs = nepDate.getBS();
-
-        // Only set the Nepali month if it's not already set
         if (!nepaliMonthForHeading) {
           nepaliMonthForHeading = nepaliMonthName(bs.month);
         }
-
         calendarDays.push({
           day,
           nepDate: `${bs.date} ${nepaliMonthName(bs.month)}`,
           isTodayNepali: isTodayNepali(bs)
         });
       }
-
       setDays(calendarDays);
-      setCurrentNepaliMonth(nepaliMonthForHeading); // Update the state
+      setCurrentNepaliMonth(nepaliMonthForHeading);
     };
-
     generateCalendar();
-  }, []);
+  }, [viewYear, viewMonth]);
 
   const today = new Date();
-  const currentMonth = today.toLocaleString('default', { month: 'long' });
-  const currentYear = today.getFullYear();
+  const currentMonth = new Date(viewYear, viewMonth).toLocaleString('default', { month: 'long' });
+  const currentYear = viewYear;
 
   const dayKeys = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
 
@@ -77,12 +71,37 @@ const Calendar = () => {
     return months[index];
   };
 
+  const handlePrevMonth = () => {
+    setViewMonth(prev => {
+      if (prev === 0) {
+        setViewYear(y => y - 1);
+        return 11;
+      }
+      return prev - 1;
+    });
+  };
+  const handleNextMonth = () => {
+    setViewMonth(prev => {
+      if (prev === 11) {
+        setViewYear(y => y + 1);
+        return 0;
+      }
+      return prev + 1;
+    });
+  };
+
   return (
     <div className='max-w-80 flex flex-col items-center bg-base-50'>
       <div className='bg-base-200 rounded-lg w-full max-w-md'>
-        {/* <h2 className='underline text-xl font-semibold  text-center mb-6'>
-          {currentMonth} {currentYear} ({currentNepaliMonth})
-        </h2> */}
+        {/* Month/Year Navigation */}
+        <div className='flex items-center justify-between px-2 py-3 mb-2'>
+          <button onClick={handlePrevMonth} className='btn btn-ghost btn-xs'><CaretLeft size={22} /></button>
+          <div className='font-bold text-base-content text-lg flex flex-col items-center'>
+            <span>{currentMonth} {currentYear}</span>
+            <span className='text-xs text-base-400'>{currentNepaliMonth}</span>
+          </div>
+          <button onClick={handleNextMonth} className='btn btn-ghost btn-xs'><CaretRight size={22} /></button>
+        </div>
         <div>
           <div className='grid grid-cols-7 gap-[2px] text-center text-base-content font-medium mb-4'>
             {dayKeys.map(key => (
