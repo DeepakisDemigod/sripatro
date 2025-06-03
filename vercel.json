@@ -1,3 +1,21 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "sripatro.vercel.app"
+        }
+      ],
+      "destination": "https://sripatro.com/:1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
