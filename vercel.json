@@ -8,7 +8,7 @@
           "value": "sripatro.vercel.app"
         }
       ],
-      "destination": "https://sripatro.com/:1",
+      "destination": "https://sripatro.com/$1",
       "permanent": true
     }
   ],
