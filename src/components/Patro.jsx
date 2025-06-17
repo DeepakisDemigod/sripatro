@@ -216,7 +216,7 @@ const Patro = () => {
           {/* Modern Date/Time Card */}
           <div className="relative rounded-2xl overflow-hidden mb-6">
             <div className="absolute inset-0 bg-gradient-to-br from-red-700/90 via-red-800/80 to-red-900/90 blur-sm opacity-80"></div>
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 backdrop-blur-md bg-red-800/80 shadow-xl">
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 backdrop-blur-md bg-gradient-to-r from-red-600 via-red-500 to-red-700 shadow-xl">
               {/* Left: Day and Date */}
               <div className="flex flex-col gap-1 md:gap-2">
                 <div className="flex items-center gap-2">
@@ -231,6 +231,13 @@ const Patro = () => {
                 
               </div>
               {/* Right: Time */}
+<div className="flex items-center gap-2">
+                  <Alarm size={24} weight="fill" className="text-white animate-pulse" />
+                  <span className="text-lg md:text-xl font-mono font-bold text-white animate-fade-in delay-200">
+                    {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).toLowerCase()}
+                  </span>
+                </div>
+
               <div className="flex flex-col items-start md:items-end gap-1">
                 
               <div>{/* Nepali Date (BS) */}
@@ -253,13 +260,7 @@ const Patro = () => {
                     return null;
                   }
                 })()}</div>
-              <div className="flex items-center gap-2">
-                  <Alarm size={24} weight="fill" className="text-white animate-pulse" />
-                  <span className="text-lg md:text-xl font-mono font-bold text-white animate-fade-in delay-200">
-                    {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).toLowerCase()}
-                  </span>
-                </div>
-                
+                              
               </div>
             </div>
           </div>

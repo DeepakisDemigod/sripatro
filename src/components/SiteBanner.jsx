@@ -8,7 +8,7 @@ const SiteBanner = () => {
     <div className="bg-base-100 shadow-md overflow-hidden text-base-content">
       <div className="flex items-center p-4 gap-2">
         <div className="flex justify-between items-center gap-2">
-          <p className=" flex items-center justify-center w-14 h-14 bg-gradient-to-r from-red-400 to-red-700 px-2 rounded text-3xl font-bold">
+          <p className=" flex items-center justify-center w-14 h-14 bg-gradient-to-r from-red-600 via-red-500 to-red-700 px-2 rounded text-3xl font-bold">
             <img src="/Shri_symbol_white.svg" alt="sri logo" />
           </p>
           <div className="flex flex-col ">

@@ -11,7 +11,7 @@ import NotFound from "./components/NotFound.jsx";
 import TimeNotifier from "./components/TimeNotifier.jsx";
 import CheenaMaker from "./components/CheenaMaker.jsx";
 import DateConvertor from "./components/DateConvertor.jsx";
- 
+import Settings from "./components/Settings.jsx" 
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
         <Route path="/horoscope" element={<HoroscopePredictions />} />
         <Route path="/nepali-cheena" element={<CheenaMaker />} />
         <Route path="/date-converter" element={<DateConvertor />} />
+	<Route path="/settings" element={<Settings />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

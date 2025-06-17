@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   FlagBanner,
   Bell,
@@ -8,13 +8,14 @@ import {
   ChartLine,
   Star,
   Sun,
-  DiamondsFour
-} from 'phosphor-react';
-import ThemeToggle from './ThemeToggle.jsx';
-import SearchBar from './SearchBar.jsx';
-import LanguageSwitcher from './LanguageSwitcher.jsx';
-import { useTranslation } from 'react-i18next';
-import SiteBanner from './SiteBanner.jsx';
+  DiamondsFour,
+  GearSix,
+} from "phosphor-react";
+import ThemeToggle from "./ThemeToggle.jsx";
+import SearchBar from "./SearchBar.jsx";
+import LanguageSwitcher from "./LanguageSwitcher.jsx";
+import { useTranslation } from "react-i18next";
+import SiteBanner from "./SiteBanner.jsx";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -28,106 +29,90 @@ export default function Header() {
   };
 
   return (
-    <header className='bg-base-300 text-base-content shadow-sm'>
-      <div className='drawer'>
+    <header className="bg-base-300 text-base-content shadow-sm">
+      <div className="drawer">
         <input
-          id='my-drawer'
-          type='checkbox'
-          className='drawer-toggle'
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
           ref={drawerCheckboxRef}
         />
 
         {/* Main Content */}
-        <div className='drawer-content flex flex-col'>
-          <nav className='navbar px-4 md:px-6'>
-            <div className='flex-none'>
-              <label
-                htmlFor='my-drawer'
-                className='btn btn-ghost btn-circle'
-              >
+        <div className="drawer-content flex flex-col">
+          <nav className="navbar px-4 md:px-6">
+            <div className="flex-none">
+              <label htmlFor="my-drawer" className="btn btn-ghost btn-circle">
                 <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-6 w-6'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
                   <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M4 6h16M4 12h16M4 18h16'
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
               </label>
             </div>
 
             {/* Logo */}
-            <div className='flex-1'>
+            <div className="flex-1">
               <Link
-                to='/'
-                className='flex items-center gap-2 btn btn-ghost text-lg font-bold'
+                to="/"
+                className="flex items-center gap-2 btn btn-ghost text-lg font-bold"
               >
-                <img
-                  src='/Shri-symbol.svg'
-                  alt='Sri Patro'
-                  className='w-8'
-                />
+                <img src="/Shri-symbol.svg" alt="Sri Patro" className="w-8" />
                 Sri Patro
               </Link>
             </div>
 
             {/* Actions */}
-            <div className='flex items-center gap-2'>
+            <div className="flex items-center gap-2">
               {/* Notification Bell Button */}
               <div
-                className='btn btn-ghost btn-circle'
+                className="btn btn-ghost btn-circle"
                 onClick={() =>
-                  document.getElementById('notif_modal').showModal()
+                  document.getElementById("notif_modal").showModal()
                 }
               >
-                <div className='indicator'>
-                  <Bell
-                    size={24}
-                    className=''
-                  />
-                  <span className='indicator-item status status-error'></span>
+                <div className="indicator">
+                  <Bell size={24} className="" />
+                  <span className="indicator-item status status-error"></span>
                 </div>
               </div>
 
               {/* Modal */}
-              <dialog
-                id='notif_modal'
-                className='modal'
-              >
-                <div className='modal-box bg-base-100 text-base-content'>
-                  <h2 className='font-bold text-lg'>🎉 Download SriPatro!</h2>
-                  <p className='py-4'>
-                    SriPatro is now available to download at{' '}
+              <dialog id="notif_modal" className="modal">
+                <div className="modal-box bg-base-100 text-base-content">
+                  <h2 className="font-bold text-lg">🎉 Download SriPatro!</h2>
+                  <p className="py-4">
+                    SriPatro is now available to download at{" "}
                     <a
-                      href='https://sripatro.vercel.app/'
-                      className='underline text-red-500'
+                      href="https://sripatro.vercel.app/"
+                      className="underline text-red-500"
                     >
                       @sripatro
                     </a>
                     <SiteBanner />
                   </p>
                 </div>
-                <form
-                  method='dialog'
-                  className='modal-backdrop'
-                >
+                <form method="dialog" className="modal-backdrop">
                   <button>Close</button>
                 </form>
               </dialog>
 
               {/* Feedback */}
               <a
-                href='mailto:deepakthapa1423@gmail.com'
-                className='tooltip tooltip-bottom'
-                data-tip='Send Feedback'
+                href="mailto:deepakthapa1423@gmail.com"
+                className="tooltip tooltip-bottom"
+                data-tip="Send Feedback"
               >
-                <button className='btn btn-sm text-[13px] bg-red-700 text-white'>
+                <button className="btn btn-sm text-[13px] bg-red-700 text-white">
                   Feedback
                 </button>
               </a>
@@ -136,149 +121,144 @@ export default function Header() {
         </div>
 
         {/* Drawer Sidebar */}
-        <div className='drawer-side z-40 text-base-content'>
-          <label
-            htmlFor='my-drawer'
-            className='drawer-overlay'
-          ></label>
-          <aside className='p-4 w-80 min-h-full bg-base-200 overflow-y-auto'>
+        <div className="drawer-side z-40 text-base-content">
+          <label htmlFor="my-drawer" className="drawer-overlay"></label>
+          <aside className="p-4 w-80 min-h-full bg-base-200 overflow-y-auto">
             {/* Logo */}
-            <div className='flex items-center justify-between gap-2 text-xl font-bold mb-6'>
-              <div className='flex items-center gap-2 justify-between'>
-                <img
-                  src='/Shri-symbol.svg'
-                  alt='Logo'
-                  className='w-8'
-                />
+            <div className="flex items-center justify-between gap-2 text-xl font-bold mb-6">
+              <div className="flex items-center gap-2 justify-between">
+                <img src="/Shri-symbol.svg" alt="Logo" className="w-8" />
                 Sri Patro
               </div>
-              <div>
+              <div className="flex items-center gap-4">
                 <ThemeToggle />
+                <a href="/settings">
+                  <GearSix size={22} weight="bold" />
+                </a>
               </div>
             </div>
 
             {/* Search and Language */}
-            <div className='space-y-4 mb-6'>
+            <div className="space-y-4 mb-6">
               <SearchBar />
               <LanguageSwitcher />
             </div>
 
             {/* Astrology Section */}
-            <section className='mb-6 '>
-              <h3 className='text-lg font-semibold mb-3'>{t('Jyotish')}</h3>
-              <div className='grid grid-cols-2 gap-3 mx-2'>
+            <section className="mb-6 ">
+              <h3 className="text-lg font-semibold mb-3">{t("Jyotish")}</h3>
+              <div className="grid grid-cols-2 gap-3 mx-2">
                 <Link
-                  to='/'
+                  to="/"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>📆</span>
-                  <span className='text-xs mt-2 text-center group-hover:text-base-content'>
-                    {t('Panchang Today')}
+                  <span className="text-3xl shadow-2xl">📆</span>
+                  <span className="text-xs mt-2 text-center group-hover:text-base-content">
+                    {t("Panchang Today")}
                   </span>
                 </Link>
                 <Link
-                  to='/date-converter'
+                  to="/date-converter"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🗓️</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Date Converter')}
+                  <span className="text-3xl shadow-2xl">🗓️</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Date Converter")}
                   </span>
                 </Link>
                 <Link
-                  to='/birthpanchang'
+                  to="/birthpanchang"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'> 🇮🇳</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Birth Panchang (AD)')}
+                  <span className="text-3xl shadow-2xl"> 🇮🇳</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Birth Panchang (AD)")}
                   </span>
                 </Link>
                 <Link
-                  to='/nepalitoenglish'
+                  to="/nepalitoenglish"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🇳🇵</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Bikram Sambat to Panchang (BS)')}
+                  <span className="text-3xl shadow-2xl">🇳🇵</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Bikram Sambat to Panchang (BS)")}
                   </span>
                 </Link>
                 <Link
-                  to='/kundali'
+                  to="/kundali"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-4xl shadow-2xl'>🪐</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Birth Kundali (AD)')}
+                  <span className="text-4xl shadow-2xl">🪐</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Birth Kundali (AD)")}
                   </span>
                 </Link>
                 <Link
-                  to='/nepali-cheena'
+                  to="/nepali-cheena"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🧧</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Nepali Cheena')}
+                  <span className="text-3xl shadow-2xl">🧧</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Nepali Cheena")}
                   </span>
                 </Link>
-                
               </div>
             </section>
 
             {/* Horoscope Section */}
-            <section className='mb-6'>
-              <h3 className='text-lg font-semibold mb-3'>{t('Horoscope')}</h3>
-              <div className='grid grid-cols-2 gap-3'>
+            <section className="mb-6">
+              <h3 className="text-lg font-semibold mb-3">{t("Horoscope")}</h3>
+              <div className="grid grid-cols-2 gap-3">
                 <Link
-                  to='/horoscope'
+                  to="/horoscope"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🐏</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Daily Horoscope')}
+                  <span className="text-3xl shadow-2xl">🐏</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Daily Horoscope")}
                   </span>
                 </Link>
                 <Link
-                  to='/horoscope'
+                  to="/horoscope"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24  justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🐏</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Weekly Horoscope')}
+                  <span className="text-3xl shadow-2xl">🐏</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Weekly Horoscope")}
                   </span>
                 </Link>
                 <Link
-                  to='/horoscope'
+                  to="/horoscope"
                   onClick={handleLinkClick}
-                  className='btn   flex items-center flex-col h-24 justify-center bg-base-100 hover:bg-base-200 transition duration-200 group'
+                  className="btn   flex items-center flex-col h-24 justify-center bg-base-100 hover:bg-base-200 transition duration-200 group"
                 >
-                  <span className='text-3xl shadow-2xl'>🐏</span>
-                  <span className='text-xs mt-2  text-center group-hover:text-base-content'>
-                    {t('Monthly Horoscope')}
+                  <span className="text-3xl shadow-2xl">🐏</span>
+                  <span className="text-xs mt-2  text-center group-hover:text-base-content">
+                    {t("Monthly Horoscope")}
                   </span>
                 </Link>
               </div>
             </section>
 
             {/* Product Hunt Badge */}
-            <div className='mt-6'>
+            <div className="mt-6">
               <a
-                href='https://www.producthunt.com/products/sri-patro/reviews?utm_source=badge-product_review'
-                target='_blank'
-                rel='noopener noreferrer'
+                href="https://www.producthunt.com/products/sri-patro/reviews?utm_source=badge-product_review"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
-                  src='https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light'
-                  alt='Sri Patro on Product Hunt'
-                  className='w-25'
+                  src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=864650&theme=light"
+                  alt="Sri Patro on Product Hunt"
+                  className="w-25"
                 />
               </a>
             </div>

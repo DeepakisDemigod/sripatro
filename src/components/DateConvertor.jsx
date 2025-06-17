@@ -176,7 +176,7 @@ export default function DateConverter() {
       </a>
       <br />
       <h2 className='text-3xl font-bold mb-6'>🗓 {t('Date Converter')}</h2>
-
+ <div className="max-w-lg mx-auto">
       {/* AD to BS */}
       <div className='mb-8'>
         <h3 className='text-lg font-semibold mb-2'>
@@ -279,8 +279,12 @@ export default function DateConverter() {
               <span className='text-xl'>{bsDay}</span>
             </div>
           </div>
-        )}
-      </div>
+        )}</div></div>
+
+	<p className=" text-lg my-16 text-justify">
+	  {t('If you are looking to convert Indian date to Nepali date or Nepali date to English/Indian date, the SriPatro Date Converter is the best free tool available online. Using the Indian to Nepali Date Converter, you can simply enter a Gregorian (AD) date like 13/06/2025, and it will instantly return the corresponding Nepali date — in this case, २०८२ जेठ ३१, शुक्रवार. Similarly, the reverse function lets you select a Nepali date (Bikram Sambat) such as 2082 Jestha 31 and get the exact English date — June 13, 2025, which is a Friday. This Nepali Patro app works by mapping the Bikram Sambat calendar with the Gregorian calendar through a pre-programmed algorithm that considers leap years, month differences, and the 56.7-year gap between the two systems. Whether you are a student, traveler, or working with government forms in Nepal, SriPatro’s accurate, bilingual Nepali calendar date conversion feature ensures that you never make a mistake while translating dates. It’s fast, reliable, and perfect for daily use on mobile and web.')}
+	</p>
+      
     </div>
   );
 }
