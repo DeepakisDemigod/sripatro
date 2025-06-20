@@ -1,21 +1,20 @@
-
-import Patro from './Patro.jsx';
-import Calender from './Calender.jsx';
-import Tiles from './Tiles.jsx';
-import ScrollTop from './ScrollTop.jsx';
-import HoroscopeTile from './HoroscopeTile.jsx';
-import TestGPT from './TestGPT.jsx';
+import Patro from "./Patro.jsx";
+import Calender from "./Calender.jsx";
+import Tiles from "./Tiles.jsx";
+import ScrollTop from "./ScrollTop.jsx";
+import HoroscopeTile from "./HoroscopeTile.jsx";
+import TestGPT from "./TestGPT.jsx";
 
 const Home = () => {
   return (
-    <div className='bg-base-200 container mx-auto px-4 pb-8'>
-      <div className=' mx-auto'>
+    <div className="bg-base-200 container mx-auto px-4 pb-8">
+      <div className=" mx-auto">
         <marquee></marquee>
         <Tiles />
-         {/* <Calender />*/}
+        {/* <Calender />*/}
         <Patro />
-        <TestGPT />
-      <ScrollTop />
+        {/*  <TestGPT /> */}
+        <ScrollTop />
       </div>
     </div>
   );
