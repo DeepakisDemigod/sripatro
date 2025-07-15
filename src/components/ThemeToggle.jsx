@@ -7,16 +7,16 @@ const ThemeToggle = () => {
   // Load saved theme or use system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
+    const prefersvalentine = window.matchMedia(
+      '(prefers-color-scheme: light)'
     ).matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    const initialTheme = savedTheme || (prefersvalentine ? 'valentine' : 'light');
     setTheme(initialTheme);
     document.documentElement.setAttribute('data-theme', initialTheme);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === 'light' ? 'valentine' : 'light';
     setTheme(newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
@@ -27,7 +27,7 @@ const ThemeToggle = () => {
       <input
         type='checkbox'
         onChange={toggleTheme}
-        checked={theme === 'dark'}
+        checked={theme === 'valentine'}
       />
 
       {/* Light (Sun) icon */}
@@ -37,7 +37,7 @@ const ThemeToggle = () => {
         weight='bold'
       />
 
-      {/* Dark (Moon) icon */}
+      {/* valentine (Moon) icon */}
       <Moon
         className='swap-on'
         size={22}

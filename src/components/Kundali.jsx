@@ -557,7 +557,7 @@ function Kundali() {
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#111'
+                stroke='#555'
                 strokeWidth='1'
               />
               <line
@@ -565,7 +565,7 @@ function Kundali() {
                 y1='10'
                 x2='290'
                 y2='290'
-                stroke='#111'
+                stroke='#555'
                 strokeWidth='1'
               />
               <line
@@ -573,7 +573,7 @@ function Kundali() {
                 y1='10'
                 x2='10'
                 y2='290'
-                stroke='#111'
+                stroke='#555'
                 strokeWidth='1'
               />
               {moonChartHouses &&
@@ -594,7 +594,7 @@ function Kundali() {
                         y={coords.y}
                         textAnchor='middle'
                         fill='#333'
-                        className='text-xs'
+                        className='text-xs z-20'
                       >
                         {signNumberForHouse}
                       </text>
@@ -605,7 +605,7 @@ function Kundali() {
                           y={coords.y + 20 + index * 15}
                           textAnchor='middle'
                           fill='black'
-                          className='text-lg z-10 font-bold'
+                          className='text-lg z-20 font-bold'
                         >
                           {/* {planet.name.slice(0, 2)} */}{' '}
                           {t(`planets.${planet.name.slice(0, 2)}`)}
@@ -648,7 +648,7 @@ function Kundali() {
             <thead>
               <tr>
                 <th className='p-2 bg-red-700 text-white text-left text-xs font-semibold text-base-600 uppercase tracking-wider'>
-                 {t('Planet Name')}
+                 {t('Planet Name (Retro)')}
                 </th>
                 <th className='p-2 bg-red-700 text-white text-left text-xs font-semibold text-base-600 uppercase tracking-wider'>
                  {t('Full Degree')}
@@ -660,7 +660,7 @@ function Kundali() {
                   {t("Sign")}
                 </th>
                 <th className='p-2 bg-red-700 text-white text-left text-xs font-semibold text-base-600 uppercase tracking-wider'>
-                  {t("Nakshatra")}
+                  {t("Nakshatra (Pada)")}
                 </th>
               </tr>
             </thead>

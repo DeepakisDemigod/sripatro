@@ -68,6 +68,7 @@ const Patro = () => {
       const date = new Date();
       const obj = new MhahPanchang();
       setMhahObj(obj.calculate(date));
+      console.log(mhahObj)
     } catch (error) {
       console.error("Error fetching Panchang details:", error);
     }
@@ -238,7 +239,7 @@ const Patro = () => {
           </div>
           {/* Modern Date/Time Card */}
           <div className="relative rounded-2xl overflow-hidden mb-6">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-700/90 via-red-800/80 to-red-900/90 blur-sm opacity-80"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-red-900 via-red-700 to-red-800"></div>
             <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 p-6 backdrop-blur-md bg-gradient-to-r from-red-600 via-red-500 to-red-700 shadow-xl">
               {/* Left: Day and Date */}
               <div className="flex flex-col gap-1 md:gap-2">

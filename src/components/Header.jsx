@@ -27,6 +27,7 @@ export default function Header() {
       drawerCheckboxRef.current.checked = false;
     }
   };
+ // document.getElementById("notif_modal").showModal()
 
   return (
     <header className="bg-base-300 text-base-content shadow-sm">
@@ -123,7 +124,7 @@ export default function Header() {
         {/* Drawer Sidebar */}
         <div className="drawer-side z-40 text-base-content">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <aside className="p-4 w-80 min-h-full bg-base-200 overflow-y-auto">
+          <aside className="p-4 w-80 min-h-full bg-base-300 overflow-y-auto">
             {/* Logo */}
             <div className="flex items-center justify-between gap-2 text-xl font-bold mb-6">
               <div className="flex items-center gap-2 justify-between">
