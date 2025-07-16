@@ -418,56 +418,56 @@ function Kundali() {
                 width='280'
                 height='280'
                 fill='none'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='150'
                 y1='10'
                 x2='290'
                 y2='150'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='290'
                 y1='150'
                 x2='150'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='150'
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='10'
                 y1='150'
                 x2='150'
                 y2='10'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0a00'
+                strokeWidth='1.5'
               />
               <line
                 x1='10'
                 y1='10'
                 x2='290'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='290'
                 y1='10'
                 x2='10'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
 
               {Object.keys(houses).map(houseNumber => {
@@ -533,48 +533,57 @@ function Kundali() {
                 width='280'
                 height='280'
                 fill='none'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='150'
                 y1='10'
                 x2='290'
                 y2='150'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='290'
                 y1='150'
                 x2='150'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='150'
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               <line
                 x1='10'
                 y1='10'
                 x2='290'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
+ <line
+                x1='10'
+                y1='10'
+                x2='290'
+                y2='290'
+                stroke='#ff0000'
+                strokeWidth='1.5'
+              />
+
               <line
                 x1='290'
                 y1='10'
                 x2='10'
                 y2='290'
-                stroke='#555'
-                strokeWidth='1'
+                stroke='#ff0000'
+                strokeWidth='1.5'
               />
               {moonChartHouses &&
                 Object.keys(moonChartHouses).map(houseNumber => {
