@@ -18,7 +18,7 @@ function App() {
     <Router>
       <Header />
       <TimeNotifier />
-      <SiteBanner />
+	  { /*     <SiteBanner />*/}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Birthpanchang" element={<BirthPanchang />} />

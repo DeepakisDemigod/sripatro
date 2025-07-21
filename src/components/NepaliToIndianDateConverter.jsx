@@ -210,14 +210,14 @@ const BirthPanchangBS = () => {
           <div className='mt-2 px-2 flex flex-col justify-between bg-base-100 rounded-md border border-2 border-base-400 border-t-red-600'>
           <div>
             <h3 className='flex items-center gap-1 font-bold text-lg'>
-              <span>Date Converter</span>
+              <span>{t('Date Converter')}</span>
               <ArrowSquareOut
                 weight='bold'
                 size={22}
               />
             </h3>
             <p className='text-xs px-.5'>
-              change nepali date to indian date and indian date to nepali date.
+	  {t('change nepali date to indian date and indian date to nepali date.')}
             </p>
           </div>
           <a

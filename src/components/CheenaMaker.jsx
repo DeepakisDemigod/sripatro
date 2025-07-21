@@ -165,11 +165,11 @@ const CheenaMaker = () => {
           <span className='text-red-500 font-bold'>{getVal('wardNo')}</span>{' '}
           निवसतः श्री{' '}
           <span className='text-red-500 font-bold'>{getVal('gotra')}</span>{' '}
-          गोत्रस्य श्रीमत पिता {getVal('fatherName')} तस्यवामाङ्गी श्रीमती{' '}
-          {getVal('motherName')} नाम्नी _______ गर्भ _______ गर्भे‌{' '}
+          गोत्रस्य श्रीमत पिता <span className="text-red-500 font-bold">{getVal('fatherName')}</span> तस्यवामाङ्गी श्रीमती{' '}
+ <span className="text-red-500 font-bold">  {getVal('motherName')}</span> नाम्नी _______ गर्भ _______ गर्भे‌{' '}
           {formData.gender === 'बालक' ? 'सुपुत्र' : 'सुपुत्री'} जातः || अस्य
           होराशास्त्र प्रमाणोनं _______ देवता _______ नक्षत्रस्य ________
-          श्चरणात्वे श्री {getVal('name')} नाम __________ ({formData.gender})
+          श्चरणात्वे श्री <span className="text-red-500 font-bold">{getVal('name')}</span> नाम __________ ({formData.gender})
           देवाद्विजा र्सिवादेन दीर्घमायु भूर्यात् ।। अथ अस्य ______ रासे घात
           तिथ्यादय _______ मास _____ | _____ | ____तिथय _____ वार ______
           नक्षेत्र _______ चंद्र मा इतिघातः ।। लोक प्रसिद्ध नामः

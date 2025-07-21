@@ -138,7 +138,7 @@ export default HoroscopeWeekly;
 */
 
 import { useEffect, useState } from "react";
-import { Play, Pause } from "phosphor-react"; // Import icons
+import { Play, Pause, CaretUp, CaretDown } from "phosphor-react"; // Import icons
 import ScrollTop from "./ScrollTop.jsx";
 
 function HoroscopeWeekly() {
@@ -262,9 +262,14 @@ function HoroscopeWeekly() {
                   </p>
                   <button
                     onClick={() => toggleExpand(sign)}
-                    className="text-blue-500 underline text-sm mt-2"
+                    className="flex text-blue-500 underline text-sm mt-2"
                   >
                     {expanded[sign] ? "Show Less" : "Read More"}
+                    {expanded[sign] ? (
+                      <CaretUp size={18} weight="bold" />
+                    ) : (
+                      <CaretDown size={18} weight="bold" />
+                    )}
                   </button>
                 </div>
               ) : null

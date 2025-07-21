@@ -161,21 +161,22 @@ export default function DateConverter() {
     String(num).replace(/\d/g, d => '०१२३४५६७८९'[d]);
 
   return (
-    <div className='max-w-lg mx-auto my-10 p-6 pt-4 rounded-2xl bg-base-100 text-base-800'>
+    <div className='max-w-lg mx-auto my-1 p-6 pt-4 rounded-2xl bg-base-100 text-base-800'>
       <a
         href='/'
         className='hover:underline'
       >
-        <div className='breadcrumbs border rounded   px-4 text-sm hover:bg-base-200'>
+        <div className='breadcrumbs border border-2 border-base-300 rounded pl-2 text-sm hover:bg-base-200'>
           <ul>
             <li className='hover:border'>
-              <CaretLeft size={19} /> <span>{t('Back')}</span>
+              <CaretLeft size={17} weight="bold" /> 
+	  <span>{t('Back')}</span>
             </li>
           </ul>
         </div>
       </a>
 
-      <div className='mt-2 px-2 flex flex-col justify-between bg-base-100 rounded-md border border-2 border-base-800 border-t-red-600'>
+      <div className='mt-2 pt-2 px-2 flex flex-col justify-between bg-base-100 rounded-md border border-2 border-base-300 border-t-red-500'>
         <div>
           <h3 className='flex items-center gap-1 font-bold text-lg'>
             <span>Daily Panchang</span>
@@ -189,7 +190,7 @@ export default function DateConverter() {
           <div className=''>
             <a
               href='/nepalitoenglish'
-              className='my-2 border border-base-500 flex justify-between bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition pr-2'
+              className='my-2 border border-2 border-base-300 flex justify-between bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition pr-2'
             >
               <span className='text-2xl'>
                 🇳🇵
@@ -199,7 +200,7 @@ export default function DateConverter() {
             </a>
             <a
               href='/birthpanchang'
-              className='my-2 border border-base-500 flex justify-between bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition pr-2'
+              className='my-2 border border-2 border-base-300 flex justify-between bg-base-900 items-center gap-2 text-base-800 rounded-md shadow-sm transition pr-2'
             >
               <span className='text-xl pl-1'>
                 🇮🇳
@@ -320,7 +321,7 @@ export default function DateConverter() {
         </div>
       </div>
 
-      <p className=' text-md my-16 text-justify'>
+      <p className=' text-md my-8 text-justify'>
         {t(
           'If you are looking to convert Indian date to Nepali date or Nepali date to English/Indian date, the SriPatro Date Converter is the best free tool available online. Using the Indian to Nepali Date Converter, you can simply enter a Gregorian (AD) date like 13/06/2025, and it will instantly return the corresponding Nepali date — in this case, २०८२ जेठ ३१, शुक्रवार. Similarly, the reverse function lets you select a Nepali date (Bikram Sambat) such as 2082 Jestha 31 and get the exact English date — June 13, 2025, which is a Friday. This Nepali Patro app works by mapping the Bikram Sambat calendar with the Gregorian calendar through a pre-programmed algorithm that considers leap years, month differences, and the 56.7-year gap between the two systems. Whether you are a student, traveler, or working with government forms in Nepal, SriPatro’s accurate, bilingual Nepali calendar date conversion feature ensures that you never make a mistake while translating dates. It’s fast, reliable, and perfect for daily use on mobile and web.'
         )}

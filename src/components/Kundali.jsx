@@ -418,56 +418,56 @@ function Kundali() {
                 width='280'
                 height='280'
                 fill='none'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='150'
                 y1='10'
                 x2='290'
                 y2='150'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='290'
                 y1='150'
                 x2='150'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='150'
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='10'
                 y1='150'
                 x2='150'
                 y2='10'
-                stroke='#ff0a00'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='10'
                 y1='10'
                 x2='290'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='290'
                 y1='10'
                 x2='10'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
 
               {Object.keys(houses).map(houseNumber => {
@@ -489,7 +489,6 @@ function Kundali() {
                     >
                       {signNumberForHouse}
                     </text>
-
                     {planetsInHouse.map((planet, index) => (
                       <text
                         key={planet.name}
@@ -501,7 +500,7 @@ function Kundali() {
                       >
                         {t(`planets.${planet.name.slice(0, 2)}`)}
                       </text>
-                    ))}
+                    ))} 
                   </g>
                 );
               })}
@@ -515,7 +514,7 @@ function Kundali() {
             </svg>
             <img
               src='/watermark.png'
-              className='z-2 mt-[-390px] ml-[-70px] w-[280px] opacity-[.5]'
+              className='z-2 mt-[-390px] ml-[-70px] w-[280px] opacity-[.4]'
             />
           </div>
 
@@ -533,57 +532,56 @@ function Kundali() {
                 width='280'
                 height='280'
                 fill='none'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='150'
                 y1='10'
                 x2='290'
                 y2='150'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='290'
                 y1='150'
                 x2='150'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='150'
                 y1='290'
                 x2='10'
                 y2='150'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
+              />
+              <line
+                x1='10'
+                y1='150'
+                x2='150'
+                y2='10'
+                stroke='#000'
+                strokeWidth='1'
               />
               <line
                 x1='10'
                 y1='10'
                 x2='290'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
- <line
-                x1='10'
-                y1='10'
-                x2='290'
-                y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
-              />
-
               <line
                 x1='290'
                 y1='10'
                 x2='10'
                 y2='290'
-                stroke='#ff0000'
-                strokeWidth='1.5'
+                stroke='#000'
+                strokeWidth='1'
               />
               {moonChartHouses &&
                 Object.keys(moonChartHouses).map(houseNumber => {
@@ -634,7 +632,7 @@ function Kundali() {
             </svg>
              <img
               src='/watermark.png'
-              className='z-2 mt-[-390px] ml-[-70px] w-[280px] opacity-[.5]'
+              className='z-2 mt-[-390px] ml-[-70px] w-[280px] opacity-[.4]'
             /> 
           </div>
         </div>
