@@ -55,28 +55,28 @@ export default function page() {
           <span>Settings</span>
         </h3>
 
-        <div className="flex items-center justify-between p-4 ">
+        <div className="flex items-center justify-between p-4 bg-base-100">
           <p>
             Appearance <br />
-            <span className="text-xs text-base-00">
+            <span className="text-xs text-base-900/60 ml-1">
               select your preferred theme
             </span>
           </p>
           <ThemeSwitcher />
         </div>
 
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between p-4 bg-base-100">
           <p>
             Language
             <br />
-            <span className="text-xs  text-base-800">
+            <span className="text-xs  text-base-900/60 ml-1">
               select your preferred language
             </span>
           </p>
           <LocaleSwitcher />
         </div>
 
-        <div className="p-4 border rounded-lg mt-2 bg-base-100">
+        <div className="p-4 mt-2 bg-base-100">
           <div className="font-semibold mb-2">Calendar</div>
           <div className="divide-y divide-base-200">
             <div className="flex items-center justify-between py-3">

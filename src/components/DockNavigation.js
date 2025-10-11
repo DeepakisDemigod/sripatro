@@ -6,7 +6,7 @@ import {
   CalendarBlank,
   HouseSimple,
   SunHorizon,
-  Sparkle,
+  Newspaper,
   BookOpen,
   Gear,
 } from "phosphor-react";
@@ -14,8 +14,8 @@ import {
 const navItems = [
   { label: "Home", href: "/home", icon: HouseSimple },
   { label: "Calendar", href: "/calendar", icon: CalendarBlank },
-  { label: "Daily Panchang", href: "/daily-panchang", icon: SunHorizon },
-  { label: "Shubh Saita", href: "/shubh-saita", icon: Sparkle },
+  { label: "Panchang", href: "/daily-panchang", icon: SunHorizon },
+  { label: "Blog", href: "/blog", icon: Newspaper },
   { label: "Horoscope", href: "/horoscope", icon: BookOpen },
   { label: "Settings", href: "/settings", icon: Gear },
 ];
@@ -42,7 +42,7 @@ function NavItem({ item, pathname, locale }) {
       aria-current={isActive ? "page" : undefined}
       className={`group flex items-center gap-3 rounded-2xl px-4 py-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
         isActive
-          ? "bg-primary/10 text-primary"
+          ? "bg-red-600/10 text-red-600"
           : "text-base-content/70 hover:bg-base-200 hover:text-base-content"
       }`}
     >
@@ -83,7 +83,7 @@ export default function DockNavigation() {
           </nav>
         </div>
         <div className="px-4 py-6 text-xs text-base-content/50">
-          Made with ❤️ for the Nepalese
+          Made with ❤️ for the Nepalese 🇳🇵 Living all over the World.
         </div>
       </aside>
 
