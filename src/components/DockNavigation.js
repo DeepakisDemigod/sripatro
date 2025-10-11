@@ -87,38 +87,43 @@ export default function DockNavigation() {
         </div>
       </aside>
 
-      {/* Mobile dock */}
-      <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t border-base-200 bg-base-100/90 backdrop-blur supports-[backdrop-filter]:bg-base-100/70">
-        <ul className="flex items-center justify-around px-2 py-2">
-          {navItems.map((item) => {
-            const resolvedHref = `/${locale}${item.href}`.replace(/\/+/g, "/");
-            const isActive =
-              pathname === resolvedHref ||
-              pathname.startsWith(`${resolvedHref}/`);
-            const Icon = item.icon;
-            return (
-              <li key={item.href} className="flex-1">
-                <Link
-                  href={resolvedHref}
-                  aria-label={item.label}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`group flex flex-col items-center gap-1 rounded-full px-1 py-1 text-xs font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
-                    isActive
-                      ? "text-primary"
-                      : "text-base-content/60 hover:text-base-content"
-                  }`}
-                >
-                  <Icon
-                    size={24}
-                    weight={isActive ? "fill" : "regular"}
-                    className="transition-transform group-hover:-translate-y-0.5"
-                  />
-                  <span>{item.label.split(" ")[0]}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      {/* Mobile dock - floating pill */}
+      <nav className="lg:hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+        <div className="max-w-lg w-full px-3">
+          <ul className="flex items-center justify-between gap-2 bg-base-100/90 backdrop-blur supports-[backdrop-filter]:bg-base-100/70 border border-base-200 shadow-lg rounded-full px-3 py-2">
+            {navItems.map((item) => {
+              const resolvedHref = `/${locale}${item.href}`.replace(
+                /\/+/g,
+                "/"
+              );
+              const isActive =
+                pathname === resolvedHref ||
+                pathname.startsWith(`${resolvedHref}/`);
+              const Icon = item.icon;
+              return (
+                <li key={item.href} className="flex-1">
+                  <Link
+                    href={resolvedHref}
+                    aria-label={item.label}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`group flex flex-col items-center gap-1 rounded-full px-3 py-2 text-xs font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-base-100 ${
+                      isActive
+                        ? "text-red-600"
+                        : "text-base-content/60 hover:text-base-content"
+                    }`}
+                  >
+                    <Icon
+                      size={20}
+                      weight={isActive ? "fill" : "regular"}
+                      className="transition-transform group-hover:-translate-y-0.5"
+                    />
+                    <span className="sr-only">{item.label}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
     </>
   );
